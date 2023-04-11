@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 
 const Contact = () => {
   return (
     <div className="h-100vh flex items-center md:h-100vh justify-center">
-      <section className=" text-gray-800 bg-[#111]  h-[87.7vh] mt-[0.2vh] w-[100vw] flex justify-center items-center">
+      <section className=" text-gray-800 bg-[#111]  h-[87.9vh] w-[100vw] flex justify-center items-center">
         <div className="block  rounded-lg shadow-lg bg-white w-[95vw]">
           <div className=" flex flex-wrap items-center justify-center">
             <div className="grow-0 shrink-0 basis-auto block w-full lg:flex lg:w-6/12 xl:w-4/12">
@@ -21,7 +21,7 @@ const Contact = () => {
                 <div className="mb-12 grow-0 shrink-0 basis-auto w-full md:w-6/12 lg:w-full xl:w-6/12 px-3 md:px-6 xl:px-12">
                   <div className="flex items-start">
                     <div className="shrink-0">
-                      <div className="p-4 bg-[#FF9F0D] rounded-md shadow-md w-14 h-14 flex items-center justify-center">
+                      <div className="p-4 bg-blue-500 rounded-md shadow-md w-14 h-14 flex items-center justify-center">
                         <svg
                           aria-hidden="true"
                           focusable="false"
@@ -49,7 +49,7 @@ const Contact = () => {
                 <div className="mb-12 grow-0 shrink-0 basis-auto w-full md:w-6/12 lg:w-full xl:w-6/12 px-3 md:px-6 xl:px-12">
                   <div className="flex items-start">
                     <div className="shrink-0">
-                      <div className="p-4 bg-[#FF9F0D] rounded-md shadow-md w-14 h-14 flex items-center justify-center">
+                      <div className="p-4 bg-blue-500 rounded-md shadow-md w-14 h-14 flex items-center justify-center">
                         <svg
                           aria-hidden="true"
                           focusable="false"
@@ -77,7 +77,7 @@ const Contact = () => {
                 <div className="mb-12 grow-0 shrink-0 basis-auto w-full md:w-6/12 lg:w-full xl:w-6/12 px-3 md:px-6 xl:px-12">
                   <div className="flex align-start">
                     <div className="shrink-0">
-                      <div className="p-4 bg-[#FF9F0D] rounded-md shadow-md w-14 h-14 flex items-center justify-center">
+                      <div className="p-4 bg-blue-500 rounded-md shadow-md w-14 h-14 flex items-center justify-center">
                         <svg
                           aria-hidden="true"
                           focusable="false"
@@ -98,8 +98,8 @@ const Contact = () => {
                     <div className="grow ml-6">
                       <p className="font-bold mb-1">Location</p>
                       <p className="text-gray-500">
-                        СБД, 1-р хороо, Чингисийн өргөн чөлөө, Гурван гол оффис центр 3 давхар 14240 Ulaanbaatar,
-                        Mongolia.
+                        СБД, 1-р хороо, Чингисийн өргөн чөлөө, Гурван гол оффис
+                        центр 3 давхар 14240 Ulaanbaatar, Mongolia.
                       </p>
                       <p className="text-gray-500">hr@pinecone.mn</p>
                     </div>
@@ -108,7 +108,7 @@ const Contact = () => {
                 <div className="mb-12 lg:mb-0 grow-0 shrink-0 basis-auto w-full md:w-6/12 lg:w-full xl:w-6/12 px-3 md:px-6 xl:px-12">
                   <div className="flex align-start">
                     <div className="shrink-0">
-                      <div className="p-4 bg-[#FF9F0D] rounded-md shadow-md w-14 h-14 flex items-center justify-center">
+                      <div className="p-4 bg-blue-500 rounded-md shadow-md w-14 h-14 flex items-center justify-center">
                         <svg
                           aria-hidden="true"
                           focusable="false"

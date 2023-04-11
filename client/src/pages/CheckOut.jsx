@@ -1,19 +1,20 @@
-import React from 'react';
-import right from '../assets/A.Tengis/rightarrow.png';
-import left from '../assets/A.Tengis/leftarrow.png';
-import food from '../assets/A.Tengis/food.png';
-import arrowright from '../assets/A.Tengis/ArrowRight.png';
-import { Link } from 'react-router-dom';
+import React from "react";
+import right from "../assets/A.Tengis/rightarrow.png";
+import food from "../assets/A.Tengis/food.png";
+import arrowright from "../assets/A.Tengis/ArrowRight.png";
 
 const CheckOut = () => {
   return (
     <div>
-      <div className="w-full h-full flex flex-col justify-center  gap-x-5 gap-y-5 lg:flex-row p-8 lg:items-center lg:h-[87.6vh] sm:h-[170vh] bg-[#111] text-[#fff] mt-[0.2vh]">
+      <div className="w-full h-full flex flex-col justify-center  gap-x-5 gap-y-5 lg:flex-row p-8 lg:items-center lg:h-[87.9vh] sm:h-[170vh] bg-[#111] text-[#fff] ">
         <form>
           <h1 className="pb-5 text-[17px]">Shipping Address</h1>
           <div className="flex flex-col gap-x-9 gap-y-2 w-full lg:w-[20vw]">
             <div>
-              <label for="first_name" className="block mb-2 text-sm font-medium ">
+              <label
+                for="first_name"
+                className="block mb-2 text-sm font-medium "
+              >
                 Name
               </label>
               <input
@@ -53,7 +54,10 @@ const CheckOut = () => {
               <label for="company" className="block mb-2 text-sm font-medium ">
                 City
               </label>
-              <select id="cities" class="bg-black border border-gray-400 text-gray-200 text-sm p-2.5 0 w-[100%]">
+              <select
+                id="cities"
+                class="bg-black border border-gray-400 text-gray-200 text-sm p-2.5 0 w-[100%]"
+              >
                 <option selected>Choose a city</option>
                 <option value="US">United States</option>
                 <option value="CA">Canada</option>
@@ -78,7 +82,12 @@ const CheckOut = () => {
             <div className="col-span-full">
               <h1>Billing Address</h1>
               <div className="checkbox">
-                <input type="checkbox" id="scales" name="scales" className="accent-orange-500 mr-2 " />
+                <input
+                  type="checkbox"
+                  id="scales"
+                  name="scales"
+                  className="accent-orange-500 mr-2 "
+                />
                 <label for="scales" className="text-gray-300 text-sm">
                   Same as shipping address
                 </label>
@@ -100,12 +109,19 @@ const CheckOut = () => {
           <div>
             <div className="flex flex-col pb-3">
               <div className=" gap-x-3 flex">
-                <img src={food} alt="food" className="object-cover h-[80px] w-[80px]" />
+                <img
+                  src={food}
+                  alt="food"
+                  className="object-cover h-[80px] w-[80px]"
+                />
                 <div className="flex justify-between  w-full items-center">
                   <div>
                     <h1>Chicken Tikka Kebab</h1>
                     <h1>50$</h1>
-                    <div className=" h-[20px] w-[5vw] " for="custom-input-number">
+                    <div
+                      className=" h-[20px] w-[5vw] "
+                      for="custom-input-number"
+                    >
                       <div className="flex flex-row h-[25px] w-[80px] xl:w-[80px] rounded-full relative bg-transparent mt-1 border border-gray-500">
                         <button className=" border-gray-500 text-gray-600  hover:bg-slate-800 h-full w-20 rounded-full cursor-pointer outline-none">
                           <span className="m-auto text-2xl font-thin">−</span>
@@ -130,12 +146,19 @@ const CheckOut = () => {
 
             <div className="flex flex-col pb-3">
               <div className=" gap-x-3 flex">
-                <img src={food} alt="food" className="object-cover h-[80px] w-[80px]" />
+                <img
+                  src={food}
+                  alt="food"
+                  className="object-cover h-[80px] w-[80px]"
+                />
                 <div className="flex justify-between  w-full items-center">
                   <div>
                     <h1>Chicken Tikka Kebab</h1>
                     <h1>50$</h1>
-                    <div className=" h-[20px] w-[5vw] " for="custom-input-number">
+                    <div
+                      className=" h-[20px] w-[5vw] "
+                      for="custom-input-number"
+                    >
                       <div className="flex flex-row h-[25px] w-[80px] xl:w-[80px] rounded-full relative bg-transparent mt-1 border border-gray-500">
                         <button className=" border-gray-500 text-gray-600  hover:bg-slate-800 h-full w-20 rounded-full cursor-pointer outline-none">
                           <span className="m-auto text-2xl font-thin">−</span>
@@ -159,12 +182,19 @@ const CheckOut = () => {
             </div>
             <div className="flex flex-col pb-3">
               <div className=" gap-x-3 flex">
-                <img src={food} alt="food" className="object-cover h-[80px] w-[80px]" />
+                <img
+                  src={food}
+                  alt="food"
+                  className="object-cover h-[80px] w-[80px]"
+                />
                 <div className="flex justify-between  w-full items-center">
                   <div>
                     <h1>Chicken Tikka Kebab</h1>
                     <h1>50$</h1>
-                    <div className=" h-[20px] w-[5vw] " for="custom-input-number">
+                    <div
+                      className=" h-[20px] w-[5vw] "
+                      for="custom-input-number"
+                    >
                       <div className="flex flex-row h-[25px] w-[80px] xl:w-[80px] rounded-full relative bg-transparent mt-1 border border-gray-500">
                         <button className=" border-gray-500 text-gray-600  hover:bg-slate-800 h-full w-20 rounded-full cursor-pointer outline-none">
                           <span className="m-auto text-2xl font-thin">−</span>

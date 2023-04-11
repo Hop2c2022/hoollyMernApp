@@ -1,13 +1,13 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import emailicon from '../assets/A.Tengis/emailicon.png';
-import lock from '../assets/A.Tengis/Lock.png';
-import googleicon from '../assets/A.Tengis/googleicon.png';
-import usericon from '../assets/A.Tengis/Usericon.png';
+import React from "react";
+import { Link } from "react-router-dom";
+import emailicon from "../assets/A.Tengis/emailicon.png";
+import lock from "../assets/A.Tengis/Lock.png";
+import googleicon from "../assets/A.Tengis/googleicon.png";
+import usericon from "../assets/A.Tengis/Usericon.png";
 
 const Register = () => {
   return (
-    <div className="bg-[#111] relative flex flex-col justify-center h-[87.7vh] overflow-hidden mt-[0.2vh]">
+    <div className="bg-[#111] relative flex flex-col justify-center h-[87.9vh] overflow-hidden ">
       <div className=" p-8 w-3/5 m-auto bg-white shadow-xl max-w-md shadow-orange-100">
         <h1 className="text-2xl font-semibold pt-3">Register</h1>
         <form className="mt-6">
@@ -52,7 +52,12 @@ const Register = () => {
             </div>
           </div>
           <div className="checkbox">
-            <input type="checkbox" id="scales" name="scales" className="accent-orange-500 mr-2" />
+            <input
+              type="checkbox"
+              id="scales"
+              name="scales"
+              className="accent-orange-500 mr-2"
+            />
             <label htmlFor="scales">Remember me?</label>
           </div>
           <div className="mt-6 flex justify-center pt-3">
