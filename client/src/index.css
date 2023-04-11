@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Alkatra&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: 'Alkatra', cursive;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+@layer base {
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    -moz-appearance: textfield !important;
+  }
+}
