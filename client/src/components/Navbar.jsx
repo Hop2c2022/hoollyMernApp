@@ -1,8 +1,8 @@
-import { useState } from "react";
-import cartIcon from "../assets/Khash-Erdene/cartIcon.jpg";
-import menu from "../assets/Khash-Erdene/menu.png";
-import { Link } from "react-router-dom";
-import logo from "../assets/logo.png";
+import { useState } from 'react';
+import cartIcon from '../assets/Khash-Erdene/cartIcon.jpg';
+import menu from '../assets/Khash-Erdene/menu.png';
+import { Link } from 'react-router-dom';
+import logo from '../assets/logo.png';
 
 const Navbar = () => {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -13,11 +13,7 @@ const Navbar = () => {
         {/* Left Section */}
         <div className="flex items-center justify-center ml-[5vw]">
           <Link to="/">
-            <img
-              className="hidden md:flex w-[100%] h-[5vh]"
-              src={logo}
-              alt=""
-            />
+            <img className="hidden md:flex w-[100%] h-[4.5vh]" src={logo} alt="" />
           </Link>
         </div>
         <div className="flex md:justify-end sm:w-[40vw] w-[10vw] ">
@@ -57,11 +53,7 @@ const Navbar = () => {
                   stroke="currentColor"
                   strokeWidth={2}
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                  />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg>
               </button>
             </div>
