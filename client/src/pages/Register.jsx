@@ -91,7 +91,7 @@ const Register = () => {
             <p className="mt-3 flex text-sm mb-8 font-light text-end justify-end text-gray-700">
               <p className="font-semibold pr-1"> Already have a account?</p>
 
-              <Link to="/login" className=" text-gray-400 hover:underline">
+              <Link to="/login" className=" text-gray-500 hover:underline">
                 Login
               </Link>
             </p>

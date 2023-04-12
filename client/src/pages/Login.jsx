@@ -1,9 +1,10 @@
-
+import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import emailicon from '../assets/A.Tengis/emailicon.png';
 import lock from '../assets/A.Tengis/Lock.png';
 import googleicon from '../assets/A.Tengis/googleicon.png';
-
+import axios from 'axios';
+import { useState } from 'react';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -69,7 +70,6 @@ const Login = () => {
           </div>
           <p className="mt-3 flex text-sm mb-8 font-light text-end justify-end text-gray-700">
             <Link to="/forgotpass" className=" text-gray-400 hover:underline">
-
               Forgot password?
             </Link>
           </p>
