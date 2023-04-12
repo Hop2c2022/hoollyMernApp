@@ -1,8 +1,8 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import emailicon from "../assets/A.Tengis/emailicon.png";
-import lock from "../assets/A.Tengis/Lock.png";
-import googleicon from "../assets/A.Tengis/googleicon.png";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import emailicon from '../assets/A.Tengis/emailicon.png';
+import lock from '../assets/A.Tengis/Lock.png';
+import googleicon from '../assets/A.Tengis/googleicon.png';
 
 const Login = () => {
   return (
@@ -37,12 +37,7 @@ const Login = () => {
             </div>
           </div>
           <div className="checkbox">
-            <input
-              type="checkbox"
-              id="scales"
-              name="scales"
-              className="accent-orange-500 mr-2"
-            />
+            <input type="checkbox" id="scales" name="scales" className="accent-orange-500 mr-2" />
             <label htmlFor="scales">Remember me?</label>
           </div>
           <div className="mt-6 flex justify-center pt-3">
@@ -51,10 +46,7 @@ const Login = () => {
             </button>
           </div>
           <p className="mt-3 flex text-sm mb-8 font-light text-end justify-end text-gray-700">
-            <Link
-              to="/forgotpassword"
-              className=" text-gray-400 hover:underline"
-            >
+            <Link to="/forgotpass" className=" text-gray-400 hover:underline">
               Forgot password?
             </Link>
           </p>
