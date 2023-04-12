@@ -6,7 +6,7 @@ import arrowright from '../assets/A.Tengis/ArrowRight.png';
 const CheckOut = () => {
   return (
     <div>
-      <div className="w-full h-full flex flex-col justify-center  gap-x-5 gap-y-5 lg:flex-row p-8 lg:items-center lg:h-[87.6vh]  bg-[#111] text-[#fff] mt-[0.2vh]">
+      <div className="w-full h-full flex flex-col justify-center  gap-x-5 gap-y-5 lg:flex-row p-8 lg:items-center lg:h-[87.6vh]  bg-[#111] text-[#fff] mt-[0.1vh]">
         <form>
           <h1 className="pb-5 text-[17px]">Shipping Address</h1>
           <div className="flex flex-col gap-x-9 gap-y-2 w-full lg:w-[20vw]">

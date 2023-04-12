@@ -7,9 +7,13 @@ import axios from 'axios';
 import { useState } from 'react';
 
 const Login = () => {
+  // window.Alpine = Alpine
+
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [pw, setPw] = useState('');
+  const [passCheck, setPassCheck] = useState('');
+  const [imgCheck, setImgcheck] = useState('');
 
   const log = async (e) => {
     e.preventDefault();
@@ -20,6 +24,18 @@ const Login = () => {
     if (res?.status === 200) {
       alert('Successfully logged in!');
       navigate('/');
+    }
+  };
+
+  const pass = () => {
+    if (passCheck == 'password') {
+      setPassCheck('text');
+      setImgcheck(
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/OOjs_UI_icon_eye.svg/1200px-OOjs_UI_icon_eye.svg.png'
+      );
+    } else {
+      setPassCheck('password');
+      setImgcheck('https://static-00.iconduck.com/assets.00/hide-icon-512x484-0ek0p0dz.png');
     }
   };
 
@@ -44,18 +60,22 @@ const Login = () => {
           </div>
           <div className="mb-2 mt-5">
             <div className="relative w-full">
-              <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+              <div className="flex absolute inset-y-0 left-0 items-center pl-3 ">
                 <img src={lock} alt="lockicon" />
               </div>
 
               <input
-                type="password"
-                className="bg-white border border-gray-300 text-black text-sm focus:ring-orange-500 focus:border-orange-500 block w-full pl-10 p-2.5 "
+                type={passCheck}
+                className="bg-white border border-gray-300 text-black text-sm focus:ring-orange-500 focus:border-orange-500 block w-full pl-10 pr-10 p-2.5 "
                 placeholder="Password"
                 onChange={(e) => setPw(e.target.value)}
               />
+              <div className="flex absolute inset-y-0 right-0 items-center mr-3  cursor-pointer">
+                <img src={imgCheck} alt="eyeicon" className="w-[20px] h-[20px]" onClick={pass} />
+              </div>
             </div>
           </div>
+
           <div className="checkbox">
             <input type="checkbox" id="scales" name="scales" className="accent-orange-500 mr-2" />
             <label htmlFor="scales">Remember me?</label>
