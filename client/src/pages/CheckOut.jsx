@@ -8,6 +8,7 @@ const CheckOut = () => {
   const [number, setNumber] = useState('');
   const [dist, setDist] = useState('');
   const [fullInfo, setFullInfo] = useState('');
+  const [qr, setQR] = useState(false);
 
   const save = async (e) => {
     if (number.length != 8) {
@@ -29,9 +30,27 @@ const CheckOut = () => {
     }
   };
 
+  const rickroll = () => {
+    setQR(true);
+  };
   return (
     <div>
-      <div className="w-full h-full flex flex-col justify-center  gap-x-5 gap-y-5 lg:flex-row p-8 lg:items-center lg:h-[87.7vh]  bg-[#111] text-[#fff] mt-[0.1vh]">
+      <div className="w-full h-full flex flex-col justify-center  gap-x-5 gap-y-5 lg:flex-row p-8 lg:items-center lg:h-[87.7vh]  bg-[#111] text-[#fff] mt-[0.1vh] relative">
+        {qr ? (
+          <div class="flex flex-col justify-center absolute bg-white backdrop-filter backdrop-blur-md bg-opacity-25 w-[20vw] h-[40vh] text-center p-5 mt-2">
+            <span class="text-white text-2xl font-semibold">Scan this QR for payment</span>
+            <div className="flex justify-center">
+              <img
+                src="https://i.pinimg.com/originals/60/c1/4a/60c14a43fb4745795b3b358868517e79.png"
+                alt=""
+                width={'300px'}
+              />
+            </div>
+          </div>
+        ) : (
+          ''
+        )}
+
         <form>
           <h1 className="pb-5 text-[17px]">Shipping Address</h1>
           <div className="flex flex-col gap-x-9 gap-y-2 w-full lg:w-[20vw]">
@@ -216,7 +235,7 @@ const CheckOut = () => {
               <button
                 type="button"
                 className="flex items-center w-full p-3 border border-gray-300 bg-orange-400 font-semibold text-white justify-center rounded-md gap-x-2"
-                onClick={qr}
+                onClick={rickroll}
               >
                 <p>Place an order</p>
                 <img src={arrowright} alt="googleicon" />
