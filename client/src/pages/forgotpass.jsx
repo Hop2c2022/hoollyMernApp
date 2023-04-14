@@ -11,7 +11,7 @@ const Forgotpass = () => {
   };
   return (
     <div className="relative flex flex-col justify-center overflow-hidden h-[87.6vh] mt-[0.2vh] bg-[#111]">
-      <div className=" p-8 w-3/5 m-auto bg-white shadow-xl max-w-md shadow-orange-100">
+      <div className=" p-8 w-3/5 m-auto bg-white shadow-xl max-w-md shadow-blue-100">
         <h1 className="text-2xl font-semibold pt-3">Recover password</h1>
         <form className="mt-6">
           <div className="mb-2">
@@ -22,7 +22,7 @@ const Forgotpass = () => {
 
               <input
                 type="email"
-                className="bg-white border border-gray-300 text-black text-sm focus:ring-orange-500 focus:border-orange-500 block w-full pl-10 p-2.5 "
+                className="bg-white border border-gray-300 text-black text-sm focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 "
                 placeholder="Email"
               />
             </div>
@@ -36,7 +36,7 @@ const Forgotpass = () => {
 
                 <input
                   type="password"
-                  className="bg-white border border-gray-300 text-black text-sm focus:ring-orange-500 focus:border-orange-500 block w-full pl-10 p-2.5 "
+                  className="bg-white border border-gray-300 text-black text-sm focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 "
                   placeholder="Recover code"
                 />
               </div>
@@ -46,7 +46,7 @@ const Forgotpass = () => {
           )}
           <div className="mt-6 flex justify-center pt-3">
             <button
-              className="w-screen px-5 py-3 tracking-wide text-white font-semibold transition-colors duration-200 transform bg-orange-400 rounded-md hover:bg-orange-600 focus:outline-none"
+              className="w-screen px-5 py-3 tracking-wide text-white font-semibold transition-colors duration-200 transform bg-blue-400 rounded-md hover:bg-blue-600 focus:outline-none"
               onClick={recovercode}
             >
               Recover password

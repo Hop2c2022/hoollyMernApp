@@ -10,7 +10,7 @@ const Footer = () => {
       </div>
       <div className="gap-x-2 flex w-full sm:justify-end items-center justify-center mr-[5vw]">
         <a
-          href="https://www.facebook.com"
+          href="https://www.facebook.com/pinecone.academy.mongolia"
           target="_blank
       "
           className="flex justify-end cursor-pointer"
@@ -22,7 +22,7 @@ const Footer = () => {
           />
         </a>
         <a
-          href="https://www.twitter.com"
+          href="https://twitter.com/PineconeAcademy"
           target="_blank
       "
           className="flex justify-end cursor-pointer"
@@ -34,7 +34,7 @@ const Footer = () => {
           />
         </a>
         <a
-          href="https://www.instagram.com"
+          href="https://www.instagram.com/pineconemongolia/"
           target="_blank
       "
           className="flex justify-end cursor-pointer"
@@ -46,7 +46,7 @@ const Footer = () => {
           />
         </a>
         <a
-          href="https://youtu.be/dQw4w9WgXcQ"
+          href="https://www.youtube.com/@PineconeAcademy"
           target="_blank
       "
           className="flex justify-end cursor-pointer"

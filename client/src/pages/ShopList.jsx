@@ -3,8 +3,7 @@ import Breakfast from '../assets/Uchral/breakfast.png';
 
 const ShopList = () => {
   return (
-    <div className="bg-[#111] text-[#fff] flex justify-center">
-      {' '}
+    <div className="bg-[#111]  text-[#fff] flex justify-center">
       <div class="relative top-8">
         <a class=" poppins  select-none flex items-center space-x-2" href="/shopdetails">
           <svg
@@ -18,7 +17,7 @@ const ShopList = () => {
           >
             <path fill="none" d="M0 0h24v24H0V0z"></path>
             <path d="M21 11H6.83l3.58-3.59L9 6l-6 6 6 6 1.41-1.41L6.83 13H21v-2z"></path>
-          </svg>{' '}
+          </svg>
           <span>Back</span>
         </a>
       </div>
@@ -26,7 +25,6 @@ const ShopList = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
           <div className="order-2 md:order-1 lg:order-1 flex flex-col justify-center">
             <h1 className="text-center md:text-left lg:text-left text-3xl lg:text-4xl font-semibold poppins pb-4  select-none">
-              {' '}
               Eggs Benedict
             </h1>
             <p className="text-center md:text-left lg:text-left text-sm poppins leading-relaxed select-none ">
@@ -42,7 +40,7 @@ const ShopList = () => {
                   fill="currentColor"
                   stroke-width="0"
                   viewBox="0 0 1024 1024"
-                  className="text-2xl bg-orange-500 w-8 h-8 rounded-full text-white hover:scale-105 transform transition duration-500 cursor-pointer p-1"
+                  className="text-2xl bg-blue-500 w-8 h-8 rounded-full text-white hover:scale-105 transform transition duration-500 cursor-pointer p-1"
                   height="1em"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -57,7 +55,7 @@ const ShopList = () => {
                   t="1551322312294"
                   viewBox="0 0 1024 1024"
                   version="1.1"
-                  className="text-2xl bg-orange-500 w-8 h-8 rounded-full text-white hover:scale-105 transform transition duration-500 cursor-pointer p-1"
+                  className="text-2xl bg-blue-500 w-8 h-8 rounded-full text-white hover:scale-105 transform transition duration-500 cursor-pointer p-1"
                   height="1em"
                   width="1em"
                   xmlns="http://www.w3.org/2000/svg"
@@ -69,7 +67,7 @@ const ShopList = () => {
               </div>
             </div>
             <div className="mt-8 flex items-center justify-center md:justify-start lg:justify-start">
-              <button className="flex items-center space-x-3 bg-orange-500 px-6 py-3 text-white poppins rounded-full ring-orange-300 focus:outline-none focus:ring-4 transform transition duration-700 hover:scale-105">
+              <button className="flex items-center space-x-3 bg-blue-500 px-6 py-3 text-white poppins rounded-full ring-blue-300 focus:outline-none focus:ring-4 transform transition duration-700 hover:scale-105">
                 <svg
                   stroke="currentColor"
                   fill="currentColor"

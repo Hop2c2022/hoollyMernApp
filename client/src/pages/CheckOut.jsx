@@ -37,7 +37,7 @@ const CheckOut = () => {
     <div>
       <div className="w-full h-full flex flex-col justify-center  gap-x-5 gap-y-5 lg:flex-row p-8 lg:items-center lg:h-[87.7vh]  bg-[#111] text-[#fff] mt-[0.1vh] relative">
         {qr ? (
-          <div class="flex flex-col justify-center absolute bg-white backdrop-filter backdrop-blur-md bg-opacity-25 w-[20vw] h-[40vh] text-center p-5 mt-2">
+          <div class="flex flex-col justify-center absolute bg-white backdrop-filter backdrop-blur-md bg-opacity-25 w-[20vw] h-[40vh] text-center p-5 mt-2 z-40">
             <span class="text-white text-2xl font-semibold">Scan this QR for payment</span>
             <div className="flex justify-center">
               <img
@@ -102,7 +102,7 @@ const CheckOut = () => {
             <div className="col-span-full">
               <h1>Billing Address</h1>
               <div className="checkbox">
-                <input type="checkbox" id="scales" name="scales" className="accent-orange-500 mr-2 " />
+                <input type="checkbox" id="scales" name="scales" className="accent-blue-500  hover:bg-blue-600 mr-2 " />
                 <label htmlFor="scales" className="text-gray-300 text-sm">
                   Same as shipping address
                 </label>
@@ -112,7 +112,7 @@ const CheckOut = () => {
             <div className="flex mt-5 gap-y-3 flex-col">
               <button
                 type="button"
-                className="flex items-center w-full p-3 border border-gray-300 bg-orange-400 font-semibold text-white justify-center"
+                className="flex items-center w-full p-3 border border-gray-300 bg-blue-400  hover:bg-blue-600 font-semibold text-white justify-center"
                 onClick={save}
               >
                 <p> Save</p>
@@ -234,7 +234,7 @@ const CheckOut = () => {
             <div className="flex gap-y-3 flex-col">
               <button
                 type="button"
-                className="flex items-center w-full p-3 border border-gray-300 bg-orange-400 font-semibold text-white justify-center rounded-md gap-x-2"
+                className="flex items-center w-full p-3 border border-gray-300 bg-blue-400  hover:bg-blue-600 font-semibold text-white justify-center rounded-md gap-x-2"
                 onClick={rickroll}
               >
                 <p>Place an order</p>
