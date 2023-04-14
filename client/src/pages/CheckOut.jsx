@@ -16,7 +16,7 @@ const CheckOut = () => {
     } else if (dist == '') {
       alert('Duurgee songono uu');
     } else {
-      const res = await axios.patch(`http://localhost:8000/auth/register/${localStorage.getItem('id')}`, {
+      const res = await axios.post(`http://localhost:8000/auth/order`, {
         fullInformation: fullInfo,
         district: dist,
         phoneNumber: number,
