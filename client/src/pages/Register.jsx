@@ -6,30 +6,54 @@ import googleicon from '../assets/A.Tengis/googleicon.png';
 import usericon from '../assets/A.Tengis/Usericon.png';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
   const navigate = useNavigate();
   const [pw, setPw] = useState('');
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
+  const [checkReg, setCheckReg] = useState(false);
+
+  // const notify = (e) => {
+  //   e.preventDefault();
+  //   toast('User is already registered');
+  // };
 
   const reg = async (e) => {
-    e.preventDefault();
-    const res = await axios.post('http://localhost:8000/auth/register', {
-      name: name,
-      password: pw,
-      email: email,
-    });
-    console.log(res);
-    if (res?.status === 201) {
-      navigate('/login');
-      alert('Successfully registered');
+    try {
+      e.preventDefault();
+      const res = await axios.post('http://localhost:8000/auth/register', {
+        name: name,
+        password: pw,
+        email: email,
+      });
+      console.log(res);
+      if (res?.status === 201) {
+        navigate('/login');
+        alert('Successfully registered');
+      }
+    } catch (err) {
+      if (err.message == 'Request failed with status code 400') {
+        toast('User is already registered');
+      } else if (name.length == 0 && name.length < 11) {
+        toast('Tanii ner hooson bish esvel 10 temdegtees urt baij bolohgui');
+      } else if (pw.length < 7) {
+        toast('Password temdegt dor hayj 8 baih ystoi');
+      } else {
+        toast('Please enter your email account');
+      }
     }
-    console.log(res);
+
+    // console.log(res);
   };
 
   return (
     <div className="bg-[#111] relative flex flex-col justify-center h-[87.9vh] overflow-hidden ">
+      <div>
+        <ToastContainer />
+      </div>
       <div className=" p-8 w-3/5 m-auto bg-white shadow-xl max-w-md shadow-orange-100">
         <h1 className="text-2xl font-semibold pt-3">Register</h1>
         <form className="mt-6">
