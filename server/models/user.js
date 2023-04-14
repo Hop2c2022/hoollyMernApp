@@ -20,16 +20,14 @@ const UserSchema = new mongoose.Schema(
       minlength: 5,
     },
     phoneNumber: {
-      type: Number,
-      minlength: 5,
-    },
-    city: {
       type: String,
-      minlength: 5,
+      minlength: 7,
+    },
+    district: {
+      type: String,
     },
     fullInformation: {
       type: String,
-      minlength: 5,
     },
     admin: {
       type: Boolean,

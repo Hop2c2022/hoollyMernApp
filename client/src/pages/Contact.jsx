@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const Contact = () => {
   return (
@@ -98,8 +98,8 @@ const Contact = () => {
                     <div className="grow ml-6">
                       <p className="font-bold mb-1">Location</p>
                       <p className="text-gray-500">
-                        СБД, 1-р хороо, Чингисийн өргөн чөлөө, Гурван гол оффис
-                        центр 3 давхар 14240 Ulaanbaatar, Mongolia.
+                        СБД, 1-р хороо, Чингисийн өргөн чөлөө, Гурван гол оффис центр 3 давхар 14240 Ulaanbaatar,
+                        Mongolia.
                       </p>
                       <p className="text-gray-500">hr@pinecone.mn</p>
                     </div>

@@ -20,6 +20,7 @@ const Register = () => {
       password: pw,
       email: email,
     });
+    console.log(res);
     if (res?.status === 201) {
       navigate('/login');
       alert('Successfully registered');

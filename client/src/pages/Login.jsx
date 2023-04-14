@@ -19,8 +19,13 @@ const Login = () => {
       email: email,
       password: pw,
     });
+    console.log(res);
     if (res?.status === 200) {
       alert('Successfully logged in!');
+      localStorage.setItem('name', res?.data?.user?.name);
+      localStorage.setItem('email', res?.data?.user?.email);
+      localStorage.setItem('pw', res?.data?.user?.password);
+      localStorage.setItem('id', res?.data?.user?._id);
       navigate('/');
     }
   };

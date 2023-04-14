@@ -5,13 +5,17 @@ const User = require("../models/user");
 /* REGISTER USER */
 exports.register = async (req, res) => {
   try {
-    const { name, email, password } = req.body;
+    const { name, email, password, fullInformation, phoneNumber, district } =
+      req.body;
     const salt = await bcrypt.genSalt();
     const passwordHash = await bcrypt.hash(password, salt);
     const newUser = await new User({
       name,
       email,
       password: passwordHash,
+      fullInformation,
+      district,
+      phoneNumber,
     }).save();
     res.status(201).json(newUser);
   } catch (err) {

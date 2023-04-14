@@ -1,9 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 import right from '../assets/A.Tengis/rightarrow.png';
 import food from '../assets/A.Tengis/food.png';
 import arrowright from '../assets/A.Tengis/ArrowRight.png';
+import axios from 'axios';
 
 const CheckOut = () => {
+  const [number, setNumber] = useState('');
+  const [dist, setDist] = useState('');
+  const [fullInfo, setFullInfo] = useState('');
+
+  const save = async (e) => {
+    if (number.length != 8) {
+      alert('Utasnii toonii urt buruu baina');
+    } else if (dist == '') {
+      alert('Duurgee songono uu');
+    } else {
+      const res = await axios.patch(`http://localhost:8000/auth/register/${localStorage.getItem('id')}`, {
+        fullInformation: fullInfo,
+        district: dist,
+        phoneNumber: number,
+      });
+      console.log(res);
+      console.log('success');
+      e.preventDefault();
+      localStorage.setItem('number', number);
+      localStorage.setItem('dist', dist);
+      localStorage.setItem('fullInfo', fullInfo);
+    }
+  };
+
   return (
     <div>
       <div className="w-full h-full flex flex-col justify-center  gap-x-5 gap-y-5 lg:flex-row p-8 lg:items-center lg:h-[87.7vh]  bg-[#111] text-[#fff] mt-[0.1vh]">
@@ -11,7 +36,7 @@ const CheckOut = () => {
           <h1 className="pb-5 text-[17px]">Shipping Address</h1>
           <div className="flex flex-col gap-x-9 gap-y-2 w-full lg:w-[20vw]">
             <div>
-              <label for="number" className="block mb-2 text-sm font-medium ">
+              <label htmlFor="number" className="block mb-2 text-sm font-medium ">
                 Phone number
               </label>
               <input
@@ -20,24 +45,30 @@ const CheckOut = () => {
                 className="bg-black border border-gray-400 text-gray-200 text-sm w-full p-2.5 0"
                 placeholder="* * * * * * *"
                 required
+                onChange={(e) => setNumber(e.target.value)}
               />
             </div>
             <div>
-              <label for="company" className="block mb-2 text-sm font-medium ">
-                City
+              <label htmlFor="company" className="block mb-2 text-sm font-medium ">
+                Districts
               </label>
-              <select id="cities" class="bg-black border border-gray-400 text-gray-200 text-sm p-2.5 0 w-[100%]">
-                <option selected>Choose a city</option>
-                <option value="US">United States</option>
-                <option value="CA">Canada</option>
-                <option value="FR">France</option>
-                <option value="DE">Germany</option>
-                <option value="DE">Mongolia</option>
-                <option value="DE">North Korea</option>
+              <select
+                onChange={(e) => setDist(e.target.value)}
+                id="cities"
+                className="bg-black border border-gray-400 text-gray-200 text-sm p-2.5 0 w-[100%]"
+              >
+                <option defaultChecked>Choose a city</option>
+                <option value="Chingeltei">Chingeltei</option>
+                <option value="Sukhbaatar">Sukhbaatar</option>
+                <option value="Songinokhairkhan">Songinokhairkhan</option>
+                <option value="Khan-Uul">Khan-Uul</option>
+                <option value="Baynzurkh">Baynzurkh</option>
+                <option value="Bayngok">Bayngok</option>
+                <option value="Nalaih">Nalaih</option>
               </select>
             </div>
             <div>
-              <label for="company" className="block mb-2 text-sm font-medium ">
+              <label htmlFor="company" className="block mb-2 text-sm font-medium ">
                 Full information
               </label>
               <input
@@ -45,6 +76,7 @@ const CheckOut = () => {
                 id="first_name"
                 className="bg-black border border-gray-400 text-gray-200 text-sm w-full p-2.5 0"
                 required
+                onChange={(e) => setFullInfo(e.target.value)}
               />
             </div>
 
@@ -52,7 +84,7 @@ const CheckOut = () => {
               <h1>Billing Address</h1>
               <div className="checkbox">
                 <input type="checkbox" id="scales" name="scales" className="accent-orange-500 mr-2 " />
-                <label for="scales" className="text-gray-300 text-sm">
+                <label htmlFor="scales" className="text-gray-300 text-sm">
                   Same as shipping address
                 </label>
               </div>
@@ -62,6 +94,7 @@ const CheckOut = () => {
               <button
                 type="button"
                 className="flex items-center w-full p-3 border border-gray-300 bg-orange-400 font-semibold text-white justify-center"
+                onClick={save}
               >
                 <p> Save</p>
                 <img src={right} alt="googleicon" />
@@ -78,7 +111,7 @@ const CheckOut = () => {
                   <div>
                     <h1>Chicken Tikka Kebab</h1>
                     <h1>50$</h1>
-                    <div className=" h-[20px] w-[5vw] " for="custom-input-number">
+                    <div className=" h-[20px] w-[5vw] " htmlFor="custom-input-number">
                       <div className="flex flex-row h-[25px] w-[80px] xl:w-[80px] rounded-full relative bg-transparent mt-1 border border-gray-500">
                         <button className=" border-gray-500 text-gray-600  hover:bg-slate-800 h-full w-20 rounded-full cursor-pointer outline-none">
                           <span className="m-auto text-2xl font-thin">−</span>
@@ -86,8 +119,6 @@ const CheckOut = () => {
                         <input
                           type="number"
                           className="outline-none focus:outline-none text-center w-full 0 font-semibold text-md  md:text-basecursor-default flex items-center bg-black"
-                          name="custom-input-number"
-                          value="1"
                         ></input>
                         <button className=" border-gray-500 text-gray-600  hover:bg-slate-800 h-full w-20 rounded-full cursor-pointer outline-none">
                           <span className="m-auto text-2xl font-thin">+</span>
@@ -108,7 +139,7 @@ const CheckOut = () => {
                   <div>
                     <h1>Chicken Tikka Kebab</h1>
                     <h1>50$</h1>
-                    <div className=" h-[20px] w-[5vw] " for="custom-input-number">
+                    <div className=" h-[20px] w-[5vw] " htmlFor="custom-input-number">
                       <div className="flex flex-row h-[25px] w-[80px] xl:w-[80px] rounded-full relative bg-transparent mt-1 border border-gray-500">
                         <button className=" border-gray-500 text-gray-600  hover:bg-slate-800 h-full w-20 rounded-full cursor-pointer outline-none">
                           <span className="m-auto text-2xl font-thin">−</span>
@@ -116,8 +147,6 @@ const CheckOut = () => {
                         <input
                           type="number"
                           className="outline-none focus:outline-none text-center w-full 0 font-semibold text-md  md:text-basecursor-default flex items-center bg-black"
-                          name="custom-input-number"
-                          value="1"
                         ></input>
                         <button className=" border-gray-500 text-gray-600  hover:bg-slate-800 h-full w-20 rounded-full cursor-pointer outline-none">
                           <span className="m-auto text-2xl font-thin">+</span>
@@ -137,7 +166,7 @@ const CheckOut = () => {
                   <div>
                     <h1>Chicken Tikka Kebab</h1>
                     <h1>50$</h1>
-                    <div className=" h-[20px] w-[5vw] " for="custom-input-number">
+                    <div className=" h-[20px] w-[5vw] " htmlFor="custom-input-number">
                       <div className="flex flex-row h-[25px] w-[80px] xl:w-[80px] rounded-full relative bg-transparent mt-1 border border-gray-500">
                         <button className=" border-gray-500 text-gray-600  hover:bg-slate-800 h-full w-20 rounded-full cursor-pointer outline-none">
                           <span className="m-auto text-2xl font-thin">−</span>
@@ -145,8 +174,6 @@ const CheckOut = () => {
                         <input
                           type="number"
                           className="outline-none focus:outline-none text-center w-full 0 font-semibold text-md  md:text-basecursor-default flex items-center bg-black"
-                          name="custom-input-number"
-                          value="1"
                         ></input>
                         <button className=" border-gray-500 text-gray-600  hover:bg-slate-800 h-full w-20 rounded-full cursor-pointer outline-none">
                           <span className="m-auto text-2xl font-thin">+</span>
