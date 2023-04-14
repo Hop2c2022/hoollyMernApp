@@ -11,11 +11,8 @@ import ShopList from './pages/ShopList';
 import PageNotFound from './pages/PageNotFound';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
-<<<<<<< HEAD
 import Forgotpass from './pages/forgotpass';
-=======
 import CreateFood from './components/foodCreate';
->>>>>>> fc09960 (create)
 
 const App = () => {
   return (
@@ -32,11 +29,10 @@ const App = () => {
         <Route path="/checkout" element={<CheckOut />} />
         <Route path="/pagenotfound" element={<PageNotFound />} />
         <Route path="/contact" element={<Contact />} />
-<<<<<<< HEAD
+
         <Route path="/forgotpass" element={<Forgotpass />} />
-=======
+
         <Route path="/create" element={<CreateFood />} />
->>>>>>> fc09960 (create)
       </Routes>
       <Footer />
     </BrowserRouter>

@@ -7,13 +7,11 @@ import axios from 'axios';
 import { useState } from 'react';
 
 const Login = () => {
-  // window.Alpine = Alpine
-
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [pw, setPw] = useState('');
-  const [passCheck, setPassCheck] = useState('');
-  const [imgCheck, setImgcheck] = useState('');
+  const [passCheck, setPassCheck] = useState('password');
+  const [imgCheck, setImgcheck] = useState('https://static-00.iconduck.com/assets.00/hide-icon-512x484-0ek0p0dz.png');
 
   const log = async (e) => {
     e.preventDefault();
@@ -28,14 +26,14 @@ const Login = () => {
   };
 
   const pass = () => {
-    if (passCheck == 'password') {
+    if (passCheck == 'text') {
+      setPassCheck('password');
+      setImgcheck('https://static-00.iconduck.com/assets.00/hide-icon-512x484-0ek0p0dz.png');
+    } else {
       setPassCheck('text');
       setImgcheck(
         'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/OOjs_UI_icon_eye.svg/1200px-OOjs_UI_icon_eye.svg.png'
       );
-    } else {
-      setPassCheck('password');
-      setImgcheck('https://static-00.iconduck.com/assets.00/hide-icon-512x484-0ek0p0dz.png');
     }
   };
 
