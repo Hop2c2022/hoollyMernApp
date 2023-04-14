@@ -5,6 +5,8 @@ import lock from '../assets/A.Tengis/Lock.png';
 import googleicon from '../assets/A.Tengis/googleicon.png';
 import axios from 'axios';
 import { useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -15,18 +17,32 @@ const Login = () => {
 
   const log = async (e) => {
     e.preventDefault();
-    const res = await axios.post('http://localhost:8000/auth/login', {
-      email: email,
-      password: pw,
-    });
-    console.log(res);
-    if (res?.status === 200) {
-      alert('Successfully logged in!');
-      localStorage.setItem('name', res?.data?.user?.name);
-      localStorage.setItem('email', res?.data?.user?.email);
-      localStorage.setItem('pw', res?.data?.user?.password);
-      localStorage.setItem('id', res?.data?.user?._id);
-      navigate('/');
+    try {
+      const res = await axios.post('http://localhost:8000/auth/login', {
+        email: email,
+        password: pw,
+      });
+      console.log(res);
+      if (res?.status === 200) {
+        setTimeout(function () {
+          navigate('/');
+        }, 1600);
+        toast.success('Succesfully login!');
+        localStorage.setItem('name', res?.data?.user?.name);
+        localStorage.setItem('email', res?.data?.user?.email);
+        localStorage.setItem('pw', res?.data?.user?.password);
+        localStorage.setItem('id', res?.data?.user?._id);
+      }
+    } catch (err) {
+      if (pw.length < 8) {
+        toast('Enter your Password please.');
+      }
+      if (email.length == 0) {
+        toast('Enter your Email please.');
+      }
+      if (email.length != 0 && pw.length > 7) {
+        toast('Email or password is incorrect Check it again!');
+      }
     }
   };
 
@@ -44,6 +60,10 @@ const Login = () => {
 
   return (
     <div className="relative flex flex-col justify-center overflow-hidden h-[87.9vh] bg-[#111]">
+      <div>
+        <ToastContainer />
+      </div>
+
       <div className=" p-8 w-3/5 m-auto bg-white shadow-xl max-w-md shadow-orange-100">
         <h1 className="text-2xl font-semibold pt-3">Sign In</h1>
         <form className="mt-6">

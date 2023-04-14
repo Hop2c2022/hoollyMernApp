@@ -14,35 +14,33 @@ const Register = () => {
   const [pw, setPw] = useState('');
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
-  const [checkReg, setCheckReg] = useState(false);
-
-  // const notify = (e) => {
-  //   e.preventDefault();
-  //   toast('User is already registered');
-  // };
 
   const reg = async (e) => {
     try {
       e.preventDefault();
-      const res = await axios.post('http://localhost:8000/auth/register', {
-        name: name,
-        password: pw,
-        email: email,
-      });
-      console.log(res);
-      if (res?.status === 201) {
-        navigate('/login');
-        alert('Successfully registered');
+      if (pw.length < 7) {
+        toast.error('The password must be at least 8 characters');
+      } else {
+        const res = await axios.post('http://localhost:8000/auth/register', {
+          name: name,
+          password: pw,
+          email: email,
+        });
+        console.log(res);
+        if (res?.status === 201) {
+          setTimeout(function () {
+            navigate('/login');
+          }, 1600);
+          toast.success('Succesfully registered!');
+        }
       }
     } catch (err) {
       if (err.message == 'Request failed with status code 400') {
-        toast('User is already registered');
+        toast.error('User is already registered');
       } else if (name.length == 0 && name.length < 11) {
-        toast('Tanii ner hooson bish esvel 10 temdegtees urt baij bolohgui');
-      } else if (pw.length < 7) {
-        toast('Password temdegt dor hayj 8 baih ystoi');
+        toast.error('Tanii ner hooson bish esvel 10 temdegtees urt baij bolohgui');
       } else {
-        toast('Please enter your email account');
+        toast.warning('Please enter your email account');
       }
     }
 
