@@ -46,7 +46,7 @@ const Footer = () => {
           />
         </a>
         <a
-          href="https://www.youtube.com"
+          href="https://youtu.be/dQw4w9WgXcQ"
           target="_blank
       "
           className="flex justify-end cursor-pointer"

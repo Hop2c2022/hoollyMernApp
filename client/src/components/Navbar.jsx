@@ -59,7 +59,7 @@ const Navbar = () => {
             </div>
             <Link to="/checkout">
               <img
-                className="w-[10vw] sm:w-[5vw] 2xl:w-[2vw]  md:w-[4vw] lg:w-[3vw]  ml-[0.5vw] h-[4vh] object-contain cursor-pointer"
+                className="w-[10vw] sm:w-[5vw] 2xl:w-[2vw] md:w-[4vw] lg:w-[3vw]  ml-[0.5vw] h-[4vh] object-contain cursor-pointer"
                 src={cartIcon}
                 alt=""
               />
@@ -74,7 +74,10 @@ const Navbar = () => {
             ) : (
               <div className="flex items-center gap-x-2 pl-3">
                 <Link to="/login">
-                  <button type="button" className="text-[16px] font-semibold ">
+                  <button
+                    type="button"
+                    className="text-[16px] font-semibold transition duration-300 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-blue-500 hover:via-peach-300 hover:to-blue-300"
+                  >
                     Login
                   </button>
                 </Link>

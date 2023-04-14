@@ -216,6 +216,7 @@ const CheckOut = () => {
               <button
                 type="button"
                 className="flex items-center w-full p-3 border border-gray-300 bg-orange-400 font-semibold text-white justify-center rounded-md gap-x-2"
+                onClick={qr}
               >
                 <p>Place an order</p>
                 <img src={arrowright} alt="googleicon" />
