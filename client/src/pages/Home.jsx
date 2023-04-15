@@ -1,7 +1,7 @@
-import foodCover from "../assets/Khash-Erdene/foodCover.png";
-import AboutUsFood from "../components/AboutUsFood";
-import WhyChooseUs from "../components/WhyChooseUs";
-import Companies from "../components/Companies";
+import foodCover from '../assets/Khash-Erdene/foodCover.png';
+import AboutUsFood from '../components/AboutUsFood';
+import WhyChooseUs from '../components/WhyChooseUs';
+import Companies from '../components/Companies';
 
 const Home = () => {
   return (
@@ -11,12 +11,9 @@ const Home = () => {
         <div className=" w-[90vw]  ml-[5vw] xl:w-[50vw] md:w-[40vw]">
           <div className="h-[45vh]  flex flex-col  justify-evenly md:h-[30vh]">
             <p>Its Quick & Amusing!</p>
-            <p className="text-[30px] md:text-[44px]">
-              The Art of speed food Quality
-            </p>
+            <p className="text-[30px] md:text-[44px]">The Art of speed food Quality</p>
             <p className=" text-[16px] ">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Varius
-              sed pharetra dictum neque massa congue
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Varius sed pharetra dictum neque massa congue
             </p>
             <button className="bg-blue-500 w-[40vw] md:w-[16vw] mt-[1vh] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
               See Menu
