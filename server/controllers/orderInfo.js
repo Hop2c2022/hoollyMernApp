@@ -1,9 +1,9 @@
-const Order = require("../models/order");
+const OrderInfo = require("../models/orderInfo");
 
-exports.postOrder = async (req, res) => {
+exports.postInfoOrder = async (req, res) => {
   try {
     const { fullInformation, phoneNumber, district } = req.body;
-    const newOrder = await new Order({
+    const newOrder = await new OrderInfo({
       fullInformation,
       district,
       phoneNumber,

@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const OrderSchema = new mongoose.Schema(
+const OrderInfoSchema = new mongoose.Schema(
   {
     phoneNumber: {
       type: String,
@@ -16,5 +16,5 @@ const OrderSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-const Order = mongoose.model("Order", OrderSchema);
-module.exports = Order;
+const OrderInfo = mongoose.model("OrderInfo", OrderInfoSchema);
+module.exports = OrderInfo;

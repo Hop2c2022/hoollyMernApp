@@ -16,7 +16,7 @@ const CheckOut = () => {
     } else if (dist == '') {
       alert('Duurgee songono uu');
     } else {
-      const res = await axios.post(`http://localhost:8000/auth/order`, {
+      const res = await axios.post(`http://localhost:8000/auth/orderInfo`, {
         fullInformation: fullInfo,
         district: dist,
         phoneNumber: number,
@@ -82,7 +82,7 @@ const CheckOut = () => {
                 <option value="Songinokhairkhan">Songinokhairkhan</option>
                 <option value="Khan-Uul">Khan-Uul</option>
                 <option value="Baynzurkh">Baynzurkh</option>
-                <option value="Bayngok">Bayngok</option>
+                <option value="Bayngok">Bayngol</option>
                 <option value="Nalaih">Nalaih</option>
               </select>
             </div>

@@ -1,7 +1,13 @@
 import React from 'react';
 import Breakfast from '../assets/Uchral/breakfast.png';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 const ShopList = () => {
+  const add = async () => {
+    const result = await axios.post('http://localhost:8000/auth/order');
+  };
+
   return (
     <div className="bg-[#111]  text-[#fff] flex justify-center">
       <div class="relative top-8">
@@ -67,21 +73,23 @@ const ShopList = () => {
               </div>
             </div>
             <div className="mt-8 flex items-center justify-center md:justify-start lg:justify-start">
-              <button className="flex items-center space-x-3 bg-blue-500 px-6 py-3 text-white poppins rounded-full ring-blue-300 focus:outline-none focus:ring-4 transform transition duration-700 hover:scale-105">
-                <svg
-                  stroke="currentColor"
-                  fill="currentColor"
-                  stroke-width="0"
-                  viewBox="0 0 16 16"
-                  className="text-xl"
-                  height="1em"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"></path>
-                </svg>
-                <span>Add to Cart</span>
-              </button>
+              <Link to="/checkout">
+                <button className="flex items-center space-x-3 bg-blue-500 px-6 py-3 text-white poppins rounded-full ring-blue-300 focus:outline-none focus:ring-4 transform transition duration-700 hover:scale-105">
+                  <svg
+                    stroke="currentColor"
+                    fill="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 16 16"
+                    className="text-xl"
+                    height="1em"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"></path>
+                  </svg>
+                  <span>Add to Cart</span>
+                </button>
+              </Link>
             </div>
           </div>
           <div className="order-1 md:order-2 lg:order-2">
