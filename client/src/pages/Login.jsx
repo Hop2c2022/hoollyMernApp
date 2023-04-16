@@ -35,13 +35,13 @@ const Login = () => {
       }
     } catch (err) {
       if (pw.length < 8) {
-        toast('Enter your Password please.');
+        toast.warning('Enter your Password please.');
       }
       if (email.length == 0) {
-        toast('Enter your Email please.');
+        toast.warning('Enter your Email please.');
       }
       if (email.length != 0 && pw.length > 7) {
-        toast('Email or password is incorrect Check it again!');
+        toast.warning('Email or password is incorrect Check it again!');
       }
     }
   };
@@ -59,7 +59,7 @@ const Login = () => {
   };
 
   return (
-    <div className="relative flex flex-col justify-center overflow-hidden h-[87.9vh] bg-[#111]">
+    <div className="relative flex flex-col justify-center overflow-hidden h-[86.9vh] bg-[#111]">
       <div>
         <ToastContainer />
       </div>

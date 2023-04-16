@@ -2,7 +2,7 @@ import ytIcon from '../assets/A.Tengis/youtubeicon.png';
 
 const Footer = () => {
   return (
-    <div className="bg-[#111] h-full sm:h-[5vh] justify-center sm:justify-start flex items-center w-[100vw] text-[#fff] mt-[0.2vh] flex-col sm:flex-row">
+    <div className="bg-[#111] h-full sm:h-[6vh] justify-center sm:justify-start flex items-center w-[100vw] text-[#fff] mt-[0.2vh] flex-col sm:flex-row">
       <div className="ml-[5vw] sm:w-full">
         <p className="text-[8px] md:text-[13px] mt-[0.5vh] sm:mt-0">
           Copyright © 2023 by Khash-Erdene, Tengis, Bilguun, Uchral. All Rigths Reserved.
