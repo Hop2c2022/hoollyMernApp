@@ -8,11 +8,16 @@ import { useNavigate } from 'react-router-dom';
 const Navbar = () => {
   const navigate = useNavigate();
   const [loggedIn, setLoggedIn] = useState(false);
+  const [search, setSearch] = useState(true);
 
   const shalgah = () => {
     if (localStorage.getItem('name')) {
       setLoggedIn(true);
     }
+  };
+
+  const searchinput = () => {
+    setSearch(!search);
   };
 
   useEffect(() => {
@@ -29,7 +34,7 @@ const Navbar = () => {
     <>
       <div className="flex text-[#fff] bg-[#111] items-center h-[7vh] w-[100vw]">
         {/* Left Section */}
-        <div className="flex items-center justify-center ml-[5vw]">
+        <div className="md:flex sm:hidden flex items-center justify-center ml-[5vw] mr-[3vw] ">
           <Link to="/">
             <img className="hidden md:flex w-[100%] h-[4.5vh]" src={logo} alt="" />
           </Link>
@@ -56,13 +61,17 @@ const Navbar = () => {
         {/* Right Section */}
         <div className="flex w-[80vw]  sm:w-[41vw] justify-end">
           <div className="flex items-center">
-            <div className="lg:flex space-x-1 hidden">
-              <input
-                type="text"
-                className="  block w-full px-4 py-1 text-blue-500 bg-black border border-blue-400 rounded-full focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
-                placeholder="Search..."
-              />
-              <button className="px-2 text-white bg-blue-500 rounded-full ">
+            <div className="sm:flex space-x-1 hidden ">
+              {search ? (
+                <input
+                  type="text"
+                  className=" block w-full px-4 py-1 text-blue-500 bg-black border border-blue-400 rounded-full focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                  placeholder="Search..."
+                />
+              ) : (
+                ''
+              )}
+              <button className="px-2 text-white bg-blue-500 rounded-full block h-full py-2" onClick={searchinput}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="w-5"
@@ -75,9 +84,10 @@ const Navbar = () => {
                 </svg>
               </button>
             </div>
+
             <Link to="/checkout">
               <img
-                className="w-[10vw] sm:w-[5vw] 2xl:w-[2vw] md:w-[4vw] lg:w-[3vw]  ml-[0.5vw] h-[4vh] object-contain cursor-pointer"
+                className="w-[50px] sm:w-[45px] 2xl:w-[50px] md:w-[45px] lg:w-[45px]  ml-[0.5vw] h-[45px] object-contain cursor-pointer"
                 src={cartIcon}
                 alt=""
               />

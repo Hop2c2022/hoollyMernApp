@@ -48,11 +48,11 @@ const Register = () => {
   };
 
   return (
-    <div className="bg-[#111] relative flex flex-col justify-center h-[87.9vh] overflow-hidden ">
+    <div className="bg-[#111] relative flex flex-col justify-center h-[86.9vh] overflow-hidden ">
       <div>
         <ToastContainer />
       </div>
-      <div className=" p-8 w-3/5 m-auto bg-white shadow-xl max-w-md shadow-blue-100">
+      <div className=" p-8 w-3/5 m-auto bg-white shadow-xl max-w-md shadow-blue-100 ">
         <h1 className="text-2xl font-semibold pt-3">Register</h1>
         <form className="mt-6">
           <div className="mb-2">

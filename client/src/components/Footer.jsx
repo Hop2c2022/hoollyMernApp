@@ -5,7 +5,7 @@ const Footer = () => {
     <div className="bg-[#111] h-full sm:h-[6vh] justify-center sm:justify-start flex items-center w-[100vw] text-[#fff] mt-[0.2vh] flex-col sm:flex-row">
       <div className="ml-[5vw] sm:w-full">
         <p className="text-[8px] md:text-[13px] mt-[0.5vh] sm:mt-0">
-          Copyright © 2023 by Khash-Erdene, Tengis, Bilguun, Uchral. All Rigths Reserved.
+          Copyright © 2023 by Khash-Erdene, Tengis, Bilguun, Uchral. All Rights Reserved.
         </p>
       </div>
       <div className="gap-x-2 flex w-full sm:justify-end items-center justify-center mr-[5vw]">

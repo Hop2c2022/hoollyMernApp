@@ -28,6 +28,7 @@ const CheckOut = () => {
       });
       console.log(res);
       console.log('success');
+      toast.success('Shipping address Saved succesfully!');
       e.preventDefault();
       localStorage.setItem('number', number);
       localStorage.setItem('dist', dist);
@@ -53,7 +54,7 @@ const CheckOut = () => {
   }
   return (
     <div>
-      <div className="w-full h-full flex flex-col justify-center  gap-x-5 gap-y-5 lg:flex-row p-8 lg:items-center lg:h-[87.7vh]  bg-[#111] text-[#fff] mt-[0.1vh] relative">
+      <div className="w-full h-full flex flex-col justify-center  gap-x-5 gap-y-5 lg:flex-row p-8 lg:items-center lg:h-[86.7vh]  bg-[#111] text-[#fff] mt-[0.1vh] relative">
         <div>
           <ToastContainer />
         </div>
@@ -76,7 +77,7 @@ const CheckOut = () => {
           <h1 className="pb-5 text-[17px]">Shipping Address</h1>
           <div className="flex flex-col gap-x-9 gap-y-2 w-full lg:w-[20vw]">
             <div>
-              <label htmlFor="number" className="block mb-2 text-sm font-medium " maxlength="8">
+              <label htmlFor="number" className="block mb-2 text-sm font-medium ">
                 Phone number
               </label>
               <input
@@ -85,6 +86,7 @@ const CheckOut = () => {
                 className="bg-black border border-gray-400 text-gray-200 text-sm w-full p-2.5 0"
                 placeholder="* * * * * * *"
                 required
+                maxlength="8"
                 onChange={(e) => setNumber(e.target.value)}
               />
             </div>
