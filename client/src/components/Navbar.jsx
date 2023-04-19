@@ -34,8 +34,8 @@ const Navbar = () => {
             <img className="hidden md:flex w-[100%] h-[4.5vh]" src={logo} alt="" />
           </Link>
         </div>
-        <div className="flex md:justify-end sm:w-[45vw] w-[10vw] ">
-          <ul className="space-x-6 hidden sm:flex">
+        <div className="flex md:justify-end sm:w-[45vw] w-[10vw] ml-[4vw] ">
+          <ul className="gap-x-8 hidden sm:flex">
             <li>
               <a href="/">Home</a>
             </li>
