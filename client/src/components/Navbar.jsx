@@ -9,6 +9,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const [loggedIn, setLoggedIn] = useState(false);
   const [nav, setNav] = useState(true);
+  const [New, setNew] = useState(false);
 
   const shalgah = () => {
     if (localStorage.getItem('name')) {
@@ -32,18 +33,31 @@ const Navbar = () => {
       setNav(false);
     }
   };
-  console.log(nav);
+  for (let i = 0; i > 2; i++) {
+    if (nav === true) {
+      setNew(true);
+    } else {
+    }
+  }
 
   return (
     <>
       <div className="flex text-[#fff] bg-[#111] items-center h-[7vh] w-[100vw]">
         {/* Left Section */}
-        <div className="flex items-center justify-center ml-[5vw]">
-          <Link to="/">
-            <img className="hidden md:flex w-[100%] h-[4.5vh]" src={logo} alt="" />
-          </Link>
-        </div>
-        <div className="flex md:justify-end sm:w-[45vw] ml-[4vw] ">
+        {New ? (
+          <div className="flex items-center justify-center sm:ml-[4.5vw] w:ml-0">
+            <Link to="/">
+              <img className="hidden md:flex w-[100%] h-[4.5vh]" src={logo} alt="" />
+            </Link>
+          </div>
+        ) : (
+          <div className="flex items-center justify-center ml-[4.5vw] ">
+            <Link to="/">
+              <img className="hidden md:flex w-[100%] h-[4.5vh]" src={logo} alt="" />
+            </Link>
+          </div>
+        )}
+        <div className="flex md:justify-end sm:w-[45vw] sm:ml-[2.5vw] ml-0">
           <ul className="gap-x-8 hidden sm:flex">
             <li>
               <a href="/">Home</a>
@@ -64,8 +78,8 @@ const Navbar = () => {
             <img onClick={hamburgerCheck} className=" w-[7vw] sm:w-[5vw]" src={menu} alt="" />
           </div>
         ) : (
-          <div className="flex md:justify-end sm:w-[45vw] w-[10vw] overflow-hidden">
-            <ul className=" flex flex-col absolute h-full top-0 backdrop-blur-md w-[95vw] space-y-7 justify-center items-center  text-[#fff] z-50 overflow-hidden">
+          <div className="flex md:justify-end sm:w-[45vw] w-[100vw] overflow-hidden sm:hidden">
+            <ul className=" flex flex-col absolute h-full top-0 backdrop-blur-md w-[100vw] space-y-7 justify-center items-center  text-[#fff] z-50 overflow-hidden">
               <li>
                 <a href="/">Home</a>
               </li>
@@ -91,7 +105,7 @@ const Navbar = () => {
         )}
 
         {/* Right Section */}
-        <div className="flex w-[80vw]  sm:w-[41vw] justify-end">
+        <div className="flex w-[80vw]  sm:w-[37.5vw] justify-end">
           <div className="flex items-center">
             <Link to="/checkout">
               <img
