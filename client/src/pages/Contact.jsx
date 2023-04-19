@@ -2,9 +2,9 @@ import React from 'react';
 
 const Contact = () => {
   return (
-    <div className="h-100vh flex items-center md:h-100vh justify-center">
-      <section className=" text-gray-800 bg-[#111]  h-[87.9vh] w-[100vw] flex justify-center items-center">
-        <div className="block  rounded-lg shadow-lg bg-white w-[95vw]">
+    <div className=" flex items-center justify-center">
+      <section className=" text-gray-800 bg-[#111] lg:h-[86.9vh] md:h-[110vh] sm:h-[120vh] h-[155vh] w-[100vw] flex justify-center items-center">
+        <div className="block  rounded-lg shadow-lg bg-white lg:w-[80vw] w-[95vw]">
           <div className=" flex flex-wrap items-center justify-center">
             <div className="grow-0 shrink-0 basis-auto block w-full lg:flex lg:w-6/12 xl:w-4/12">
               <div className="h-[500px] w-full">

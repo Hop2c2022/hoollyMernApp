@@ -5,6 +5,7 @@
 
 * {
   font-family: 'Alkatra', cursive;
+  scroll-behavior: smooth;
 }
 
 body::-webkit-scrollbar {

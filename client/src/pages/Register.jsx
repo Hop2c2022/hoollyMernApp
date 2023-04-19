@@ -38,7 +38,7 @@ const Register = () => {
       if (err.message == 'Request failed with status code 400') {
         toast.error('User is already registered');
       } else if (name.length == 0 && name.length < 11) {
-        toast.error('Tanii ner hooson bish esvel 10 temdegtees urt baij bolohgui');
+        toast.error(' Your name cannot be empty or longer than 10');
       } else {
         toast.warning('Please enter your email account');
       }
@@ -48,7 +48,7 @@ const Register = () => {
   };
 
   return (
-    <div className="bg-[#111] relative flex flex-col justify-center h-[87.9vh] overflow-hidden ">
+    <div className="bg-[#111] relative flex flex-col justify-center h-[86.9vh] overflow-hidden ">
       <div>
         <ToastContainer />
       </div>

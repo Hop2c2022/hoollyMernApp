@@ -1,24 +1,64 @@
 import React from 'react';
 import FoodCard from '../components/FoodCard';
+import { useNavigate, useLocation } from 'react-router-dom';
+import '../css/testbutton.css';
 
 const ShopDetails = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const reloader = () => {
+    navigate('/shopdetails?breakfast');
+    window.location.reload();
+  };
+
+  const reloader2 = () => {
+    navigate('/shopdetails?lunch');
+    window.location.reload();
+  };
+
+  const reloader3 = () => {
+    navigate('/shopdetails?dinner');
+    window.location.reload();
+  };
+
   return (
-    <div className="bg-[#111]">
-      <div className="flex items-center justify-center space-x-6 h-16 text-white">
-        <button className="flex w-24 h-9 active_menu_tab poppins bg-blue-500 justify-center rounded-full items-center">
-          Breakfast
-        </button>
-        <button className="flex w-24 h-9 menu_tab poppins justify-center rounded-full items-center">Lunch</button>
-        <button className="flex w-24 h-9 menu_tab poppins justify-center rounded-full items-center">Dinner</button>
-      </div>
-      <div className="flex items-center justify-center ">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-7 gap-y-7 mt-12 mb-12 xl:grid-cols-3 ">
-          <FoodCard />
-          <FoodCard />
-          <FoodCard />
-          <FoodCard />
-          <FoodCard />
-          <FoodCard />
+
+    <div className="bg-[#111] h-full">
+      <div
+        className={
+          (location.pathname === '/shopdetails?breakfast') |
+          (location.pathname === '/shopdetails?lunch') |
+          (location.pathname === '/shopdetails?dinner')
+            ? 'bhgu'
+            : ''
+        }
+      >
+        <div className="flex items-center justify-center gap-x-8 h-16 text-white">
+          <button
+            onClick={reloader}
+            className={location.pathname + location.search === '/shopdetails?breakfast' ? 'active' : ''}
+          >
+            Breakfast
+          </button>
+          <button
+            onClick={reloader2}
+            className={location.pathname + location.search === '/shopdetails?lunch' ? 'active' : ''}
+          >
+            Lunch
+          </button>
+          <button
+            onClick={reloader3}
+            className={location.pathname + location.search === '/shopdetails?dinner' ? 'active' : ''}
+          >
+            Dinner
+          </button>
+        </div>
+        <div className="flex items-center justify-center ">
+          <div>
+            <FoodCard />
+          </div>
+
         </div>
       </div>
     </div>

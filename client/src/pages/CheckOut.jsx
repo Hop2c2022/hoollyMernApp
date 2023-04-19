@@ -53,7 +53,7 @@ const CheckOut = () => {
   }
   return (
     <div>
-      <div className="w-full h-full flex flex-col justify-center  gap-x-5 gap-y-5 lg:flex-row p-8 lg:items-center lg:h-[87.7vh]  bg-[#111] text-[#fff] mt-[0.1vh] relative">
+      <div className="w-full h-full flex flex-col justify-center gap-x-5 gap-y-5 lg:flex-row p-8 lg:items-center lg:h-[86.7vh]  bg-[#111] text-[#fff] mt-[0.1vh] relative">
         <div>
           <ToastContainer />
         </div>
@@ -142,12 +142,12 @@ const CheckOut = () => {
             </div>
           </div>
         </form>
-        <div className="border w-full lg:h-[105%] 2xl:h-[85%] flex flex-col border-gray-400 p-5 lg:w-[25rem]">
-          <div>
-            <div className="flex flex-col pb-3">
-              <div className=" gap-x-3 flex">
+        <div className="border w-full lg:h-[97%] 2xl:h-[85%] flex flex-col border-gray-400 p-5 lg:w-[25rem]">
+          <div className="flex flex-col h-full justify-evenly">
+            <div className="flex flex-col h-full justify-evenly">
+              <div className=" gap-x-3 flex ">
                 <img src={food} alt="food" className="object-cover h-[80px] w-[80px]" />
-                <div className="flex justify-between  w-full items-center">
+                <div className="flex justify-between w-full items-center">
                   <div>
                     <h1>Chicken Tikka Kebab</h1>
                     <h1>50$</h1>
@@ -169,13 +169,13 @@ const CheckOut = () => {
                   <button className="text-[25px]">✖</button>
                 </div>
               </div>
-              <div className="h-0.5 w-full bg-gray-300 mt-3 mb-1" />
+              <div className="h-0.5 w-full bg-gray-300 mt-[0.7vh] mb-[0.7vh]" />
             </div>
 
-            <div className="flex flex-col pb-3">
-              <div className=" gap-x-3 flex">
+            <div className="flex flex-col h-full justify-evenly">
+              <div className=" gap-x-3 flex ">
                 <img src={food} alt="food" className="object-cover h-[80px] w-[80px]" />
-                <div className="flex justify-between  w-full items-center">
+                <div className="flex justify-between w-full items-center">
                   <div>
                     <h1>Chicken Tikka Kebab</h1>
                     <h1>50$</h1>
@@ -205,12 +205,12 @@ const CheckOut = () => {
                   <button className="text-[25px]">✖</button>
                 </div>
               </div>
-              <div className="h-0.5 w-full bg-gray-300 mt-3 mb-1" />
+              <div className="h-0.5 w-full bg-gray-300 mt-[0.7vh] mb-[0.7vh]" />
             </div>
-            <div className="flex flex-col pb-3">
-              <div className=" gap-x-3 flex">
+            <div className="flex flex-col h-full justify-evenly">
+              <div className=" gap-x-3 flex ">
                 <img src={food} alt="food" className="object-cover h-[80px] w-[80px]" />
-                <div className="flex justify-between  w-full items-center">
+                <div className="flex justify-between w-full items-center">
                   <div>
                     <h1>Chicken Tikka Kebab</h1>
                     <h1>50$</h1>
@@ -232,11 +232,11 @@ const CheckOut = () => {
                   <button className="text-[25px]">✖</button>
                 </div>
               </div>
-              <div className="h-0.5 w-full bg-gray-300 mt-3" />
+              <div className="h-0.5 w-full bg-gray-300 mt-[0.7vh] mb-[0.7vh]" />
             </div>
           </div>
           <div className="flex flex-col h-[100%] justify-evenly">
-            <div className="pt-1">
+            <div className="">
               <div className="flex justify-between ">
                 <h1 className="text-gray-300">Sub Total</h1>
                 <p>130$</p>
@@ -254,8 +254,8 @@ const CheckOut = () => {
                 <p>54.76$</p>
               </div>
             </div>
-            <div className="h-0.5 w-full bg-gray-300  mb-1" />
-            <div className="flex justify-between pt-2">
+            <div className="h-0.5 w-full bg-gray-300 " />
+            <div className="flex justify-between pt-1">
               <h1 className="text-[17px]">Total</h1>
               <p>432.65$</p>
             </div>
