@@ -23,6 +23,7 @@ const ShopDetails = () => {
   };
 
   return (
+
     <div className="bg-[#111] h-full">
       <div
         className={
@@ -57,6 +58,7 @@ const ShopDetails = () => {
           <div>
             <FoodCard />
           </div>
+
         </div>
       </div>
     </div>
