@@ -28,6 +28,7 @@ const CheckOut = () => {
       });
       console.log(res);
       console.log('success');
+      toast.success('Successfully saved!');
       e.preventDefault();
       localStorage.setItem('number', number);
       localStorage.setItem('dist', dist);
