@@ -27,7 +27,7 @@ const FoodCard = () => {
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-12 mt-12 mb-12 xl:grid-cols-3 ">
       {foods?.map((el) => {
         return (
-          <div className="bg-slay-300 hover:bg-white hover:text-black  text-[#fff] border border-black-100 transition transform duration-700 hover:shadow-xl hover:scale-105 p-4 relative w-96 hover:shadow-gray-400 rounded-lg">
+          <div className="bg-slay-300 hover:bg-white hover:text-black  text-[#fff] border border-black-100 transition transform duration-700 hover:scale-105 p-4 relative w-96 hover:shadow-gray-400 hover:shadow-xl rounded-lg">
             <p className="bg-blue-500 border border-blue-500 rounded-full text-primary text-sm poppins px-4 py-1 inline-block mb-4">
               {el?.type}
             </p>
