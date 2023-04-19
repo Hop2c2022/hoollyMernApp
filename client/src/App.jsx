@@ -29,9 +29,7 @@ const App = () => {
         <Route path="/checkout" element={<CheckOut />} />
         <Route path="/pagenotfound" element={<PageNotFound />} />
         <Route path="/contact" element={<Contact />} />
-
         <Route path="/forgotpass" element={<Forgotpass />} />
-
         <Route path="/create" element={<CreateFood />} />
       </Routes>
       <Footer />

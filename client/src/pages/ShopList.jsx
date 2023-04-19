@@ -5,7 +5,6 @@ import axios from 'axios';
 
 const ShopList = () => {
   const [priceValue, setPriceValue] = useState(1);
-  const [nameValue, setNameValue] = useState('');
   const [addVal, setAddVal] = useState([]);
   let val = window.location.search.split('?')[1];
 
@@ -13,8 +12,6 @@ const ShopList = () => {
     const result = await axios.get(`http://localhost:8000/orders/${val}`);
     setAddVal(result?.data?.result);
   };
-
-  // console.log(addVal);
 
   useEffect(() => {
     add();

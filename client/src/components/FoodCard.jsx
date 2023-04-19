@@ -1,14 +1,22 @@
-import Breakfast from '../assets/Uchral/breakfast.png';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
 
 const FoodCard = () => {
   const navigate = useNavigate();
   const [foods, setFoods] = useState([]);
+  let val = window.location.search.split('?')[1];
   const orders = async () => {
-    const res = await axios.get('http://localhost:8000/orders');
-    setFoods(res?.data?.result);
+    if (val == 'breakfast') {
+      const res = await axios.get('http://localhost:8000/orders/breakfast');
+      setFoods(res?.data?.result);
+    } else if (val == 'dinner') {
+      const res = await axios.get('http://localhost:8000/orders/dinner');
+      setFoods(res?.data?.result);
+    } else {
+      const res = await axios.get('http://localhost:8000/orders/lunch');
+      setFoods(res?.data?.result);
+    }
   };
 
   useState(() => {
@@ -23,10 +31,10 @@ const FoodCard = () => {
             <p className="bg-blue-500 border border-blue-500 rounded-full text-primary text-sm poppins px-4 py-1 inline-block mb-4">
               {el?.type}
             </p>
-            <img className="w-64 mx-auto " src={el?.image} />
+            <img className="w-64 h-64 object-contain mx-auto " src={el?.image} />
             <div className="flex flex-col items-center my-3 space-y-2 gap-3">
               <h1 className=" poppins text-lg">{el?.title}</h1>
-              <p className=" poppins text-sm text-center">{el?.description}</p>
+              <p className=" poppins text-sm text-center">From: {el?.brand}</p>
               <h2 className=" poppins text-2xl font-bold">{el?.price}</h2>
               <button
                 onClick={() => navigate(`/shoplist?${el?._id}`)}
