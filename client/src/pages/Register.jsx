@@ -48,7 +48,7 @@ const Register = () => {
   };
 
   return (
-    <div className="bg-[#111] relative flex flex-col justify-center h-[87.9vh] overflow-hidden ">
+    <div className="bg-[#111] relative flex flex-col justify-center h-[86.8vh] overflow-hidden ">
       <div>
         <ToastContainer />
       </div>
