@@ -12,11 +12,7 @@ const ShopDetails = () => {
         <button className="flex w-24 h-9 menu_tab poppins justify-center rounded-full items-center">Dinner</button>
       </div>
       <div className="flex items-center justify-center ">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-12 mt-12 mb-12 xl:grid-cols-3 ">
-          <FoodCard />
-          <FoodCard />
-          <FoodCard />
-          <FoodCard />
+        <div>
           <FoodCard />
           <FoodCard />
         </div>
