@@ -10,7 +10,7 @@ const Forgotpass = () => {
     setCode(true);
   };
   return (
-    <div className="relative flex flex-col justify-center overflow-hidden h-[87.6vh] mt-[0.2vh] bg-[#111]">
+    <div className="relative flex flex-col justify-center overflow-hidden h-[86.6vh] mt-[0.2vh] bg-[#111]">
       <div className=" p-8 w-3/5 m-auto bg-white shadow-xl max-w-md shadow-blue-100">
         <h1 className="text-2xl font-semibold pt-3">Recover password</h1>
         <form className="mt-6">
