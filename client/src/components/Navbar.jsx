@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 const Navbar = () => {
   const navigate = useNavigate();
   const [loggedIn, setLoggedIn] = useState(false);
+  const [nav, setNav] = useState(true);
 
   const shalgah = () => {
     if (localStorage.getItem('name')) {
@@ -24,6 +25,14 @@ const Navbar = () => {
     navigate('/login');
     window.location.reload();
   };
+  const hamburgerCheck = () => {
+    if (nav != true) {
+      setNav(true);
+    } else {
+      setNav(false);
+    }
+  };
+  console.log(nav);
 
   return (
     <>
@@ -34,7 +43,7 @@ const Navbar = () => {
             <img className="hidden md:flex w-[100%] h-[4.5vh]" src={logo} alt="" />
           </Link>
         </div>
-        <div className="flex md:justify-end sm:w-[45vw] w-[10vw] ">
+        <div className="flex md:justify-end sm:w-[45vw] w-[0vw] ">
           <ul className="space-x-6 hidden sm:flex">
             <li>
               <a href="/">Home</a>
@@ -49,32 +58,41 @@ const Navbar = () => {
               <a href="/contact">Contact</a>
             </li>
           </ul>
-          <div className="flex sm:hidden">
-            <img className="w-[7vw] sm:w-[5vw]" src={menu} alt="" />
-          </div>
         </div>
+        {nav ? (
+          <div className="flex sm:hidden">
+            <img onClick={hamburgerCheck} className=" w-[7vw] sm:w-[5vw]" src={menu} alt="" />
+          </div>
+        ) : (
+          <div className="flex md:justify-end sm:w-[45vw] w-[10vw] overflow-hidden">
+            <ul className=" flex flex-col absolute h-full top-0 backdrop-blur-md w-[95vw] space-y-7 justify-center items-center  text-[#fff] z-50 overflow-hidden">
+              <li>
+                <a href="/">Home</a>
+              </li>
+              <li>
+                <a href="/shopdetails?breakfast">Menu</a>
+              </li>
+              <li>
+                <a href="/aboutus">About</a>
+              </li>
+              <li>
+                <a href="/contact">Contact</a>
+              </li>
+              <div
+                onClick={() => {
+                  window.location.reload();
+                }}
+                className="text-[#fff] cursor-pointer"
+              >
+                ✖
+              </div>
+            </ul>
+          </div>
+        )}
+
         {/* Right Section */}
         <div className="flex w-[80vw]  sm:w-[41vw] justify-end">
           <div className="flex items-center">
-            <div className="lg:flex space-x-1 hidden">
-              <input
-                type="text"
-                className="  block w-full px-4 py-1 text-blue-500 bg-black border border-blue-400 rounded-full focus:border-blue-400 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
-                placeholder="Search..."
-              />
-              <button className="px-2 text-white bg-blue-500 rounded-full ">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="w-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
-              </button>
-            </div>
             <Link to="/checkout">
               <img
                 className="w-[10vw] sm:w-[5vw] 2xl:w-[2vw] md:w-[4vw] lg:w-[3vw]  ml-[0.5vw] h-[4vh] object-contain cursor-pointer"
