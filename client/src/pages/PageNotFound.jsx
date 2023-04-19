@@ -9,7 +9,7 @@ const PageNotFound = () => {
       <p className="text-center text-xl pt-[1%] pb-[1%] text-gray-500">
         Page Cannot be found! we’ll have it figured out in no time.
         <br />
-        Menwhile, cheek out these fresh ideas:
+        Meanwhile, cheek out these fresh ideas:
       </p>
       <Link to="/">
         <button className=" h-12 px-6 tracking-wide text-white font-semibold transition-colors duration-200 transform bg-blue-400 rounded-md hover:bg-blue-600 focus:outline-none">
