@@ -57,8 +57,8 @@ const Navbar = () => {
             </Link>
           </div>
         )}
-        <div className="flex md:justify-end sm:w-[45vw] sm:ml-[2.5vw] ml-0">
-          <ul className="gap-x-8 hidden sm:flex">
+        <div className="flex md:justify-end sm:w-[45vw]md:w-[30vw] sm:ml-[2.5vw] ml-0">
+          <ul className="gap-x-12 hidden sm:flex">
             <li>
               <a href="/">Home</a>
             </li>
@@ -105,7 +105,7 @@ const Navbar = () => {
         )}
 
         {/* Right Section */}
-        <div className="flex w-[80vw]  sm:w-[37.5vw] justify-end">
+        <div className="flex w-[80vw]  sm:w-[62vw] justify-end">
           <div className="flex items-center">
             <Link to="/checkout">
               <img

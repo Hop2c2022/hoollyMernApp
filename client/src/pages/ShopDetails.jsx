@@ -23,7 +23,6 @@ const ShopDetails = () => {
   };
 
   return (
-
     <div className="bg-[#111] h-full">
       <div
         className={
@@ -34,7 +33,7 @@ const ShopDetails = () => {
             : ''
         }
       >
-        <div className="flex items-center justify-center gap-x-8 h-16 text-white">
+        <div className="w-[100vw] flex items-center justify-center gap-x-8 h-16 text-white">
           <button
             onClick={reloader}
             className={location.pathname + location.search === '/shopdetails?breakfast' ? 'active' : ''}
@@ -58,7 +57,6 @@ const ShopDetails = () => {
           <div>
             <FoodCard />
           </div>
-
         </div>
       </div>
     </div>

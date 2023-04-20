@@ -16,7 +16,7 @@ const AboutUs = () => {
         <div className="absolute flex justify-center items-center w-[90vw] h-full sm:h-full xl:h-[88.2vh]  flex-col">
           <h1 className=" text-5xl pb-3 text-white">Our Creators</h1>
           <div className="grid md:grid-cols-4 gap-x-6 lg:gap-x-10  grid-cols-2 mt-5">
-            <div className="mb-6 lg:mb-0 transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 hover:bg-[#111] cursor-pointer duration-700 hover:shadow-blue-300 hover:shadow-xl rounded-xl">
+            <div className="mb-6 lg:mb-0 transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 hover:bg-[#111] cursor-pointer duration-700 hover:shadow-yellow-300 hover:shadow-xl rounded-xl">
               <div className="backdrop-blur text-white block rounded-lg shadow-lg">
                 <div className="relative overflow-hidden bg-no-repeat bg-cover">
                   <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" className="w-full rounded-t-lg" />
