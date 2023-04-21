@@ -4,7 +4,7 @@ import code from '../assets/A.Tengis/codebg.mp4';
 const AboutUs = () => {
   return (
     <div>
-      <div className="flex justify-center items-center w-[100vw] h-full xl:h-[86.9vh] ] flex-col ">
+      <div className="flex justify-center items-center w-[100vw] h-full xl:h-[86.8vh] ] flex-col ">
         <video
           className="object-cover h-[120vh] sm:h-[135vh] md:h-screen  md w-full relative xl:h-full"
           autoPlay
@@ -16,7 +16,7 @@ const AboutUs = () => {
         <div className="absolute flex justify-center items-center w-[90vw] h-full sm:h-full xl:h-[88.2vh]  flex-col">
           <h1 className=" text-5xl pb-3 text-white">Our Creators</h1>
           <div className="grid md:grid-cols-4 gap-x-6 lg:gap-x-10  grid-cols-2 mt-5">
-            <div className="mb-6 lg:mb-0 transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 hover:bg-[#111] cursor-pointer duration-700 hover:shadow-yellow-300 hover:shadow-xl rounded-xl">
+            <div className="mb-6 lg:mb-0 transition ease-in-out delay-200 hover:-translate-y-1 hover:scale-110 hover:bg-[#111] cursor-pointer duration-700 hover:shadow-yellow-300 hover:shadow-xl rounded-xl">
               <div className="backdrop-blur text-white block rounded-lg shadow-lg">
                 <div className="relative overflow-hidden bg-no-repeat bg-cover">
                   <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" className="w-full rounded-t-lg" />
@@ -68,7 +68,7 @@ const AboutUs = () => {
               </div>
             </div>
 
-            <div className="mb-6 lg:mb-0 transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 hover:bg-[#111] cursor-pointer duration-700 hover:shadow-blue-300 hover:shadow-xl rounded-xl">
+            <div className="mb-6 lg:mb-0 transition ease-in-out delay-200 hover:-translate-y-1 hover:scale-110 hover:bg-[#111] cursor-pointer duration-700 hover:shadow-indigo-800 hover:shadow-xl rounded-xl  ">
               <div className="backdrop-blur text-white block rounded-lg shadow-lg">
                 <div className="relative overflow-hidden bg-no-repeat bg-cover">
                   <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" className="w-full rounded-t-lg" />
@@ -120,7 +120,7 @@ const AboutUs = () => {
               </div>
             </div>
 
-            <div className="mb-6 lg:mb-0 transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 hover:bg-[#111] cursor-pointer duration-700 hover:shadow-blue-300 hover:shadow-xl rounded-xl">
+            <div className="mb-6 lg:mb-0 transition ease-in-out delay-200 hover:-translate-y-1 hover:scale-110 hover:bg-[#111] cursor-pointer duration-700 hover:shadow-blue-300 hover:shadow-xl rounded-xl">
               <div className="backdrop-blur text-white block rounded-lg shadow-lg">
                 <div className="relative overflow-hidden bg-no-repeat bg-cover">
                   <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" className="w-full rounded-t-lg" />
@@ -171,7 +171,7 @@ const AboutUs = () => {
                 </div>
               </div>
             </div>
-            <div className="mb-6 lg:mb-0 transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 hover:bg-[#111] cursor-pointer duration-700 hover:shadow-blue-300 hover:shadow-xl rounded-xl">
+            <div className="mb-6 lg:mb-0 transition ease-in-out delay-200 hover:-translate-y-1 hover:scale-110 hover:bg-[#111] cursor-pointer duration-700 hover:shadow-blue-300 hover:shadow-xl rounded-xl">
               <div className="backdrop-blur text-white block rounded-lg shadow-lg">
                 <div className="relative overflow-hidden bg-no-repeat bg-cover">
                   <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" className="w-full rounded-t-lg" />

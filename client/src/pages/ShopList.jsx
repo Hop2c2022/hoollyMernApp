@@ -26,7 +26,7 @@ const ShopList = () => {
   return (
     <div className="bg-[#111]  text-[#fff] flex justify-center">
       <div className="relative top-8">
-        <a className=" poppins  select-none flex items-center space-x-2" href="/shopdetails">
+        <a className=" poppins  select-none flex items-center space-x-2" href="/shopdetails?breakfast">
           <svg
             stroke="currentColor"
             fill="currentColor"
