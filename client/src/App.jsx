@@ -30,7 +30,7 @@ const App = () => {
         <Route path="/pagenotfound" element={<PageNotFound />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/forgotpass" element={<Forgotpass />} />
-        <Route path="/create" element={<CreateFood />} />
+        <Route path="/createmenu" element={<CreateFood />} />
       </Routes>
       <Footer />
     </BrowserRouter>
