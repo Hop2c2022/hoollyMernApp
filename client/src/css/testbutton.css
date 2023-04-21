@@ -66,11 +66,18 @@
 
 .active {
   display: flex;
-  border-radius: 80px;
-  padding: 14px;
-  background-color: #3b5cff;
+  border-bottom: 1px solid #ff0000;
 }
 
 .bhgu {
   display: none;
+}
+
+.bga {
+  display: flex;
+  border-bottom: 1px solid #ff0000;
+}
+
+.none {
+  border: 0;
 }
