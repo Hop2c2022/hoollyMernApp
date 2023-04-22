@@ -19,7 +19,7 @@ const Navbar = () => {
 
   useEffect(() => {
     shalgah();
-  }, shalgah);
+  }, [shalgah]);
 
   const logout = () => {
     localStorage.clear();
@@ -40,8 +40,6 @@ const Navbar = () => {
     }
   }
 
-  console.log(location.search.length);
-
   return (
     <>
       <div
@@ -52,6 +50,7 @@ const Navbar = () => {
           '?lunch' ||
           '?breakfast' ||
           location.pathname === '/contact' ||
+          location.pathname === '/restaurant' ||
           location.search.length == 0
             ? 'none'
             : ''
@@ -60,15 +59,15 @@ const Navbar = () => {
         <div className="flex text-[#fff] bg-[#111] items-center h-[7vh] w-[100vw]">
           {/* Left Section */}
           {New ? (
-            <div className="flex items-center justify-center sm:ml-[4.5vw] w:ml-0">
+            <div className="flex items-center justify-center sm:ml-[5vw] w:ml-0">
               <Link to="/">
-                <img className="hidden md:flex w-[100%] h-[4.5vh]" src={logo} alt="" />
+                <img className="hidden md:flex w-[100%] h-[4.5vh] object-contain" src={logo} alt="" />
               </Link>
             </div>
           ) : (
-            <div className="flex items-center justify-center ml-[4.5vw] ">
+            <div className="flex items-center justify-center ml-[5vw] ">
               <Link to="/">
-                <img className="hidden md:flex w-[100%] h-[4.5vh]" src={logo} alt="" />
+                <img className="hidden md:flex w-[100%] h-[4.5vh]  object-contain" src={logo} alt="" />
               </Link>
             </div>
           )}
@@ -102,6 +101,11 @@ const Navbar = () => {
                   Contact
                 </a>
               </li>
+              <li>
+                <a className={location.pathname === '/restaurant' ? 'bga' : ''} href="/restaurant">
+                  Restaurant
+                </a>
+              </li>
             </ul>
           </div>
           {nav ? (
@@ -123,6 +127,9 @@ const Navbar = () => {
                 <li>
                   <a href="/contact">Contact</a>
                 </li>
+                <li>
+                  <a href="/restaurant">Restaurant</a>
+                </li>
                 <div
                   onClick={() => {
                     window.location.reload();
@@ -136,7 +143,7 @@ const Navbar = () => {
           )}
 
           {/* Right Section */}
-          <div className="flex w-[80vw]  sm:w-[62vw] justify-end">
+          <div className="flex w-[80vw]  justify-end mr-[5vw]">
             <div className="flex items-center">
               <Link to="/checkout">
                 <img

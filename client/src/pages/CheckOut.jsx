@@ -26,8 +26,6 @@ const CheckOut = () => {
         district: dist,
         phoneNumber: number,
       });
-      console.log(res);
-      console.log('success');
       toast.success('Successfully saved!');
       e.preventDefault();
       localStorage.setItem('number', number);
@@ -77,7 +75,7 @@ const CheckOut = () => {
           <h1 className="pb-5 text-[17px]">Shipping Address</h1>
           <div className="flex flex-col gap-x-9 gap-y-2 w-full lg:w-[20vw]">
             <div>
-              <label htmlFor="number" className="block mb-2 text-sm font-medium " maxlength="8">
+              <label htmlFor="number" className="block mb-2 text-sm font-medium " maxLength="8">
                 Phone number
               </label>
               <input
