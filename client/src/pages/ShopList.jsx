@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import Breakfast from '../assets/Uchral/breakfast.png';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
