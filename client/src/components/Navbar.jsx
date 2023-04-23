@@ -19,7 +19,7 @@ const Navbar = () => {
 
   useEffect(() => {
     shalgah();
-  }, shalgah);
+  }, [shalgah]);
 
   const logout = () => {
     localStorage.clear();
@@ -40,9 +40,6 @@ const Navbar = () => {
     }
   }
 
-  console.log(nav);
-  console.log(location.search.length);
-
   return (
     <>
       <div
@@ -59,31 +56,22 @@ const Navbar = () => {
         }
       >
         <div className="flex text-[#fff] bg-[#111] items-center justify-center h-[7vh] w-[100vw] ">
-          <div className=" flex items-center mx-3 w-screen sm:ml-[4.5vw]">
-            {/* Left Section */}
-            {/* {New ? (
-              <div className="flex items-center justify-center sm:ml-[3vw] w:ml-0">
-                <Link to="/">
-                  <img className="hidden md:flex w-[100%] h-[4.5vh]" src={logo} alt="" />
-                </Link>
-              </div>
-            ) : ( */}
-            <div className="flex items-center justify-center ">
+          <div className=" flex items-center mx-3 w-screen ">
+            <div className="flex items-center justify-center sm:ml-[5vw]">
               <Link to="/">
-                <img className="hidden md:flex w-[100%] h-[4.5vh]" src={logo} alt="" />
+                <img className="hidden md:flex w-[100%] h-[4.5vh] object-contain" src={logo} alt="" />
               </Link>
             </div>
-            {/* )} */}
-            <div className="flex md:justify-end sm:w-[45vw]md:w-[30vw] sm:ml-[2.5vw] ml-0">
+            <div className="flex md:justify-end sm:w-[45vw]md:w-[30vw] sm:ml-[2.5vw]">
               <ul className="gap-x-12 hidden sm:flex">
-                <li>
-                  <a href="/" className={location.pathname + location.search === '/' ? 'bga' : ''}>
+                <li className="cursor-pointer">
+                  <p onClick={() => navigate('/')} className={location.pathname + location.search === '/' ? 'bga' : ''}>
                     Home
-                  </a>
+                  </p>
                 </li>
-                <li>
-                  <a
-                    href="/shopdetails?breakfast"
+                <li className="cursor-pointer">
+                  <p
+                    onClick={() => navigate('/shopdetails?breakfast')}
                     className={
                       location.pathname === '/shopdetails' ||
                       (location.search.length == 25 && location.pathname === '/shoplist')
@@ -92,23 +80,34 @@ const Navbar = () => {
                     }
                   >
                     Menu
-                  </a>
+                  </p>
                 </li>
-                <li>
-                  <a href="/aboutus" className={location.pathname + location.search === '/aboutus' ? 'bga' : ''}>
+                <li className="cursor-pointer">
+                  <p
+                    onClick={() => navigate('/aboutus')}
+                    className={location.pathname + location.search === '/aboutus' ? 'bga' : ''}
+                  >
                     About
-                  </a>
+                  </p>
                 </li>
-                <li>
-                  <a className={location.pathname === '/contact' ? 'bga' : ''} href="/contact">
+                <li className="cursor-pointer">
+                  <p onClick={() => navigate('/contact')} className={location.pathname === '/contact' ? 'bga' : ''}>
                     Contact
-                  </a>
+                  </p>
+                </li>
+                <li className="cursor-pointer">
+                  <p
+                    className={location.pathname === '/restaurant' ? 'bga' : ''}
+                    onClick={() => navigate('/restaurant')}
+                  >
+                    Restaurant
+                  </p>
                 </li>
               </ul>
             </div>
             {nav ? (
-              <div className="flex sm:hidden">
-                <img onClick={hamburgerCheck} className=" w-[7vw] sm:w-[5vw]" src={menu} alt="" />
+              <div className="flex sm:hidden ml-[3.5vw]">
+                <img onClick={hamburgerCheck} className="object-contain w-[8vw] sm:w-[5vw]" src={menu} alt="" />
               </div>
             ) : (
               <div className="flex md:justify-end sm:w-[45vw] w-[100vw] overflow-hidden sm:hidden">
@@ -125,6 +124,9 @@ const Navbar = () => {
                   <li>
                     <a href="/contact">Contact</a>
                   </li>
+                  <li>
+                    <a href="/restaurant">Restaurant</a>
+                  </li>
                   <div
                     onClick={() => {
                       window.location.reload();
@@ -138,7 +140,7 @@ const Navbar = () => {
             )}
 
             {/* Right Section */}
-            <div className="flex w-[80vw]  sm:w-[62vw] justify-end">
+            <div className="flex w-[80vw] sm:w-[60vw]  mr-[5vw] justify-end">
               <div className="flex items-center">
                 <Link to="/checkout">
                   <img
@@ -151,6 +153,7 @@ const Navbar = () => {
                   <div className="flex items-center gap-x-2 pl-3">
                     <button
                       type="button"
+                      onClick={() => navigate('/profile')}
                       className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-1.5 text-center ml-2 text-[10px]"
                     >
                       {localStorage.getItem('name')}

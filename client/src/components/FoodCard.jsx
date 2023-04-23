@@ -17,14 +17,20 @@ const FoodCard = () => {
       const res = await axios.get('http://localhost:8000/orders/dinner');
       setFoods(res?.data?.result);
       setLoading(false);
-    } else {
+    } else if (val == 'lunch') {
       const res = await axios.get('http://localhost:8000/orders/lunch');
+      setFoods(res?.data?.result);
+      setLoading(false);
+    } else if (val == 'KFC') {
+      const res = await axios.get('http://localhost:8000/orders/KFC');
+      setFoods(res?.data?.result);
+      setLoading(false);
+    } else if (val == 'Pizza%20Hut') {
+      const res = await axios.get('http://localhost:8000/orders/PizzaHut');
       setFoods(res?.data?.result);
       setLoading(false);
     }
   };
-
-  const urt = foods;
 
   useState(() => {
     orders();
@@ -36,9 +42,12 @@ const FoodCard = () => {
         <Loader />
       ) : (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-12 mt-12 mb-12 xl:grid-cols-3 ">
-          {foods?.map((el) => {
+          {foods?.map((el, key) => {
             return (
-              <div className="bg-slay-300 hover:bg-white hover:text-black  text-[#fff] border border-black-100 transition transform duration-700 hover:scale-105 p-4 relative w-96 hover:shadow-gray-400 hover:shadow-xl rounded-lg">
+              <div
+                key={key}
+                className="bg-slay-300 hover:bg-white hover:text-black  text-[#fff] border border-black-100 transition transform duration-700 hover:scale-105 p-4 relative w-96 hover:shadow-gray-400 hover:shadow-xl rounded-lg"
+              >
                 <p className="bg-blue-500 border border-blue-500 rounded-full text-primary text-sm poppins px-4 py-1 inline-block mb-4">
                   {el?.type}
                 </p>

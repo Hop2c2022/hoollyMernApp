@@ -1,8 +1,7 @@
 const CreateOrder = require("../models/createOrder");
-const a = "type";
 exports.createOrder = async (req, res) => {
   try {
-    const { title, description, price, image, type, brand } = req.body;
+    const { title, description, price, image, type, brand, amount } = req.body;
     const newOrder = await new CreateOrder({
       title,
       description,
@@ -10,6 +9,7 @@ exports.createOrder = async (req, res) => {
       image,
       type,
       brand,
+      amount,
     }).save();
     res.status(201).json(newOrder);
   } catch (err) {
@@ -19,7 +19,7 @@ exports.createOrder = async (req, res) => {
 
 exports.getOrder = async (req, res) => {
   try {
-    let myfunc = { type: "Dinner" };
+    let myfunc = { type: "dinner" };
     const result = await CreateOrder.find(myfunc);
     res.status(200).send({ result });
   } catch (err) {
@@ -29,7 +29,7 @@ exports.getOrder = async (req, res) => {
 
 exports.getOrder2 = async (req, res) => {
   try {
-    let myfunc = { type: "Breakfast" };
+    let myfunc = { type: "breakfast" };
     const result = await CreateOrder.find(myfunc);
     res.status(200).send({ result });
   } catch (err) {
@@ -39,7 +39,27 @@ exports.getOrder2 = async (req, res) => {
 
 exports.getOrder3 = async (req, res) => {
   try {
-    let myfunc = { type: "Lunch" };
+    let myfunc = { type: "lunch" };
+    const result = await CreateOrder.find(myfunc);
+    res.status(200).send({ result });
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+};
+
+exports.getOrder4 = async (req, res) => {
+  try {
+    let myfunc = { brand: "KFC" };
+    const result = await CreateOrder.find(myfunc);
+    res.status(200).send({ result });
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+};
+
+exports.getOrder5 = async (req, res) => {
+  try {
+    let myfunc = { brand: "Pizza hut" };
     const result = await CreateOrder.find(myfunc);
     res.status(200).send({ result });
   } catch (err) {

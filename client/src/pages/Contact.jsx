@@ -11,8 +11,8 @@ const Contact = () => {
                 <iframe
                   src="https://maps.google.com/maps?q=nestacademy&t=&z=13&ie=UTF8&iwloc=&output=embed"
                   className="h-[500px] left-0 top-0  w-full rounded-t-lg lg:rounded-tr-none lg:rounded-bl-lg"
-                  frameborder="0"
-                  allowfullscreen
+                  frameBorder="0"
+                  allowFullScreen
                 ></iframe>
               </div>
             </div>

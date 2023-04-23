@@ -6,7 +6,7 @@ import Companies from '../components/Companies';
 const Home = () => {
   return (
     <>
-      <div className="flex flex-col text-[#fff] bg-[#111] items-center h-[100vh] w-[100vw] md:flex-row sm:h-[100vh] ">
+      <div className="flex flex-col text-[#fff] bg-[#111] items-center h-[100vh] w-[100vw] md:flex-row sm:h-[100vh]">
         {/* Left Section */}
         <div className=" w-[90vw]  ml-[5vw] xl:w-[50vw] md:w-[40vw]">
           <div className="h-[45vh]  flex flex-col  justify-evenly md:h-[30vh]">

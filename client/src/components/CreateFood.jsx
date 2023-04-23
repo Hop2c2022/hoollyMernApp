@@ -1,19 +1,38 @@
 import ButtonComp from './ButtonComp';
 import { useState } from 'react';
 import logo from '../assets/logo.png';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 const CreateFood = () => {
-  const [foodname, setFoodname] = useState('');
+  const [foodName, setFoodName] = useState('');
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState('');
+  const [amount, setAmount] = useState('');
+  const [foodImg, setFoodImg] = useState('');
+  const [foodBrand, setFoodBrand] = useState('');
+  const [type, setType] = useState('');
+
+  const submit = async () => {
+    const res = await axios.post('http://localhost:8000/auth/createOrder', {
+      amount: amount,
+      price: price,
+      title: foodName,
+      image: foodImg,
+      description: description,
+      brand: foodBrand,
+      type: type,
+    });
+    console.log(res);
+  };
 
   return (
     <div className="w-[100vw] flex justify-center items-center bg-[#111]">
       <div className="flex flex-col items-center w-[90vw] min-h-screen pt-6 sm:justify-center sm:pt-0 bg-[#111]">
         <div>
-          <a href="/">
+          <Link to="/">
             <img src={logo} className="h-[50px]" alt="" />
-          </a>
+          </Link>
         </div>
         <div className="w-full px-6 py-4 mt-6 overflow-hidden bg-white shadow-md sm:max-w-md sm:rounded-lg">
           <form>
@@ -26,6 +45,7 @@ const CreateFood = () => {
                   type="text"
                   name="name"
                   placeholder="Chicken"
+                  onChange={(e) => setFoodName(e.target.value)}
                   className="p-2 block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                 />
               </div>
@@ -38,6 +58,7 @@ const CreateFood = () => {
                 <input
                   type="url"
                   name="url"
+                  onChange={(e) => setFoodImg(e.target.value)}
                   placeholder="example.jpg"
                   className="p-2 block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                 />
@@ -51,6 +72,7 @@ const CreateFood = () => {
                 <input
                   name="text"
                   placeholder="Pinecone"
+                  onChange={(e) => setFoodBrand(e.target.value)}
                   className="p-2 block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                 />
               </div>
@@ -63,6 +85,7 @@ const CreateFood = () => {
                 <input
                   name="text"
                   placeholder="9.99$"
+                  onChange={(e) => setPrice(e.target.value)}
                   className="p-2 block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                 />
               </div>
@@ -74,6 +97,7 @@ const CreateFood = () => {
               <div className="flex flex-col items-start">
                 <input
                   name="text"
+                  onChange={(e) => setDescription(e.target.value)}
                   placeholder="exampleInfo"
                   className="p-2 block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                 />
@@ -87,11 +111,23 @@ const CreateFood = () => {
                 <input
                   name="text"
                   placeholder="20"
+                  onChange={(e) => setAmount(e.target.value)}
                   className="p-2 block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                 />
               </div>
             </div>
-            <div className="flex items-center justify-end mt-4">
+            <div className="flex flex-col items-start mt-4">
+              <select
+                className="block appearance-none w-full border border-gray-300 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                id="grid-state"
+                onChange={(e) => setType(e.target.value)}
+              >
+                <option defaultChecked>breakfast</option>
+                <option>lunch</option>
+                <option>dinner</option>
+              </select>
+            </div>
+            <div onClick={submit} className="flex items-center justify-end mt-4">
               <ButtonComp />
             </div>
           </form>
