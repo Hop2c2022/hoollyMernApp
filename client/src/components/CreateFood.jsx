@@ -1,5 +1,5 @@
 import ButtonComp from './ButtonComp';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import logo from '../assets/logo.png';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
@@ -13,6 +13,15 @@ const CreateFood = () => {
   const [foodBrand, setFoodBrand] = useState('');
   const [type, setType] = useState('');
 
+  const info = async () => {
+    const res = await axios.get(`http://localhost:8000/auth/${localStorage.getItem('id')}`);
+    setFoodBrand(res?.data?.data?.company);
+  };
+
+  useEffect(() => {
+    info();
+  }, [info]);
+
   const submit = async () => {
     const res = await axios.post('http://localhost:8000/auth/createOrder', {
       amount: amount,
@@ -20,7 +29,6 @@ const CreateFood = () => {
       title: foodName,
       image: foodImg,
       description: description,
-      brand: foodBrand,
       type: type,
     });
     console.log(res);
@@ -66,13 +74,14 @@ const CreateFood = () => {
             </div>
             <div className="mt-4">
               <label htmlFor="password" className="block text-sm font-medium text-gray-700 undefined">
-                Food Restaurant
+                Food Restaurant Name
               </label>
               <div className="flex flex-col items-start">
                 <input
                   name="text"
                   placeholder="Pinecone"
-                  onChange={(e) => setFoodBrand(e.target.value)}
+                  readOnly
+                  defaultValue={foodBrand}
                   className="p-2 block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                 />
               </div>

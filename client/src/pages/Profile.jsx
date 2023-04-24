@@ -1,13 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const Profile = () => {
+  const [check, setCheck] = useState('');
   const getRandomEmoji = () => {
     const emojis = ['❤️‍🔥', '❤', '🧡', '💛', '💚', '💙', '💜', '🤎', '🖤', '🤍'];
     return emojis[~~(Math.random() * emojis.length)];
   };
   const emoji = getRandomEmoji();
   const navigate = useNavigate();
+
+  const info = async () => {
+    const res = await axios.get(`http://localhost:8000/auth/${localStorage.getItem('id')}`);
+    setCheck(res?.data?.data?.admin);
+  };
+
+  useEffect(() => {
+    info();
+  }, [info]);
 
   return (
     <div className="bg-[#111] w-[100vw]">
@@ -71,12 +82,22 @@ const Profile = () => {
                 </div>
 
                 <div className="mt-6 grid  grid-cols-2 gap-4">
-                  <button
-                    onClick={() => navigate('/admin')}
-                    className="w-full rounded-xl border-2 border-blue-500 bg-white px-3 py-2 font-semibold text-blue-500 hover:bg-blue-500 hover:text-white"
-                  >
-                    Admin
-                  </button>
+                  {check ? (
+                    <button
+                      onClick={() => navigate('/admin')}
+                      className="w-full rounded-xl border-2 border-blue-500 bg-white px-3 py-2 font-semibold text-blue-500 hover:bg-blue-500 hover:text-white"
+                    >
+                      Admin
+                    </button>
+                  ) : (
+                    <button
+                      onClick={() => navigate('/donate')}
+                      className="w-full rounded-xl border-2 border-blue-500 bg-white px-3 py-2 font-semibold text-blue-500 hover:bg-blue-500 hover:text-white"
+                    >
+                      Donate
+                    </button>
+                  )}
+
                   <button className="w-full rounded-xl border-2 border-blue-500 bg-white px-3 py-2 font-semibold text-blue-500 hover:bg-blue-500 hover:text-white">
                     Edit Profile
                   </button>

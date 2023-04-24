@@ -16,6 +16,7 @@ import Restaurant from './pages/Restaurant';
 import CreateRestaurant from './components/CreateRestaurant';
 import Admin from './pages/Admin';
 import Profile from './pages/Profile';
+import LoginCompany from './pages/LoginCompany';
 
 const App = () => {
   return (
@@ -37,6 +38,7 @@ const App = () => {
         <Route path="/restaurant" element={<Restaurant />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/logincompany" element={<LoginCompany />} />
       </Routes>
       <Footer />
     </BrowserRouter>

@@ -8,19 +8,21 @@ import { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const Login = () => {
+const LoginCompany = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [pw, setPw] = useState('');
+  const [company, setCompany] = useState('');
   const [passCheck, setPassCheck] = useState('password');
   const [imgCheck, setImgcheck] = useState('https://static-00.iconduck.com/assets.00/hide-icon-512x484-0ek0p0dz.png');
 
   const log = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:8000/auth/login', {
+      const res = await axios.post('http://localhost:8000/auth/logincompany', {
         email: email,
         password: pw,
+        company: company,
       });
       console.log(res);
       if (res?.status === 200) {
@@ -63,7 +65,6 @@ const Login = () => {
       <div>
         <ToastContainer />
       </div>
-
       <div className=" p-8 w-3/5 m-auto bg-white shadow-xl max-w-md shadow-blue-100">
         <h1 className="text-2xl font-semibold pt-3">Sign In</h1>
         <form className="mt-6">
@@ -98,6 +99,19 @@ const Login = () => {
               </div>
             </div>
           </div>
+          <div className="mb-2 mt-5">
+            <div className="relative w-full">
+              <div className="flex absolute inset-y-0 left-0 items-center pl-3 ">
+                <img src={emailicon} alt="lockicon" />
+              </div>
+
+              <input
+                className="bg-white border border-gray-300 text-black text-sm focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 pr-10 p-2.5 "
+                placeholder="Company name"
+                onChange={(e) => setCompany(e.target.value)}
+              />
+            </div>
+          </div>
 
           <div className="checkbox">
             <input type="checkbox" id="scales" name="scales" className="accent-blue-500 mr-2" />
@@ -111,12 +125,9 @@ const Login = () => {
               Log In
             </button>
           </div>
-          <p className="mt-3 space-x-3 flex text-sm mb-8 font-light text-end justify-end text-gray-700">
+          <p className="mt-3 flex text-sm mb-8 font-light text-end justify-end text-gray-700">
             <Link to="/forgotpass" className=" text-gray-400 hover:underline">
               Forgot password?
-            </Link>
-            <Link to="/logincompany" className=" text-gray-400 hover:underline">
-              Login Company?
             </Link>
           </p>
         </form>
@@ -139,4 +150,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LoginCompany;

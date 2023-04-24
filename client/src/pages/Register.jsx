@@ -14,6 +14,7 @@ const Register = () => {
   const [pw, setPw] = useState('');
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
+  const [company, setCompany] = useState('');
 
   const reg = async (e) => {
     try {
@@ -25,6 +26,7 @@ const Register = () => {
           name: name,
           password: pw,
           email: email,
+          company: company,
         });
         console.log(res);
         if (res?.status === 201) {
@@ -95,6 +97,20 @@ const Register = () => {
                 className="bg-white border border-gray-300 text-black text-sm focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 "
                 placeholder="Password"
                 onChange={(e) => setPw(e.target.value)}
+              />
+            </div>
+          </div>
+          <div className="mb-2">
+            <div className="relative w-full">
+              <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+                <img src={usericon} alt="usericon" />
+              </div>
+
+              <input
+                type="text"
+                className="bg-white border border-gray-300 text-black text-sm focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 "
+                placeholder="Company (optional)"
+                onChange={(e) => setCompany(e.target.value)}
               />
             </div>
           </div>
