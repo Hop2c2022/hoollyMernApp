@@ -5,18 +5,68 @@ import arrowright from '../assets/A.Tengis/ArrowRight.png';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useEffect } from 'react';
 
 const CheckOut = () => {
+  const chingelteidata = [
+    '1r horoo',
+    '2r horoo',
+    '3r horoo',
+    '4r horoo',
+    '5r horoo',
+    '6r horoo',
+    '7r horoo',
+    '8r horoo',
+    '9r horoo',
+    '10r horoo',
+    '11r horoo',
+    '12r horoo',
+    '13r horoo',
+  ];
+  const Baganuurdata = [
+    '1r horoo',
+    '2r horoo',
+    '3r horoo',
+    '4r horoo',
+    '5r horoo',
+    '6r horoo',
+    '7r horoo',
+    '8r horoo',
+    '9r horoo',
+    '10r horoo',
+    '11r horoo',
+    '12r horoo',
+    '13r horoo',
+    '14r horoo',
+  ];
+  const bagakhangaidata = [
+    '1r horoo',
+    '2r horoo',
+    '3r horoo',
+    '4r horoo',
+    '5r horoo',
+    '6r horoo',
+    '7r horoo',
+    '8r horoo',
+    '9r horoo',
+    '10r horoo',
+    '11r horoo',
+    '12r horoo',
+    '13r horoo',
+    '14r horoo',
+  ];
   const [number, setNumber] = useState('');
-  const [dist, setDist] = useState('');
+  const [dist, setDist] = useState();
+  const [street, setStreet] = useState('');
   const [fullInfo, setFullInfo] = useState('');
   const [qr, setQR] = useState(false);
   let [count, setCount] = useState(1);
+  const [distCheck, setDistCheck] = useState([]);
 
   const save = async (e) => {
     if (number.length === 0) {
       toast.warning('Enter your phone number please.');
-    } else if (number.length < 8) {
+    } else if (number.length != 8) {
       toast.error('Your phone number must be 8 digits!');
     } else if (dist == '') {
       toast.warning('Choose your District please.');
@@ -38,18 +88,29 @@ const CheckOut = () => {
     setQR(true);
   };
 
-  function incrementCount() {
-    count = count + 1;
-    setCount(count);
-  }
-  function decrementCount() {
-    if (count == 1) {
-    } else {
-      count = count - 1;
-    }
+  const exceptThisSymbols = ['e', 'E', '+', '-', '.'];
 
-    setCount(count);
-  }
+  useEffect(() => {
+    if (dist === 'Chingeltei') {
+      setDistCheck(chingelteidata);
+    } else if (dist == 'Baganuur') {
+      setDistCheck(Baganuurdata);
+    } else if (dist == 'Baganuur') {
+      setDistCheck(Baganuurdata);
+    } else if (dist == 'Baganuur') {
+      setDistCheck(Baganuurdata);
+    } else if (dist == 'Baganuur') {
+      setDistCheck(Baganuurdata);
+    } else if (dist == 'Baganuur') {
+      setDistCheck(Baganuurdata);
+    } else if (dist == 'Baganuur') {
+      setDistCheck(Baganuurdata);
+    } else if (dist == 'Baganuur') {
+      setDistCheck(Baganuurdata);
+    }
+  }, [dist]);
+
+  console.log(street);
   return (
     <div>
       <div className="w-full h-full flex flex-col justify-center gap-x-5 gap-y-5 lg:flex-row p-8 lg:items-center lg:h-[86.7vh]  bg-[#111] text-[#fff] mt-[0.1vh] relative">
@@ -84,6 +145,7 @@ const CheckOut = () => {
                 className="bg-black border border-gray-400 text-gray-200 text-sm w-full p-2.5 0"
                 placeholder="* * * * * * *"
                 required
+                onKeyDown={(e) => exceptThisSymbols.includes(e.key) && e.preventDefault()}
                 onChange={(e) => setNumber(e.target.value)}
               />
             </div>
@@ -96,15 +158,41 @@ const CheckOut = () => {
                 id="cities"
                 className="bg-black border border-gray-400 text-gray-200 text-sm p-2.5 0 w-[100%]"
               >
-                <option defaultChecked>Choose a district</option>
-                <option value="Chingeltei">Chingeltei</option>
-                <option value="Sukhbaatar">Sukhbaatar</option>
-                <option value="Songinokhairkhan">Songinokhairkhan</option>
-                <option value="Khan-Uul">Khan-Uul</option>
-                <option value="Baynzurkh">Baynzurkh</option>
-                <option value="Bayngok">Bayngol</option>
-                <option value="Nalaih">Nalaih</option>
+                <option defaultChecked>Choose a Districts</option>
+                <option value="Baganuur">Багануур дүүрэг</option>
+                <option value="Bagahangai">Багахангай дүүрэг</option>
+                <option value="Bayngol">Баянгол дүүрэг</option>
+                <option value="Baynzurkh">Баянзүрх дүүрэг</option>
+                <option value="Nalaih">Налайх дүүрэг</option>
+                <option value="Songinhairhan">Сонгинохайрхан дүүрэг</option>
+                <option value="Sukhbaatar">Сүхбаатар дүүрэг</option>
+                <option value="Khanuul">Хан-уул дүүрэг</option>
+                <option value="Chingeltei">Чингэлтэй дүүрэг</option>
               </select>
+            </div>
+            <div>
+              <label htmlFor="company" className="block mb-2 text-sm font-medium ">
+                Street
+              </label>
+              {dist ? (
+                <select
+                  onChange={(e) => setStreet(e.target.value)}
+                  id="street"
+                  className="bg-black border border-gray-400 text-gray-200 text-sm p-2.5 0 w-[100%]"
+                >
+                  {distCheck?.map((el) => {
+                    return <option key={el}>{el}</option>;
+                  })}
+                </select>
+              ) : (
+                <select
+                  disabled
+                  id="street"
+                  className="bg-black border border-gray-400 text-gray-200 text-sm p-2.5 0 w-[100%]"
+                >
+                  <option defaultChecked>Choose a Street</option>;
+                </select>
+              )}
             </div>
             <div>
               <label htmlFor="company" className="block mb-2 text-sm font-medium ">
@@ -150,19 +238,21 @@ const CheckOut = () => {
                   <div>
                     <h1>Chicken Tikka Kebab</h1>
                     <h1>50$</h1>
-                    <div className=" h-[20px] w-[5vw] " htmlFor="custom-input-number">
-                      <div className="flex flex-row h-[25px] w-[80px] xl:w-[80px] rounded-full relative bg-transparent mt-1 border border-gray-500">
-                        <button className=" border-gray-500 text-gray-600  hover:bg-slate-800 h-full w-20 rounded-full cursor-pointer outline-none">
-                          <span className="m-auto text-2xl font-thin">−</span>
-                        </button>
-                        <input
-                          type="number"
-                          className="outline-none focus:outline-none text-center w-full 0 font-semibold text-md  md:text-basecursor-default flex items-center bg-black"
-                        ></input>
-                        <button className=" border-gray-500 text-gray-600  hover:bg-slate-800 h-full w-20 rounded-full cursor-pointer outline-none">
-                          <span className="m-auto text-2xl font-thin">+</span>
-                        </button>
-                      </div>
+
+                    <div>
+                      <select
+                        id="cities"
+                        className="bg-black border border-gray-400 text-gray-200 text-sm 0 w-[40%] pl-2 h-[30px] rounded-lg"
+                      >
+                        <option defaultChecked value="1">
+                          1
+                        </option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                      </select>
                     </div>
                   </div>
                   <button className="text-[25px]">✖</button>
@@ -178,27 +268,21 @@ const CheckOut = () => {
                   <div>
                     <h1>Chicken Tikka Kebab</h1>
                     <h1>50$</h1>
-                    <div className=" h-[20px] w-[5vw] " htmlFor="custom-input-number">
-                      <div className="flex flex-row h-[25px] w-[80px] xl:w-[80px] rounded-full relative bg-transparent mt-1 border border-gray-500">
-                        <button
-                          className=" border-gray-500 text-gray-600  hover:bg-slate-800 h-full w-20 rounded-full cursor-pointer outline-none"
-                          onClick={decrementCount}
-                        >
-                          <span className="m-auto text-2xl font-thin">−</span>
-                        </button>
-                        {/* <input
-                          type="number"
-                          className="outline-none focus:outline-none text-center w-full 0 font-semibold text-md  md:text-basecursor-default flex items-center bg-black"
-                        > */}
-                        <p>{count}</p>
-                        {/* </input> */}
-                        <button
-                          className=" border-gray-500 text-gray-600  hover:bg-slate-800 h-full w-20 rounded-full cursor-pointer outline-none"
-                          onClick={incrementCount}
-                        >
-                          <span className="m-auto text-2xl font-thin">+</span>
-                        </button>
-                      </div>
+
+                    <div>
+                      <select
+                        id="cities"
+                        className="bg-black border border-gray-400 text-gray-200 text-sm 0 w-[40%] pl-2 h-[30px] rounded-lg"
+                      >
+                        <option defaultChecked value="1">
+                          1
+                        </option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                      </select>
                     </div>
                   </div>
                   <button className="text-[25px]">✖</button>
@@ -213,19 +297,21 @@ const CheckOut = () => {
                   <div>
                     <h1>Chicken Tikka Kebab</h1>
                     <h1>50$</h1>
-                    <div className=" h-[20px] w-[5vw] " htmlFor="custom-input-number">
-                      <div className="flex flex-row h-[25px] w-[80px] xl:w-[80px] rounded-full relative bg-transparent mt-1 border border-gray-500">
-                        <button className=" border-gray-500 text-gray-600  hover:bg-slate-800 h-full w-20 rounded-full cursor-pointer outline-none">
-                          <span className="m-auto text-2xl font-thin">−</span>
-                        </button>
-                        <input
-                          type="number"
-                          className="outline-none focus:outline-none text-center w-full 0 font-semibold text-md  md:text-basecursor-default flex items-center bg-black"
-                        ></input>
-                        <button className=" border-gray-500 text-gray-600  hover:bg-slate-800 h-full w-20 rounded-full cursor-pointer outline-none">
-                          <span className="m-auto text-2xl font-thin">+</span>
-                        </button>
-                      </div>
+
+                    <div>
+                      <select
+                        id="cities"
+                        className="bg-black border border-gray-400 text-gray-200 text-sm 0 w-[40%] pl-2 h-[30px] rounded-lg"
+                      >
+                        <option defaultChecked value="1">
+                          1
+                        </option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                      </select>
                     </div>
                   </div>
                   <button className="text-[25px]">✖</button>
