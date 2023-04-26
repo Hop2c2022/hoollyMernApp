@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react';
 import logo from '../assets/logo.png';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const CreateFood = () => {
   const [foodName, setFoodName] = useState('');
@@ -22,20 +24,35 @@ const CreateFood = () => {
     info();
   }, [info]);
 
+  console.log(foodName);
+
   const submit = async () => {
-    const res = await axios.post('http://localhost:8000/auth/createOrder', {
-      amount: amount,
-      price: price,
-      title: foodName,
-      image: foodImg,
-      description: description,
-      type: type,
-    });
-    console.log(res);
+    try {
+      const res = await axios.post('http://localhost:8000/auth/createOrder', {
+        amount: amount,
+        price: price,
+        title: foodName,
+        image: foodImg,
+        description: description,
+        type: type,
+        brand: foodBrand,
+        restaurantId: localStorage.getItem('id'),
+      });
+      console.log(res);
+      if (res?.status == 201) {
+        toast.success('Successfully created');
+      }
+    } catch (err) {
+      console.log(err);
+      toast.warning('Please write all field');
+    }
   };
 
   return (
     <div className="w-[100vw] flex justify-center items-center bg-[#111]">
+      <div>
+        <ToastContainer />
+      </div>
       <div className="flex flex-col items-center w-[90vw] min-h-screen pt-6 sm:justify-center sm:pt-0 bg-[#111]">
         <div>
           <Link to="/">
@@ -131,7 +148,7 @@ const CreateFood = () => {
                 id="grid-state"
                 onChange={(e) => setType(e.target.value)}
               >
-                <option defaultChecked>breakfast</option>
+                <option defaultValue={'breakfast'}>breakfast</option>
                 <option>lunch</option>
                 <option>dinner</option>
               </select>

@@ -10,17 +10,22 @@ const RestaurantComp = () => {
     setData(res?.data?.result);
   };
 
+  const visit = async () => {
+    const res = await axios.get(`http://localhost:8000/orders/${localStorage.getItem('id')}}`);
+    console.log(res);
+  };
+
   useEffect(() => {
     restaurant();
   }, [restaurant]);
 
   return (
-    <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-12 gap-y-12 lg:grid-cols-4 mb-12 mt-12">
-      {data?.map((el, key) => {
+    <div className=" grid grid-cols-1 sm:grid-cols-2  gap-x-12 gap-y-12 lg:grid-cols-3 xl:grid-cols-4 mb-12 mt-12">
+      {data?.map((el) => {
         return (
           <div
-            key={key}
-            className="block  bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] h-[55vh] w-[90vw] sm:w-[42vw] md:w-[27vw] lg:w-[20vw] sm:h-[50vh] transition transform duration-700 hover:scale-105 cursor-pointer hover:text-white hover:bg-[#000] hover:shadow-gray-400 hover:shadow-xl rounded-lg"
+            key={el?._id}
+            className="block  bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] h-[40vh] w-[90vw] sm:w-[42vw]  lg:w-[28vw] xl:w-[20vw] xl:h-[45vh] transition transform duration-700 hover:scale-105 cursor-pointer hover:text-white hover:bg-[#000] hover:shadow-gray-400 hover:shadow-xl rounded-lg"
           >
             <a href="#!" data-te-ripple-init data-te-ripple-color="light">
               <img className="rounded-t-lg h-[23vh] w-full object-cover" src={el?.brandImg} alt="" />
@@ -36,7 +41,7 @@ const RestaurantComp = () => {
                 className="inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
                 data-te-ripple-init
                 data-te-ripple-color="light"
-                onClick={() => navigate(`/shopdetails?${el?.brandName}`)}
+                onClick={() => navigate(`/shopdetails?${el?._id}`)}
               >
                 Visit
               </button>

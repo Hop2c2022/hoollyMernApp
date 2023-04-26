@@ -19,15 +19,9 @@ const UserSchema = new mongoose.Schema(
       required: true,
       minlength: 8,
     },
-    phoneNumber: {
+    company: {
       type: String,
-      minlength: 8,
-    },
-    district: {
-      type: String,
-    },
-    fullInformation: {
-      type: String,
+      minlength: 1,
     },
     admin: {
       type: Boolean,

@@ -33,7 +33,7 @@ const ShopDetails = () => {
             : ''
         }
       >
-        <div className="w-[100vw] flex items-center justify-center gap-x-[2vw] h-16 text-white">
+        <div className="w-[100vw] flex items-center justify-center gap-x-[2.5vw] h-16 text-white">
           <button
             onClick={reloader}
             className={location.pathname + location.search === '/shopdetails?breakfast' ? 'active' : ''}

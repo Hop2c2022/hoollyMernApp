@@ -1,5 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import menuBg from '../assets/Khash-Erdene/menuBg.jpg';
+import restaurantBg from '../assets/Khash-Erdene/restaurantBg.jpg';
 
 const Admin = () => {
   const navigate = useNavigate();
@@ -9,11 +11,7 @@ const Admin = () => {
         <div className=" grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-12 mb-12 mt-12">
           <div className="block  bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] w-[90vw] md:w-[40vw] h-[75vh] transition transform duration-700 hover:scale-105 cursor-pointer hover:text-white hover:bg-[#000] hover:shadow-gray-400 hover:shadow-xl rounded-lg">
             <a href="#!" data-te-ripple-init data-te-ripple-color="light">
-              <img
-                className="rounded-t-lg h-[45vh] w-full object-cover"
-                src="https://rare-gallery.com/uploads/posts/524790-blur-close.jpg"
-                alt=""
-              />
+              <img className="rounded-t-lg h-[45vh] w-full object-cover" src={menuBg} alt="" />
             </a>
             <div className="p-6">
               <h5 className="mb-2 text-xl font-medium leading-tight  ">Create Menu</h5>
@@ -34,11 +32,7 @@ const Admin = () => {
           </div>
           <div className="block  bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] w-[90vw] md:w-[40vw] h-[75vh] transition transform duration-700 hover:scale-105 cursor-pointer hover:text-white hover:bg-[#000] hover:shadow-gray-400 hover:shadow-xl rounded-lg">
             <a href="#!" data-te-ripple-init data-te-ripple-color="light">
-              <img
-                className="rounded-t-lg h-[45vh] w-full object-cover"
-                src="https://images.wallpaperscraft.com/image/single/desk_restaurant_wine_glasses_80713_3840x2160.jpg"
-                alt=""
-              />
+              <img className="rounded-t-lg h-[45vh] w-full object-cover" src={restaurantBg} alt="" />
             </a>
             <div className="p-6">
               <h5 className="mb-2 text-xl font-medium leading-tight  ">Create Restaurant</h5>

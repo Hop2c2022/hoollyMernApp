@@ -1,7 +1,16 @@
 const CreateOrder = require("../models/createOrder");
 exports.createOrder = async (req, res) => {
   try {
-    const { title, description, price, image, type, brand, amount } = req.body;
+    const {
+      title,
+      description,
+      price,
+      image,
+      type,
+      brand,
+      amount,
+      restaurantId,
+    } = req.body;
     const newOrder = await new CreateOrder({
       title,
       description,
@@ -10,6 +19,7 @@ exports.createOrder = async (req, res) => {
       type,
       brand,
       amount,
+      restaurantId,
     }).save();
     res.status(201).json(newOrder);
   } catch (err) {
@@ -47,30 +57,10 @@ exports.getOrder3 = async (req, res) => {
   }
 };
 
-exports.getOrder4 = async (req, res) => {
-  try {
-    let myfunc = { brand: "KFC" };
-    const result = await CreateOrder.find(myfunc);
-    res.status(200).send({ result });
-  } catch (err) {
-    res.status(500).send(err.message);
-  }
-};
-
-exports.getOrder5 = async (req, res) => {
-  try {
-    let myfunc = { brand: "Pizza hut" };
-    const result = await CreateOrder.find(myfunc);
-    res.status(200).send({ result });
-  } catch (err) {
-    res.status(500).send(err.message);
-  }
-};
-
 exports.getOrderById = async (req, res) => {
   try {
     const { id } = req.params;
-    const result = await CreateOrder.findById({ _id: id });
+    const result = await CreateOrder.find({ restaurantId: id });
     res.status(200).send({ result });
   } catch (err) {
     res.status(500).send(err.message);
