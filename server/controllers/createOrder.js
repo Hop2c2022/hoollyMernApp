@@ -57,7 +57,17 @@ exports.getOrder3 = async (req, res) => {
   }
 };
 
-exports.getOrderById = async (req, res) => {
+exports.getOrderByIdFood = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const result = await CreateOrder.findById({ _id: id });
+    res.status(200).send({ result });
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+};
+
+exports.getOrderByIdRest = async (req, res) => {
   try {
     const { id } = req.params;
     const result = await CreateOrder.find({ restaurantId: id });

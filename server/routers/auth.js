@@ -3,14 +3,14 @@ const {
   login,
   register,
   getUser,
-  loginCompany,
+  restaurantCheck,
 } = require("../controllers/auth.js");
 
 const router = express.Router();
 
 router.post("/auth/register", register);
 router.post("/auth/login", login);
-router.post("/auth/logincompany", loginCompany);
 router.get("/auth/:id", getUser);
+router.patch("/restaurant/:id", restaurantCheck);
 
 module.exports = router;

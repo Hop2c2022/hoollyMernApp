@@ -10,6 +10,7 @@ const ShopList = () => {
   const add = async () => {
     const result = await axios.get(`http://localhost:8000/orders/${val}`);
     setAddVal(result?.data?.result);
+    // console.log(result);
   };
 
   useEffect(() => {

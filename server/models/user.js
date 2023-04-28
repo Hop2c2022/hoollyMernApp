@@ -19,11 +19,11 @@ const UserSchema = new mongoose.Schema(
       required: true,
       minlength: 8,
     },
-    company: {
-      type: String,
-      minlength: 1,
-    },
     admin: {
+      type: Boolean,
+      default: false,
+    },
+    restaurantCreated: {
       type: Boolean,
       default: false,
     },

@@ -30,7 +30,7 @@ const FoodCard = () => {
       setFoods(res?.data?.result);
       setLoading(false);
     } else {
-      const res = await axios.get(`http://localhost:8000/orders/${val}`);
+      const res = await axios.get(`http://localhost:8000/restaurants/${val}`);
       setFoods(res?.data?.result);
       setLoading(false);
     }
