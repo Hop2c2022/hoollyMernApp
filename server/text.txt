@@ -1,0 +1,8 @@
+// amount
+// id
+// total amount 
+// phoneNumber
+// district
+// street
+// full Info
+// orderSuccess = false 

@@ -3,15 +3,30 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 const ShopList = () => {
+  const currentUrl = window.location.href;
+  const url = currentUrl.slice(-24);
   const [priceValue, setPriceValue] = useState(1);
   const [addVal, setAddVal] = useState([]);
+  const userid = localStorage.getItem('id');
+
   let val = window.location.search.split('?')[1];
 
   const add = async () => {
     const result = await axios.get(`http://localhost:8000/orders/${val}`);
     setAddVal(result?.data?.result);
-    // console.log(result);
+    setPrice(result?.data?.result?.price);
   };
+
+  const send = async () => {
+    await axios.post(`http://localhost:8000/auth/postCheck/${url}`, {
+      userId: userid,
+      price: lastprice,
+    });
+  };
+
+  const [price, setPrice] = useState();
+
+  const [num, setNum] = useState(1);
 
   useEffect(() => {
     add();
@@ -20,8 +35,16 @@ const ShopList = () => {
   const minusValue = () => {
     if (priceValue != 1) {
       setPriceValue(priceValue - 1);
+      setNum(num - 1);
     }
   };
+
+  const plusValue = () => {
+    setPriceValue(priceValue + 1);
+    setNum(num + 1);
+  };
+
+  const lastprice = price * num;
 
   return (
     <div className="bg-[#111]  text-[#fff] flex justify-center">
@@ -52,7 +75,7 @@ const ShopList = () => {
               {addVal?.description}
             </p>
             <div className="flex items-center justify-center md:justify-start lg:justify-start space-x-6 pt-8">
-              <h1 className="text-3xl font-bold    poppins select-none">{addVal?.price}</h1>
+              <h1 className="text-3xl font-bold poppins select-none">{price * num}$</h1>
               <div className="flex items-center border border-gray-200 px-4 py-2 space-x-6 rounded-full">
                 <svg
                   onClick={minusValue}
@@ -69,7 +92,7 @@ const ShopList = () => {
                 </svg>
                 <div className="flex ">{priceValue}</div>
                 <svg
-                  onClick={() => setPriceValue(priceValue + 1)}
+                  onClick={plusValue}
                   stroke="currentColor"
                   fill="currentColor"
                   strokeWidth="0"
@@ -88,23 +111,26 @@ const ShopList = () => {
               </div>
             </div>
             <div className="mt-8 flex items-center justify-center md:justify-start lg:justify-start">
-              <Link to="/checkout">
-                <button className="flex items-center space-x-3 bg-blue-500 px-6 py-3 text-white poppins rounded-full ring-blue-300 focus:outline-none focus:ring-4 transform transition duration-700 hover:scale-105">
-                  <svg
-                    stroke="currentColor"
-                    fill="currentColor"
-                    strokeWidth="0"
-                    viewBox="0 0 16 16"
-                    className="text-xl"
-                    height="1em"
-                    width="1em"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"></path>
-                  </svg>
-                  <span>Add to Cart</span>
-                </button>
-              </Link>
+              {/* <Link> */}
+              <button
+                className="flex items-center space-x-3 bg-blue-500 px-6 py-3 text-white poppins rounded-full ring-blue-300 focus:outline-none focus:ring-4 transform transition duration-700 hover:scale-105"
+                onClick={send}
+              >
+                <svg
+                  stroke="currentColor"
+                  fill="currentColor"
+                  strokeWidth="0"
+                  viewBox="0 0 16 16"
+                  className="text-xl"
+                  height="1em"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"></path>
+                </svg>
+                <span>Add to Cart</span>
+              </button>
+              {/* </Link> */}
               <p className="ml-3 font-bold text-cyan-300">(Remain: {addVal?.amount})</p>
             </div>
           </div>
