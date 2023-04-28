@@ -9,6 +9,9 @@ const OrderInfoSchema = new mongoose.Schema(
     district: {
       type: String,
     },
+    street: {
+      type: String,
+    },
     fullInformation: {
       type: String,
     },

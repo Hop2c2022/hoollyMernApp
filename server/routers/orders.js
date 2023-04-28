@@ -1,8 +1,8 @@
 const express = require("express");
-const { postOrder } = require("../controllers/orders.js");
+const { postCheckout } = require("../controllers/postCheckout.js");
 
 const router = express.Router();
 
-router.post("/auth/orders", postOrder);
+router.post("/auth/postCheck/:foodId", postCheckout);
 
 module.exports = router;

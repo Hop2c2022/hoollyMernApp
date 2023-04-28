@@ -21,7 +21,7 @@ import {
 const CheckOut = () => {
   const [number, setNumber] = useState('');
   const [dist, setDist] = useState();
-  const [street, setStreet] = useState('');
+  const [strt, setStreet] = useState();
   const [fullInfo, setFullInfo] = useState('');
   const [qr, setQR] = useState(false);
   let [count, setCount] = useState(1);
@@ -38,13 +38,16 @@ const CheckOut = () => {
       const res = await axios.post(`http://localhost:8000/auth/orderInfo`, {
         fullInformation: fullInfo,
         district: dist,
+        street: strt,
         phoneNumber: number,
       });
       toast.success('Successfully saved!');
       e.preventDefault();
       localStorage.setItem('number', number);
       localStorage.setItem('dist', dist);
+      localStorage.setItem('street', strt);
       localStorage.setItem('fullInfo', fullInfo);
+      console.log(res);
     }
   };
 
@@ -76,7 +79,6 @@ const CheckOut = () => {
     }
   }, [dist]);
 
-  console.log(street);
   return (
     <div>
       <div className="w-full h-full flex flex-col justify-center gap-x-5 gap-y-5 lg:flex-row p-8 lg:items-center lg:h-[86.7vh]  bg-[#111] text-[#fff] mt-[0.1vh] relative">
@@ -173,16 +175,6 @@ const CheckOut = () => {
               />
             </div>
 
-            <div className="col-span-full">
-              <h1>Billing Address</h1>
-              <div className="checkbox">
-                <input type="checkbox" id="scales" name="scales" className="accent-blue-500  hover:bg-blue-600 mr-2 " />
-                <label htmlFor="scales" className="text-gray-300 text-sm">
-                  Same as shipping address
-                </label>
-              </div>
-            </div>
-
             <div className="flex mt-5 gap-y-3 flex-col">
               <button
                 type="button"
@@ -195,7 +187,7 @@ const CheckOut = () => {
             </div>
           </div>
         </form>
-        <div className="border w-full lg:h-[97%] 2xl:h-[85%] flex flex-col border-gray-400 p-5 lg:w-[25rem]">
+        <div className="border w-full lg:h-[90%] 2xl:h-[78%] flex flex-col border-gray-400 p-5 lg:w-[25rem]">
           <div className="flex flex-col h-full justify-evenly">
             <div className="flex flex-col h-full justify-evenly">
               <div className=" gap-x-3 flex ">
@@ -294,15 +286,7 @@ const CheckOut = () => {
               </div>
               <div className="flex justify-between">
                 <h1 className="text-gray-300">Shipping</h1>
-                <p>Free</p>
-              </div>
-              <div className="flex justify-between">
-                <h1 className="text-gray-300">Discount</h1>
-                <p>25%</p>
-              </div>
-              <div className="flex justify-between">
-                <h1 className="text-gray-300">Tax</h1>
-                <p>54.76$</p>
+                <p>5'000₮</p>
               </div>
             </div>
             <div className="h-0.5 w-full bg-gray-300 " />
