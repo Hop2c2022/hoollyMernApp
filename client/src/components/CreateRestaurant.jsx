@@ -3,6 +3,8 @@ import logo from '../assets/logo.png';
 import ButtonComp from './ButtonComp';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const CreateRestaurant = () => {
   const [brandName, setBrandName] = useState('');
   const [brandImg, setBrandImg] = useState('');
@@ -11,19 +13,32 @@ const CreateRestaurant = () => {
   const [openTime, setOpenTime] = useState('');
   const [closeTime, setCloseTime] = useState('');
   const create = async () => {
-    const res = await axios.post('http://localhost:8000/restaurant', {
-      openTime: openTime,
-      closeTime: closeTime,
-      description: desc,
-      brandName: brandName,
-      brandImg: brandImg,
-      restDay: restDay,
-    });
-    console.log(res);
+    try {
+      const res = await axios.post('http://localhost:8000/restaurant', {
+        openTime: openTime,
+        closeTime: closeTime,
+        description: desc,
+        brandName: brandName,
+        brandImg: brandImg,
+        restDay: restDay,
+      });
+      if (res?.status == 201) {
+        await axios.patch(`http://localhost:8000/restaurant/${localStorage.getItem('id')}`, {
+          restaurantCreated: true,
+          company: brandName,
+        });
+        toast.success('Successfully created');
+      }
+    } catch (err) {
+      toast.warning('Please write all field');
+    }
   };
 
   return (
     <div className="w-[100vw] flex justify-center items-center bg-[#111]">
+      <div>
+        <ToastContainer />
+      </div>
       <div className="flex flex-col items-center w-[90vw] min-h-screen pt-6 sm:justify-center sm:pt-0 bg-[#111]">
         <div>
           <Link to="/">

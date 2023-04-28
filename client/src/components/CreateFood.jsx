@@ -43,7 +43,6 @@ const CreateFood = () => {
         toast.success('Successfully created');
       }
     } catch (err) {
-      console.log(err);
       toast.warning('Please write all field');
     }
   };

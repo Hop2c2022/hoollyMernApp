@@ -52,9 +52,10 @@ exports.getUser = async (req, res) => {
 exports.restaurantCheck = async (req, res) => {
   try {
     const { id } = req.params;
-    const { restaurantCreated } = req.body;
+    const { restaurantCreated, company } = req.body;
     const data = await User.findByIdAndUpdate(id, {
       restaurantCreated: restaurantCreated,
+      company: company,
     });
     res.status(200).json({ data });
   } catch (err) {
