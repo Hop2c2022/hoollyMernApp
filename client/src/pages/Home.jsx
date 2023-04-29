@@ -2,8 +2,10 @@ import foodCover from '../assets/Khash-Erdene/foodCover.png';
 import AboutUsFood from '../components/AboutUsFood';
 import WhyChooseUs from '../components/WhyChooseUs';
 import Companies from '../components/Companies';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
+  const navigate = useNavigate();
   return (
     <>
       <div className="flex flex-col text-[#fff] bg-[#111] items-center h-[100vh] w-[100vw] md:flex-row sm:h-[100vh]">
@@ -15,7 +17,10 @@ const Home = () => {
             <p className=" text-[16px] ">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Varius sed pharetra dictum neque massa congue
             </p>
-            <button className="bg-blue-500 w-[40vw] md:w-[16vw] mt-[1vh] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+            <button
+              onClick={() => navigate('/shopdetails?breakfast')}
+              className="bg-blue-500 w-[40vw] md:w-[16vw] mt-[1vh] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
+            >
               See Menu
             </button>
           </div>

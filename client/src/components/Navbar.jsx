@@ -62,7 +62,7 @@ const Navbar = () => {
                 <img className="hidden md:flex w-[100%] h-[4.5vh] object-contain" src={logo} alt="" />
               </Link>
             </div>
-            <div className="flex md:justify-end sm:w-[45vw]md:w-[30vw] sm:ml-[2.5vw]">
+            <div className="flex md:justify-end sm:w-[45vw]md:w-[30vw] sm:ml-[2.5vw] ">
               <ul className="gap-x-12 hidden sm:flex">
                 <li className="cursor-pointer">
                   <p onClick={() => navigate('/')} className={location.pathname + location.search === '/' ? 'bga' : ''}>
@@ -84,10 +84,10 @@ const Navbar = () => {
                 </li>
                 <li className="cursor-pointer">
                   <p
-                    onClick={() => navigate('/aboutus')}
-                    className={location.pathname + location.search === '/aboutus' ? 'bga' : ''}
+                    className={location.pathname === '/restaurant' ? 'bga' : ''}
+                    onClick={() => navigate('/restaurant')}
                   >
-                    About
+                    Restaurants
                   </p>
                 </li>
                 <li className="cursor-pointer">
@@ -97,10 +97,10 @@ const Navbar = () => {
                 </li>
                 <li className="cursor-pointer">
                   <p
-                    className={location.pathname === '/restaurant' ? 'bga' : ''}
-                    onClick={() => navigate('/restaurant')}
+                    onClick={() => navigate('/aboutus')}
+                    className={location.pathname + location.search === '/aboutus' ? 'bga' : ''}
                   >
-                    Restaurant
+                    AboutUs
                   </p>
                 </li>
               </ul>
