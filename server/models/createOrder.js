@@ -2,10 +2,6 @@ const mongoose = require("mongoose");
 
 const CreateOrderSchema = new mongoose.Schema(
   {
-    restaurantId: {
-      type: String,
-      required: true,
-    },
     title: {
       type: String,
       minlength: 1,

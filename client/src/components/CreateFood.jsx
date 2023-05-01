@@ -36,7 +36,6 @@ const CreateFood = () => {
         description: description,
         type: type,
         brand: foodBrand,
-        restaurantId: localStorage.getItem('id'),
       });
       console.log(res);
       if (res?.status == 201) {
