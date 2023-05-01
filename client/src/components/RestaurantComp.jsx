@@ -10,14 +10,11 @@ const RestaurantComp = () => {
     setData(res?.data?.result);
   };
 
-  const visit = async () => {
-    const res = await axios.get(`http://localhost:8000/orders/${localStorage.getItem('id')}}`);
-    console.log(res);
-  };
-
   useEffect(() => {
     restaurant();
   }, [restaurant]);
+
+  // console.log(data);
 
   return (
     <div className=" grid grid-cols-1 sm:grid-cols-2  gap-x-12 gap-y-12 lg:grid-cols-3 xl:grid-cols-4 mb-12 mt-12">
@@ -41,7 +38,7 @@ const RestaurantComp = () => {
                 className="inline-block rounded bg-primary px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
                 data-te-ripple-init
                 data-te-ripple-color="light"
-                onClick={() => navigate(`/shopdetails?${el?._id}`)}
+                onClick={() => navigate(`/shopdetails?${el?.brandName}`)}
               >
                 Visit
               </button>

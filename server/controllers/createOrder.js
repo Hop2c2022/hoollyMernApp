@@ -27,7 +27,7 @@ exports.createOrder = async (req, res) => {
   }
 };
 
-exports.getOrder = async (req, res) => {
+exports.getDinner = async (req, res) => {
   try {
     let myfunc = { type: "dinner" };
     const result = await CreateOrder.find(myfunc);
@@ -37,7 +37,7 @@ exports.getOrder = async (req, res) => {
   }
 };
 
-exports.getOrder2 = async (req, res) => {
+exports.getBreakfast = async (req, res) => {
   try {
     let myfunc = { type: "breakfast" };
     const result = await CreateOrder.find(myfunc);
@@ -47,7 +47,7 @@ exports.getOrder2 = async (req, res) => {
   }
 };
 
-exports.getOrder3 = async (req, res) => {
+exports.getLunch = async (req, res) => {
   try {
     let myfunc = { type: "lunch" };
     const result = await CreateOrder.find(myfunc);
@@ -67,10 +67,10 @@ exports.getOrderByIdFood = async (req, res) => {
   }
 };
 
-exports.getOrderByIdRest = async (req, res) => {
+exports.getRestraurants = async (req, res) => {
   try {
-    const { id } = req.params;
-    const result = await CreateOrder.find({ restaurantId: id });
+    let { myfunc } = req.params;
+    const result = await CreateOrder.find({ brand: myfunc });
     res.status(200).send({ result });
   } catch (err) {
     res.status(500).send(err.message);

@@ -21,16 +21,8 @@ const FoodCard = () => {
       const res = await axios.get('http://localhost:8000/orders/lunch');
       setFoods(res?.data?.result);
       setLoading(false);
-    } else if (val == 'KFC') {
-      const res = await axios.get('http://localhost:8000/orders/KFC');
-      setFoods(res?.data?.result);
-      setLoading(false);
-    } else if (val == 'Pizza%20Hut') {
-      const res = await axios.get('http://localhost:8000/orders/PizzaHut');
-      setFoods(res?.data?.result);
-      setLoading(false);
     } else {
-      const res = await axios.get(`http://localhost:8000/restaurants/${val}`);
+      const res = await axios.get(`http://localhost:8000/restaurant/${val}`);
       setFoods(res?.data?.result);
       setLoading(false);
     }

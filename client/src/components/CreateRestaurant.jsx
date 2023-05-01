@@ -28,6 +28,7 @@ const CreateRestaurant = () => {
           company: brandName,
         });
         toast.success('Successfully created');
+        (window.location = '/'), 3000;
       }
     } catch (err) {
       toast.warning('Please write all field');

@@ -1,20 +1,20 @@
 const express = require("express");
 const {
   createOrder,
-  getOrder,
-  getOrder3,
-  getOrder2,
-  getOrderByIdRest,
+  getBreakfast,
+  getDinner,
+  getLunch,
   getOrderByIdFood,
+  getRestraurants,
 } = require("../controllers/createOrder");
 
 const router = express.Router();
 
 router.post("/auth/createOrder", createOrder);
-router.get("/orders/dinner", getOrder);
-router.get("/orders/breakfast", getOrder2);
-router.get("/orders/lunch", getOrder3);
-router.get("/restaurants/:id", getOrderByIdRest);
+router.get("/orders/dinner", getDinner);
+router.get("/orders/breakfast", getBreakfast);
+router.get("/orders/lunch", getLunch);
 router.get("/orders/:id", getOrderByIdFood);
+router.get("/restaurant/:myfunc", getRestraurants);
 
 module.exports = router;

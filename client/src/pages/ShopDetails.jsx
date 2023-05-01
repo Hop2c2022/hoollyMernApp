@@ -1,4 +1,3 @@
-import React from 'react';
 import FoodCard from '../components/FoodCard';
 import { useNavigate, useLocation } from 'react-router-dom';
 import '../css/testbutton.css';

@@ -21,6 +21,7 @@ const UserSchema = new mongoose.Schema(
     },
     company: {
       type: String,
+      unique: true,
     },
     admin: {
       type: Boolean,

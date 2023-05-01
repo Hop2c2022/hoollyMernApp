@@ -44,6 +44,7 @@ const CreateFood = () => {
       }
     } catch (err) {
       toast.warning('Please write all field');
+      console.log(err);
     }
   };
 
@@ -109,7 +110,7 @@ const CreateFood = () => {
               <div className="flex flex-col items-start">
                 <input
                   name="number"
-                  placeholder="9.99$"
+                  placeholder="Number"
                   onChange={(e) => setPrice(e.target.value)}
                   className="p-2 block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                 />
