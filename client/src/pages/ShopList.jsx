@@ -6,7 +6,6 @@ const ShopList = () => {
   const url = currentUrl.slice(-24);
   const [priceValue, setPriceValue] = useState(1);
   const [addVal, setAddVal] = useState([]);
-  const userid = localStorage.getItem('id');
 
   let val = window.location.search.split('?')[1];
 
@@ -14,12 +13,15 @@ const ShopList = () => {
     const result = await axios.get(`http://localhost:8000/orders/${val}`);
     setAddVal(result?.data?.result);
     setPrice(result?.data?.result?.price);
+    // console.log(result);
   };
 
   const send = async () => {
-    await axios.post(`http://localhost:8000/auth/postCheck/${url}`, {
-      userId: userid,
+    await axios.post(`http://localhost:8000/auth/postCheck/${val}`, {
+      userId: localStorage.getItem('id'),
       price: lastprice,
+      title: addVal?.title,
+      image: addVal?.image,
     });
   };
 
@@ -39,8 +41,10 @@ const ShopList = () => {
   };
 
   const plusValue = () => {
-    setPriceValue(priceValue + 1);
-    setNum(num + 1);
+    if (addVal?.amount != priceValue) {
+      setPriceValue(priceValue + 1);
+      setNum(num + 1);
+    }
   };
 
   const lastprice = price * num;

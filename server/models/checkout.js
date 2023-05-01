@@ -13,6 +13,13 @@ const CheckoutSchema = new mongoose.Schema(
     price: {
       type: Number,
     },
+    title: {
+      type: String,
+    },
+    image: {
+      type: String,
+      required: true,
+    },
   },
   { timestamps: true }
 );
