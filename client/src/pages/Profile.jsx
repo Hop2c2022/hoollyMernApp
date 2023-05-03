@@ -1,9 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Profile = () => {
   const [check, setCheck] = useState('');
+  const [showModal, setShowModal] = React.useState(false);
+  const [newName, setNewName] = useState('');
+  const [userInfo, setUserInfo] = useState('');
+
   const getRandomEmoji = () => {
     const emojis = ['❤️‍🔥', '❤', '🧡', '💛', '💚', '💙', '💜', '🤎', '🖤', '🤍'];
     return emojis[~~(Math.random() * emojis.length)];
@@ -14,6 +20,26 @@ const Profile = () => {
   const info = async () => {
     const res = await axios.get(`http://localhost:8000/auth/${localStorage.getItem('id')}`);
     setCheck(res?.data?.data?.admin);
+    const res2 = await axios.get(`http://localhost:8000/auth/${localStorage.getItem('id')}`);
+    setUserInfo(res2?.data?.data?.name);
+  };
+
+  const edit = async () => {
+    if (newName.length != 0) {
+      const res = await axios.patch(`http://localhost:8000/auth/${localStorage.getItem('id')}`, {
+        name: newName,
+      });
+      if (res?.status == 200) {
+        toast.success('Successfully changed.');
+        setTimeout(() => {
+          window.location.reload();
+        }, 1500);
+      } else {
+        toast.warning('Error.');
+      }
+    } else {
+      toast.warning('Length must be higher than zero.');
+    }
   };
 
   useEffect(() => {
@@ -22,6 +48,9 @@ const Profile = () => {
 
   return (
     <div className="bg-[#111] w-[100vw]">
+      <div>
+        <ToastContainer />
+      </div>
       <div>
         <div className=" ml-[5vw] mr-[5vw] flex h-[86.9vh] w-[90vw] items-center justify-center ">
           <div className="w-full rounded-xl p-12 shadow-2xl shadow-blue-200 md:w-8/12 lg:w-6/12 bg-white">
@@ -60,7 +89,7 @@ const Profile = () => {
 
               <div className="col-span-1 lg:col-span-9">
                 <div className="justify-center lg:justify-normal lg:text-left flex space-x-2">
-                  <h2 className="text-2xl font-bold text-zinc-700">{localStorage.getItem('name')}</h2>
+                  <h2 className="text-2xl font-bold text-zinc-700">{userInfo}</h2>
                   <h2 className="text-2xl font-bold text-zinc-700">{emoji}</h2>
                 </div>
 
@@ -91,16 +120,71 @@ const Profile = () => {
                     </button>
                   ) : (
                     <button
-                      onClick={() => navigate('/donate')}
+                      onClick={() => navigate('/contact')}
                       className="w-full rounded-xl border-2 border-blue-500 bg-white px-3 py-2 font-semibold text-blue-500 hover:bg-blue-500 hover:text-white"
                     >
-                      Donate
+                      Contact
                     </button>
                   )}
 
-                  <button className="w-full rounded-xl border-2 border-blue-500 bg-white px-3 py-2 font-semibold text-blue-500 hover:bg-blue-500 hover:text-white">
-                    Edit Profile
-                  </button>
+                  <div>
+                    <button
+                      className="w-[15vw] bg-orange-500 text-white active:bg-red-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                      type="button"
+                      onClick={() => setShowModal(true)}
+                    >
+                      Edit Name
+                    </button>
+                    {showModal ? (
+                      <div>
+                        <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
+                          <div className="relative w-auto my-6 mx-auto max-w-3xl">
+                            {/*content*/}
+                            <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+                              {/*header*/}
+                              <div className="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
+                                <h3 className="text-3xl font-semibold">Here you change name</h3>
+                                <button
+                                  className="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
+                                  onClick={() => setShowModal(false)}
+                                >
+                                  <span className="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
+                                    ×
+                                  </span>
+                                </button>
+                              </div>
+                              {/*body*/}
+                              <div className="relative p-6 flex-auto">
+                                <input
+                                  className="bg-white border border-gray-300 text-black text-sm focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 pr-10 p-2.5 "
+                                  placeholder="Enter your new name"
+                                  onChange={(e) => setNewName(e.target.value)}
+                                />
+                              </div>
+                              {/*footer*/}
+                              <div className="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
+                                <button
+                                  className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                                  type="button"
+                                  onClick={() => setShowModal(false)}
+                                >
+                                  Close
+                                </button>
+                                <button
+                                  className="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                                  type="button"
+                                  onClick={edit}
+                                >
+                                  Save Changes
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
+                      </div>
+                    ) : null}
+                  </div>
                 </div>
               </div>
             </div>

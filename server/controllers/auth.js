@@ -62,3 +62,16 @@ exports.restaurantCheck = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
+
+exports.editName = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { name } = req.body;
+    const data = await User.findByIdAndUpdate(id, {
+      name: name,
+    });
+    res.status(200).json({ data });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};

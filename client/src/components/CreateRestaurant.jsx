@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import logo from '../assets/logo.png';
 import ButtonComp from './ButtonComp';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 const CreateRestaurant = () => {
+  const navigate = useNavigate();
   const [brandName, setBrandName] = useState('');
   const [brandImg, setBrandImg] = useState('');
   const [restDay, setRestDay] = useState('');
@@ -28,7 +29,9 @@ const CreateRestaurant = () => {
           company: brandName,
         });
         toast.success('Successfully created');
-        (window.location = '/'), 3000;
+        setTimeout(() => {
+          navigate('/');
+        }, 2000);
       }
     } catch (err) {
       toast.warning('Please write all field');

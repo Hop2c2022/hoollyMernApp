@@ -29,8 +29,6 @@ const Login = () => {
           window.location.reload();
         }, 1600);
         toast.success('Succesfully login!');
-        localStorage.setItem('name', res?.data?.user?.name);
-        localStorage.setItem('email', res?.data?.user?.email);
         localStorage.setItem('id', res?.data?.user?._id);
       }
     } catch (err) {

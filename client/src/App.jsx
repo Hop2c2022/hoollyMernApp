@@ -16,6 +16,7 @@ import Restaurant from './pages/Restaurant';
 import CreateRestaurant from './components/CreateRestaurant';
 import Admin from './pages/Admin';
 import Profile from './pages/Profile';
+import Test0 from './components/Test0';
 
 const App = () => {
   return (

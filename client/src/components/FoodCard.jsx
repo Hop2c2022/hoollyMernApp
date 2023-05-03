@@ -41,8 +41,9 @@ const FoodCard = () => {
           {foods?.map((el, key) => {
             return (
               <div
+                onClick={() => navigate(`/shoplist?${el?._id}`)}
                 key={key}
-                className="bg-slay-300 hover:bg-white hover:text-black  text-[#fff] border border-black-100 transition transform duration-700 hover:scale-105 p-4 relative w-[90vw] lg:w-[28vw] xl:w-96 hover:shadow-gray-400 hover:shadow-xl rounded-lg"
+                className="bg-slay-300 hover:bg-white hover:text-black cursor-pointer  text-[#fff] border border-black-100 transition transform duration-700 hover:scale-105 p-4 relative w-[90vw] lg:w-[28vw] xl:w-96 hover:shadow-gray-400 hover:shadow-xl rounded-lg"
               >
                 <p className="bg-blue-500 border border-blue-500 rounded-full text-primary text-sm poppins px-4 py-1 inline-block mb-4">
                   {el?.type}

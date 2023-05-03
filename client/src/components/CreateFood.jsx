@@ -24,8 +24,6 @@ const CreateFood = () => {
     info();
   }, [info]);
 
-  console.log(foodName);
-
   const submit = async () => {
     try {
       const res = await axios.post('http://localhost:8000/auth/createOrder', {
@@ -42,8 +40,11 @@ const CreateFood = () => {
         toast.success('Successfully created');
       }
     } catch (err) {
-      toast.warning('Please write all field');
-      console.log(err);
+      if (err?.response?.data?.error == 'CreateOrder validation failed: brand: Path `brand` is required.') {
+        toast.warning('Create Restaurant first');
+      } else {
+        toast.warning('Please write other fields');
+      }
     }
   };
 

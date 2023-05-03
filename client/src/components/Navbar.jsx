@@ -4,15 +4,19 @@ import menu from '../assets/Khash-Erdene/menu.png';
 import { Link } from 'react-router-dom';
 import logo from '../assets/logo.png';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const Navbar = () => {
   const navigate = useNavigate();
   const [loggedIn, setLoggedIn] = useState(false);
   const [nav, setNav] = useState(true);
   const [New, setNew] = useState(false);
+  const [userInfo, setUserInfo] = useState('');
 
-  const shalgah = () => {
-    if (localStorage.getItem('name')) {
+  const shalgah = async () => {
+    const res = await axios.get(`http://localhost:8000/auth/${localStorage.getItem('id')}`);
+    setUserInfo(res?.data?.data?.name);
+    if (localStorage.getItem('id')) {
       setLoggedIn(true);
     }
   };
@@ -156,7 +160,7 @@ const Navbar = () => {
                       onClick={() => navigate('/profile')}
                       className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-1.5 text-center ml-2 text-[10px]"
                     >
-                      {localStorage.getItem('name')}
+                      {userInfo}
                     </button>
                     <button
                       onClick={logout}

@@ -37,14 +37,12 @@ const Register = () => {
     } catch (err) {
       if (err.message == 'Request failed with status code 400') {
         toast.error('User is already registered');
-      } else if (name.length == 0 && name.length < 11) {
-        toast.error(' Your name cannot be empty or longer than 10 letters');
+      } else if (name.length == 0 || name.length > 12) {
+        toast.error(' Your name cannot be empty or longer than 12 letters');
       } else {
         toast.warning('Please enter your email account');
       }
     }
-
-    // console.log(res);
   };
 
   return (
