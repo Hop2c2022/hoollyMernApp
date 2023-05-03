@@ -24,8 +24,9 @@ const CheckOut = () => {
   const [strt, setStreet] = useState();
   const [fullInfo, setFullInfo] = useState('');
   const [qr, setQR] = useState(false);
-  let [count, setCount] = useState(1);
   const [distCheck, setDistCheck] = useState([]);
+  const [orders, setOrders] = useState([]);
+  const [final, setFinal] = useState([]);
 
   const save = async (e) => {
     if (number.length === 0) {
@@ -78,6 +79,25 @@ const CheckOut = () => {
       setDistCheck(KhanUulData);
     }
   }, [dist]);
+
+  const dataRetr = async () => {
+    try {
+      const res = await axios.get(`http://localhost:8000/users/${localStorage.getItem('id')}`);
+      setOrders(res?.data);
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
+
+  useEffect(() => {
+    dataRetr();
+  }, [dataRetr]);
+
+  // orders.map((el) => {
+  //   console.log(el?.title);
+  // });
+
+  // console.log(orders?.);
 
   return (
     <div>
@@ -188,96 +208,29 @@ const CheckOut = () => {
           </div>
         </form>
         <div className="border w-full lg:h-[90%] 2xl:h-[78%] flex flex-col border-gray-400 p-5 lg:w-[25rem]">
-          <div className="flex flex-col h-full justify-evenly">
-            <div className="flex flex-col h-full justify-evenly">
-              <div className=" gap-x-3 flex ">
-                <img src={food} alt="food" className="object-cover h-[80px] w-[80px]" />
-                <div className="flex justify-between w-full items-center">
-                  <div>
-                    <h1>Chicken Tikka Kebab</h1>
-                    <h1>50$</h1>
-
-                    <div>
-                      <select
-                        id="cities"
-                        className="bg-black border border-gray-400 text-gray-200 text-sm 0 w-[40%] pl-2 h-[30px] rounded-lg"
-                      >
-                        <option defaultChecked value="1">
-                          1
-                        </option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                      </select>
+          <div className="overflow-y-scroll h-[55vh]">
+            {orders?.map((el) => {
+              return (
+                <div key={el?._id} className="flex flex-col h-[102px] ">
+                  <div className="flex flex-col ">
+                    <div className=" gap-x-3 flex object-cover">
+                      <img src={el?.image} alt="food" className=" h-[80px] w-[80px]" />
+                      <div className="flex justify-between w-full items-center">
+                        <div>
+                          <h1>{el?.title}</h1>
+                          <h1>{el?.price}$</h1>
+                          <p>3 pieces</p>
+                        </div>
+                        <button className="text-[25px]">✖</button>
+                      </div>
                     </div>
+                    <div className="h-0.5 w-full bg-gray-300 mt-[0.7vh] mb-[0.7vh]" />
                   </div>
-                  <button className="text-[25px]">✖</button>
                 </div>
-              </div>
-              <div className="h-0.5 w-full bg-gray-300 mt-[0.7vh] mb-[0.7vh]" />
-            </div>
-
-            <div className="flex flex-col h-full justify-evenly">
-              <div className=" gap-x-3 flex ">
-                <img src={food} alt="food" className="object-cover h-[80px] w-[80px]" />
-                <div className="flex justify-between w-full items-center">
-                  <div>
-                    <h1>Chicken Tikka Kebab</h1>
-                    <h1>50$</h1>
-
-                    <div>
-                      <select
-                        id="cities"
-                        className="bg-black border border-gray-400 text-gray-200 text-sm 0 w-[40%] pl-2 h-[30px] rounded-lg"
-                      >
-                        <option defaultChecked value="1">
-                          1
-                        </option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                      </select>
-                    </div>
-                  </div>
-                  <button className="text-[25px]">✖</button>
-                </div>
-              </div>
-              <div className="h-0.5 w-full bg-gray-300 mt-[0.7vh] mb-[0.7vh]" />
-            </div>
-            <div className="flex flex-col h-full justify-evenly">
-              <div className=" gap-x-3 flex ">
-                <img src={food} alt="food" className="object-cover h-[80px] w-[80px]" />
-                <div className="flex justify-between w-full items-center">
-                  <div>
-                    <h1>Chicken Tikka Kebab</h1>
-                    <h1>50$</h1>
-
-                    <div>
-                      <select
-                        id="cities"
-                        className="bg-black border border-gray-400 text-gray-200 text-sm 0 w-[40%] pl-2 h-[30px] rounded-lg"
-                      >
-                        <option defaultChecked value="1">
-                          1
-                        </option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                      </select>
-                    </div>
-                  </div>
-                  <button className="text-[25px]">✖</button>
-                </div>
-              </div>
-              <div className="h-0.5 w-full bg-gray-300 mt-[0.7vh] mb-[0.7vh]" />
-            </div>
+              );
+            })}
           </div>
+          <div className="h-0.5 w-full bg-gray-300 mt-[0.7vh] mb-[0.7vh]" />
           <div className="flex flex-col h-[100%] justify-evenly">
             <div className="">
               <div className="flex justify-between ">
