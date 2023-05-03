@@ -1,4 +1,5 @@
 const Checkout = require("../models/checkout");
+const mongoose = require("mongoose");
 
 exports.postCheckout = async (req, res) => {
   try {
@@ -35,19 +36,19 @@ exports.checkoutGetController = async (req, res) => {
   }
 };
 
-exports.userDelete = async (req) => {
-  const { userId } = req.params;
-  const _id = new mongoose.Types.ObjectId(userId);
-  return await User.findByIdAndDelete({ _id }, { new: true });
-};
+// exports.userDelete = async (req) => {
+//   const { Id } = req.params;
+//   const _id = new mongoose.Types.ObjectId(userId);
+//   return await User.findByIdAndDelete({ _id }, { new: true });
+// };
 
-exports.userDeleteController = async (req, res) => {
+exports.checkoutDeleteController = async (req, res) => {
   try {
-    const { userId } = req.params;
-    const _id = new mongoose.Types.ObjectId(userId);
-    return await User.findByIdAndDelete({ _id }, { new: true });
+    const { Id } = req.params;
+    const _id = new mongoose.Types.ObjectId(Id);
+    await Checkout.findByIdAndDelete({ _id }, { new: true });
     res.status(201).send("Successfully deleted user!");
   } catch (error) {
-    return res.status(400).send("Cannot delete user!");
+    return res.status(400).json(error.message);
   }
 };

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import right from '../assets/A.Tengis/rightarrow.png';
-import food from '../assets/A.Tengis/food.png';
 import arrowright from '../assets/A.Tengis/ArrowRight.png';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
@@ -26,7 +25,7 @@ const CheckOut = () => {
   const [qr, setQR] = useState(false);
   const [distCheck, setDistCheck] = useState([]);
   const [orders, setOrders] = useState([]);
-  const [final, setFinal] = useState([]);
+  const [value, setValue] = useState('');
 
   const save = async (e) => {
     if (number.length === 0) {
@@ -93,11 +92,14 @@ const CheckOut = () => {
     dataRetr();
   }, [dataRetr]);
 
-  // orders.map((el) => {
-  //   console.log(el?.title);
-  // });
-
-  // console.log(orders?.);
+  const fooddelete = async (_id) => {
+    try {
+      await axios.delete(`http://localhost:8000/checkdel/${_id}`);
+      toast.success('Successfully deleted');
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
 
   return (
     <div>
@@ -194,17 +196,6 @@ const CheckOut = () => {
                 onChange={(e) => setFullInfo(e.target.value)}
               />
             </div>
-
-            <div className="flex mt-5 gap-y-3 flex-col">
-              <button
-                type="button"
-                className="flex items-center w-full p-3 border border-gray-300 bg-blue-400  hover:bg-blue-600 font-semibold text-white justify-center"
-                onClick={save}
-              >
-                <p> Save</p>
-                <img src={right} alt="googleicon" />
-              </button>
-            </div>
           </div>
         </form>
         <div className="border w-full lg:h-[90%] 2xl:h-[78%] flex flex-col border-gray-400 p-5 lg:w-[25rem]">
@@ -221,7 +212,9 @@ const CheckOut = () => {
                           <h1>{el?.price}$</h1>
                           <p>3 pieces</p>
                         </div>
-                        <button className="text-[25px]">✖</button>
+                        <button value={el?._id} className="text-[25px]" onClick={() => fooddelete(el?._id)}>
+                          ✖
+                        </button>
                       </div>
                     </div>
                     <div className="h-0.5 w-full bg-gray-300 mt-[0.7vh] mb-[0.7vh]" />

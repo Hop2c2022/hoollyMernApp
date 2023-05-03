@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ShopList = () => {
   const currentUrl = window.location.href;
-  const url = currentUrl.slice(-24);
   const [priceValue, setPriceValue] = useState(1);
   const [addVal, setAddVal] = useState([]);
 
@@ -23,6 +24,7 @@ const ShopList = () => {
       title: addVal?.title,
       image: addVal?.image,
     });
+    toast.success('Successfully added to card!');
   };
 
   const [price, setPrice] = useState();
@@ -51,6 +53,9 @@ const ShopList = () => {
 
   return (
     <div className="bg-[#111]  text-[#fff] flex justify-center">
+      <div>
+        <ToastContainer />
+      </div>
       <div className="relative top-8">
         <a className=" poppins  select-none flex items-center space-x-2" href="/shopdetails?breakfast">
           <svg
@@ -114,7 +119,6 @@ const ShopList = () => {
               </div>
             </div>
             <div className="mt-8 flex items-center justify-center md:justify-start lg:justify-start">
-              {/* <Link> */}
               <button
                 className="flex items-center space-x-3 bg-blue-500 px-6 py-3 text-white poppins rounded-full ring-blue-300 focus:outline-none focus:ring-4 transform transition duration-700 hover:scale-105"
                 onClick={send}
@@ -133,7 +137,7 @@ const ShopList = () => {
                 </svg>
                 <span>Add to Cart</span>
               </button>
-              {/* </Link> */}
+
               <p className="ml-3 font-bold text-cyan-300">(Remain: {addVal?.amount})</p>
             </div>
           </div>
