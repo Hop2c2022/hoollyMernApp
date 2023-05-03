@@ -1,23 +1,23 @@
-const mongoose = require("mongoose");
+// const mongoose = require("mongoose");
 
-const OrderInfoSchema = new mongoose.Schema(
-  {
-    phoneNumber: {
-      type: String,
-      minlength: 7,
-    },
-    district: {
-      type: String,
-    },
-    street: {
-      type: String,
-    },
-    fullInformation: {
-      type: String,
-    },
-  },
-  { timestamps: true }
-);
+// const OrderInfoSchema = new mongoose.Schema(
+//   {
+//     phoneNumber: {
+//       type: String,
+//       minlength: 7,
+//     },
+//     district: {
+//       type: String,
+//     },
+//     street: {
+//       type: String,
+//     },
+//     fullInformation: {
+//       type: String,
+//     },
+//   },
+//   { timestamps: true }
+// );
 
-const OrderInfo = mongoose.model("OrderInfo", OrderInfoSchema);
-module.exports = OrderInfo;
+// const OrderInfo = mongoose.model("OrderInfo", OrderInfoSchema);
+// module.exports = OrderInfo;

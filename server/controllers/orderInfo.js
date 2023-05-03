@@ -1,4 +1,4 @@
-const OrderInfo = require("../models/orderInfo");
+const Checkout = require("../models/checkout.js");
 
 exports.postInfoOrder = async (req, res) => {
   try {
