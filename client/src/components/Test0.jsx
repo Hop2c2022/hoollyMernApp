@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Test0 = () => {
   return (
@@ -64,6 +65,7 @@ const Test0 = () => {
               </div>
               <input
                 id="email2"
+                type="number"
                 className="text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-16 text-sm border-gray-300 rounded border"
                 placeholder="XXXX - XXXX - XXXX - XXXX"
               />
@@ -72,7 +74,7 @@ const Test0 = () => {
               Expiry Date
             </label>
             <div className="relative mb-5 mt-2">
-              <div className="absolute right-0 text-gray-600 flex items-center pr-3 h-full cursor-pointer">
+              {/* <div className="absolute right-0 text-gray-600 flex items-center pr-3 h-full cursor-pointer">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="icon icon-tabler icon-tabler-calendar-event"
@@ -92,10 +94,11 @@ const Test0 = () => {
                   <line x1="4" y1="11" x2="20" y2="11" />
                   <rect x="8" y="15" width="2" height="2" />
                 </svg>
-              </div>
+              </div> */}
               <input
                 id="expiry"
-                className="text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border"
+                type="month"
+                className="text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center flex justify-center pl-3 text-sm border-gray-300 rounded border"
                 placeholder="MM/YY"
               />
             </div>
@@ -125,19 +128,18 @@ const Test0 = () => {
               <input
                 id="cvc"
                 className="mb-8 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border"
-                placeholder="MM/YY"
+                placeholder="* * *"
               />
             </div>
             <div className="flex items-center justify-start w-full">
               <button className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 transition duration-150 ease-in-out hover:bg-indigo-600 bg-indigo-700 rounded text-white px-8 py-2 text-sm">
                 Submit
               </button>
-              <button
-                className="focus:outline-none focus:ring-2 focus:ring-offset-2  focus:ring-gray-400 ml-3 bg-gray-100 transition duration-150 text-gray-600 ease-in-out hover:border-gray-400 hover:bg-gray-300 border rounded px-8 py-2 text-sm"
-                onclick="modalHandler()"
-              >
-                Cancel
-              </button>
+              <Link to="/checkout">
+                <button className="focus:outline-none focus:ring-2 focus:ring-offset-2  focus:ring-gray-400 ml-3 bg-gray-100 transition duration-150 text-gray-600 ease-in-out hover:border-gray-400 hover:bg-gray-300 border rounded px-8 py-2 text-sm">
+                  Cancel
+                </button>
+              </Link>
             </div>
             <button
               className="cursor-pointer absolute top-0 right-0 mt-4 mr-5 text-gray-400 hover:text-gray-600 transition duration-150 ease-in-out rounded focus:ring-2 focus:outline-none focus:ring-gray-600"

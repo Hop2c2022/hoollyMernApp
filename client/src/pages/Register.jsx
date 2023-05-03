@@ -40,7 +40,8 @@ const Register = () => {
       } else if (name.length == 0 || name.length > 12) {
         toast.error(' Your name cannot be empty or longer than 12 letters');
       } else {
-        toast.warning('Please enter your email account');
+        // toast.warning('Please enter your email account');
+        console.log(err.message);
       }
     }
   };

@@ -52,3 +52,19 @@ exports.checkoutDeleteController = async (req, res) => {
     return res.status(400).json(error.message);
   }
 };
+
+exports.buyOrderController = async (req, res) => {
+  try {
+    const {} = req.body;
+    const buyOrder = await new CreateOrder({
+      fullInformation,
+      district,
+      street,
+      phoneNumber,
+      orderTotal,
+    }).save();
+    res.status(201).json(buyOrder);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
