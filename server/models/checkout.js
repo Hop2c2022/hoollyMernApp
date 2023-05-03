@@ -33,6 +33,10 @@ const CheckoutSchema = new mongoose.Schema(
     fullInformation: {
       type: String,
     },
+    confirmed: {
+      type: Boolean,
+      default: false,
+    },
   },
   { timestamps: true }
 );
