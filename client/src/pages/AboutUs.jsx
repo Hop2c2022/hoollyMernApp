@@ -4,7 +4,7 @@ import code from '../assets/A.Tengis/codebg.mp4';
 const AboutUs = () => {
   return (
     <div>
-      <div className="flex justify-center items-center w-[100vw] h-full xl:h-[86.8vh] ] flex-col ">
+      <div className="flex justify-center items-center w-[100vw] h-full xl:h-[93vh] ] flex-col ">
         <video
           className="object-cover h-[120vh] sm:h-[135vh] md:h-screen  md w-full relative xl:h-full"
           autoPlay

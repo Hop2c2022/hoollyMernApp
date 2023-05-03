@@ -19,7 +19,7 @@ const Admin = () => {
 
   const navigate = useNavigate();
   return (
-    <div className="bg-[#111]">
+    <div className="bg-[#111] h-[93vh]">
       <div className="flex justify-center items-center">
         <div className=" grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-12 mb-12 mt-12">
           <div className="block  bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] w-[90vw] md:w-[40vw] h-[75vh] transition transform duration-700 hover:scale-105 cursor-pointer hover:text-white hover:bg-[#000] hover:shadow-gray-400 hover:shadow-xl rounded-lg">

@@ -14,10 +14,14 @@ const Navbar = () => {
   const [userInfo, setUserInfo] = useState('');
 
   const shalgah = async () => {
-    const res = await axios.get(`http://localhost:8000/auth/${localStorage.getItem('id')}`);
-    setUserInfo(res?.data?.data?.name);
-    if (localStorage.getItem('id')) {
-      setLoggedIn(true);
+    try {
+      const res = await axios.get(`http://localhost:8000/auth/${localStorage.getItem('id')}`);
+      setUserInfo(res?.data?.data?.name);
+      if (localStorage.getItem('id')) {
+        setLoggedIn(true);
+      }
+    } catch (err) {
+      console.clear();
     }
   };
 

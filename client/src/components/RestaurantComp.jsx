@@ -15,7 +15,7 @@ const RestaurantComp = () => {
   }, [restaurant]);
 
   return (
-    <div className=" grid grid-cols-1 sm:grid-cols-2  gap-x-12 gap-y-12 lg:grid-cols-3 xl:grid-cols-4 mb-12 mt-12">
+    <div className=" grid grid-cols-1 sm:grid-cols-2  gap-x-12 gap-y-12 lg:grid-cols-3 xl:grid-cols-4 mb-14 mt-14">
       {data?.map((el) => {
         return (
           <div

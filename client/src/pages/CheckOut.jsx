@@ -103,7 +103,7 @@ const CheckOut = () => {
 
   return (
     <div>
-      <div className="w-full h-full flex flex-col justify-center gap-x-5 gap-y-5 lg:flex-row p-8 lg:items-center lg:h-[86.7vh]  bg-[#111] text-[#fff] mt-[0.1vh] relative">
+      <div className="w-full h-full flex flex-col justify-center gap-x-5 gap-y-5 lg:flex-row p-8 lg:items-center lg:h-[93vh]  bg-[#111] text-[#fff] relative">
         <div>
           <ToastContainer />
         </div>

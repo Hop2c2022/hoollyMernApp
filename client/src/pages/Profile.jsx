@@ -14,7 +14,26 @@ const Profile = () => {
     const emojis = ['❤️‍🔥', '❤', '🧡', '💛', '💚', '💙', '💜', '🤎', '🖤', '🤍'];
     return emojis[~~(Math.random() * emojis.length)];
   };
+
   const emoji = getRandomEmoji();
+
+  const getRandomPicture = () => {
+    const pictures = [
+      'https://i0.wp.com/thaeger.com/wp-content/uploads/2014/10/Disney-Princess-in-the-World-of-Avatar-by-racookie3-11.jpg?fit=600%2C750',
+      'https://i.pinimg.com/originals/28/79/9e/28799eec248baac30adfa566c9678302.jpg',
+      'https://images.squarespace-cdn.com/content/v1/51b3dc8ee4b051b96ceb10de/1376200314654-ZYS71QWUV2USX25Y71XQ/disneyprincessart10202136.jpg',
+      'https://unrealitymag.com/disney-princesses-as-avatar-characters/ku-xlarge-6/',
+      'https://images-geeknative-com.exactdn.com/wp-content/uploads/2013/08/ku-xlarge-2.jpg?strip=all&lossy=1&sharp=1&w=2560&ssl=1',
+      'https://laughingsquid.com/wp-content/uploads/2013/08/20130830-11540899-mulan.jpg',
+      'https://i1.wp.com/thaeger.com/wp-content/uploads/2014/10/Disney-Princess-in-the-World-of-Avatar-by-racookie3-06.jpg?resize=600%2C750',
+      'https://cdn.trendhunterstatic.com/phpthumbnails/279/279095/279095_2_600.jpeg?auto=webp',
+      'https://images6.fanpop.com/image/photos/37900000/Disney-Princess-Avatar-Earth-Bender-Cinderella-disney-princess-37921300-800-1000.jpg',
+      'https://i.pinimg.com/originals/ae/82/58/ae8258cffd2ecdbc161a90f223dea099.jpg',
+    ];
+    return pictures[~~(Math.random() * pictures.length)];
+  };
+  const picture = getRandomPicture();
+
   const navigate = useNavigate();
 
   const info = async () => {
@@ -47,43 +66,17 @@ const Profile = () => {
   }, [info]);
 
   return (
-    <div className="bg-[#111] w-[100vw]">
+    <div className="bg-[#111] w-[100vw] h-[93vh]">
       <div>
         <ToastContainer />
       </div>
       <div>
         <div className=" ml-[5vw] mr-[5vw] flex h-[86.9vh] w-[90vw] items-center justify-center ">
-          <div className="w-full rounded-xl p-12 shadow-2xl shadow-blue-200 md:w-8/12 lg:w-6/12 bg-white">
+          <div className="w-full rounded-xl p-12 shadow-2xl shadow-blue-200 md:w-8/12 xl:w-6/12 bg-white">
             <div className="grid grid-cols-1 gap-6 lg:grid-cols-12">
               <div className="grid-cols-1 lg:col-span-3">
-                <div className="mx-auto flex h-[90px] w-[90px] items-center justify-center rounded-full bg-blue-100 p-4">
-                  <svg
-                    id="logo-39"
-                    width="50"
-                    height="40"
-                    viewBox="0 0 50 40"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M25.0001 0L50 15.0098V24.9863L25.0001 40L0 24.9863V15.0099L25.0001 0Z"
-                      fill="#A5B4FC"
-                      className="ccompli2"
-                    ></path>
-                    <path
-                      fillRule="evenodd"
-                      clipRule="evenodd"
-                      d="M0 15.0098L25 0L50 15.0098V24.9863L25 40L0 24.9863V15.0098ZM25 33.631L44.6967 21.8022V18.1951L44.6957 18.1945L25 30.0197L5.30426 18.1945L5.3033 18.1951V21.8022L25 33.631ZM25 24.5046L40.1018 15.4376L36.4229 13.2298L25 20.0881L13.5771 13.2298L9.89822 15.4376L25 24.5046ZM25 14.573L31.829 10.4729L25 6.37467L18.171 10.4729L25 14.573Z"
-                      fill="#4F46E5"
-                      className="ccustom"
-                    ></path>
-                    <path
-                      d="M25.0001 0L0 15.0099V24.9863L25 40L25.0001 0Z"
-                      fill="#A5B4FC"
-                      className="ccompli2"
-                      fillOpacity="0.3"
-                    ></path>
-                  </svg>
+                <div className="mx-auto flex h-[200px] w-[150px] items-center justify-center p-4">
+                  <img className=" object-contain h-[200px] w-[150px]" src={picture} alt="" />
                 </div>
               </div>
 
@@ -129,7 +122,7 @@ const Profile = () => {
 
                   <div>
                     <button
-                      className="w-[15vw] bg-orange-500 text-white active:bg-red-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                      className="w-[100%] bg-orange-500 text-white active:bg-red-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                       type="button"
                       onClick={() => setShowModal(true)}
                     >
