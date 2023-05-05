@@ -57,7 +57,7 @@ const Profile = () => {
         toast.warning('Error.');
       }
     } else {
-      toast.warning('Length must be higher than zero.');
+      toast.warning('Length must be higher than zero or less than 12 characters.');
     }
   };
 
