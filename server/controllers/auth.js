@@ -75,3 +75,11 @@ exports.editName = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
+
+exports.forgotPassword = async (req, res) => {
+  const { id } = req.params;
+  const { password } = req.body;
+  const data = await User.findByIdAndUpdate(id, {
+    password: password,
+  });
+};
