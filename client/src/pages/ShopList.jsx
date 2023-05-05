@@ -4,7 +4,6 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const ShopList = () => {
-  const currentUrl = window.location.href;
   const [priceValue, setPriceValue] = useState(1);
   const [addVal, setAddVal] = useState([]);
 
@@ -14,7 +13,6 @@ const ShopList = () => {
     const result = await axios.get(`http://localhost:8000/orders/${val}`);
     setAddVal(result?.data?.result);
     setPrice(result?.data?.result?.price);
-    // console.log(result);
   };
 
   const send = async () => {
@@ -24,7 +22,9 @@ const ShopList = () => {
       title: addVal?.title,
       image: addVal?.image,
     });
-    toast.success('Successfully added to card!');
+    toast.dark('Successfully Added', {
+      icon: '🤯',
+    });
   };
 
   const [price, setPrice] = useState();

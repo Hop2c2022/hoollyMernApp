@@ -23,7 +23,8 @@ const CheckOut = () => {
   const [fullInfo, setFullInfo] = useState('');
   const [distCheck, setDistCheck] = useState([]);
   const [orders, setOrders] = useState([]);
-  const [addPlace, setPlace] = useState(true);
+  const [place, setPlace] = useState(false);
+  const [places, setPlaces] = useState([]);
 
   const save = async (e) => {
     if (number.length === 0) {
@@ -33,18 +34,15 @@ const CheckOut = () => {
     } else if (dist == '') {
       toast.warning('Choose your District please.');
     } else {
-      const res = await axios.post(`http://localhost:8000/auth/orderInfo`, {
+      const res = await axios.post(`http://localhost:8000/place`, {
+        userId: localStorage.getItem('id'),
         fullInformation: fullInfo,
         district: dist,
         street: strt,
         phoneNumber: number,
       });
-      toast.success('Successfully saved!');
+      toast.success('Successfully added!');
       e.preventDefault();
-      localStorage.setItem('number', number);
-      localStorage.setItem('dist', dist);
-      localStorage.setItem('street', strt);
-      localStorage.setItem('fullInfo', fullInfo);
       console.log(res);
     }
   };
@@ -52,23 +50,23 @@ const CheckOut = () => {
   const exceptThisSymbols = ['e', 'E', '+', '-', '.'];
 
   useEffect(() => {
-    if (dist === 'Chingeltei') {
+    if (dist === 'Чингэлтэй дүүрэг') {
       setDistCheck(Chingelteidata);
-    } else if (dist == 'Baganuur') {
+    } else if (dist == 'Багануур дүүрэг') {
       setDistCheck(Baganuurdata);
-    } else if (dist == 'Bagahangai') {
+    } else if (dist == 'Багахангай дүүрэг') {
       setDistCheck(Bagahangaidata);
-    } else if (dist == 'Bayngol') {
+    } else if (dist == 'Баянгол дүүрэг') {
       setDistCheck(Bayngoldata);
-    } else if (dist == 'Baynzurkh') {
+    } else if (dist == 'Баянзүрх дүүрэг') {
       setDistCheck(Baynzurkhdata);
     } else if (dist == 'Sukhbaatar') {
       setDistCheck(Sukhbaatardata);
-    } else if (dist == 'Nalaih') {
+    } else if (dist == 'Налайх дүүрэг') {
       setDistCheck(Nalaihdata);
-    } else if (dist == 'Songinhairhan') {
+    } else if (dist == 'Сонгинохайрхан дүүрэг') {
       setDistCheck(SonginoKhairkhanData);
-    } else if (dist == 'Khanuul') {
+    } else if (dist == 'Хан-уул дүүрэг') {
       setDistCheck(KhanUulData);
     }
   }, [dist]);
@@ -82,9 +80,14 @@ const CheckOut = () => {
     }
   };
 
-  useEffect(() => {
-    dataRetr();
-  }, [dataRetr]);
+  const Placeret = async () => {
+    try {
+      const res = await axios.get(`http://localhost:8000/placeget/${localStorage.getItem('id')}`);
+      setPlaces(res?.data);
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
 
   const fooddelete = async (_id) => {
     try {
@@ -95,9 +98,37 @@ const CheckOut = () => {
     }
   };
 
-  const ordercheck = () => {
-    window.location = '/payment';
+  useEffect(() => {
+    dataRetr();
+    Placeret();
+  }, [dataRetr, Placeret]);
+
+  const pnum = localStorage.getItem('number');
+  const str = localStorage.getItem('street');
+  const distr = localStorage.getItem('dist');
+
+  const ordercheck = (_id) => {
+    if (pnum && str && str && distr) {
+      window.location = '/payment';
+    } else {
+      toast.dark('FFF');
+    }
   };
+
+  const selectPlace = async (_id) => {
+    try {
+      const res = await axios.get(`http://localhost:8000/selectplace/${_id}`);
+      if (res?.status == 200) {
+        localStorage.setItem('number', res?.data?.result?.phoneNumber);
+        localStorage.setItem('dist', res?.data?.result?.district);
+        localStorage.setItem('street', res?.data?.result?.street);
+        localStorage.setItem('fullInfo', res?.data?.result?.fullInformation);
+      }
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
+
   return (
     <div>
       <div className="w-full h-full flex flex-col justify-center gap-x-5 gap-y-5 lg:flex-row p-8 lg:items-center lg:h-[93vh]  bg-[#111] text-[#fff] relative">
@@ -107,39 +138,45 @@ const CheckOut = () => {
         <form>
           <h1 className="pb-5 text-[17px]">Shipping Address</h1>
           <div className="flex flex-col gap-x-9 gap-y-2 w-full lg:w-[20vw]">
-            <div
-              className="border w-full p-3 overflow-y-scroll h-[55vh]"
-              style={{ height: addPlace ? '20vh' : '57.5vh' }}
-            >
-              <div className="flex flex-col h-[102px] ">
-                <div className="flex flex-col ">
-                  <div className=" gap-x-3 flex object-cover">
-                    <div className="flex justify-between w-full items-center">
-                      <div>
-                        <h1>e131</h1>
-                        <h1>$</h1>
-                        <p>3 pieces</p>
-                      </div>
-                      <div class="  bg-black flex justify-center items-center">
-                        <div class=" relative inline-flex group">
-                          <div class="  absolute transitiona-all duration-1000 opacity-70 -inset-px bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] rounded-xl blur-lg group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200 animate-tilt"></div>
-                          <a
-                            href="#"
-                            title="Get quote now"
-                            class="relative inline-flex items-center justify-center px-4 py-2 text-lg font-bold text-white transition-all duration-200 bg-gray-900 font-pj rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
-                            role="button"
+            <div className="border w-full p-3 overflow-y-scroll h-[55vh]" style={{ height: place ? '20vh' : '55.8vh' }}>
+              {places?.map((el, key) => {
+                return (
+                  <div key={key} className="flex flex-col h-[102px ">
+                    <div className="flex flex-col ">
+                      <div className=" gap-x-3 flex object-cover">
+                        <div className="flex justify-between w-full items-center">
+                          <div>
+                            <h1>{el?.district}</h1>
+                            <h1>{el?.street}</h1>
+                            <p>{el?.phoneNumber}</p>
+                          </div>
+                          <div
+                            className="  bg-black flex justify-center items-center "
+                            value={el?._id}
+                            onClick={() => selectPlace(el?._id)}
                           >
-                            Select
-                          </a>
+                            <div className=" relative inline-flex group">
+                              <div className="  absolute transitiona-all duration-1000 opacity-70 -inset-px bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] rounded-xl blur-lg group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200 animate-tilt"></div>
+                              <a
+                                href="#"
+                                title="Get quote now"
+                                className="relative inline-flex items-center justify-center px-4 py-2 text-lg font-bold text-white transition-all duration-200 bg-gray-900 font-pj rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
+                                role="button"
+                              >
+                                Select
+                              </a>
+                            </div>
+                          </div>
                         </div>
                       </div>
+                      <div className="h-0.5 w-full bg-gray-300 mt-[0.7vh] mb-[0.7vh]" />
                     </div>
                   </div>
-                  <div className="h-0.5 w-full bg-gray-300 mt-[0.7vh] mb-[0.7vh]" />
-                </div>
-              </div>
+                );
+              })}
             </div>
-            {addPlace ? (
+
+            {place ? (
               <div>
                 <div>
                   <label htmlFor="number" className="block mb-2 text-sm font-medium " maxLength="8">
@@ -165,15 +202,15 @@ const CheckOut = () => {
                     className="bg-black border border-gray-400 text-gray-200 text-sm p-2.5 0 w-[100%]"
                   >
                     <option defaultChecked>Choose a Districts</option>
-                    <option value="Baganuur">Багануур дүүрэг</option>
-                    <option value="Bagahangai">Багахангай дүүрэг</option>
-                    <option value="Bayngol">Баянгол дүүрэг</option>
-                    <option value="Baynzurkh">Баянзүрх дүүрэг</option>
-                    <option value="Nalaih">Налайх дүүрэг</option>
-                    <option value="Songinhairhan">Сонгинохайрхан дүүрэг</option>
-                    <option value="Sukhbaatar">Сүхбаатар дүүрэг</option>
-                    <option value="Khanuul">Хан-уул дүүрэг</option>
-                    <option value="Chingeltei">Чингэлтэй дүүрэг</option>
+                    <option value="Багануур дүүрэг">Багануур дүүрэг</option>
+                    <option value="Багахангай дүүрэг">Багахангай дүүрэг</option>
+                    <option value="Баянгол дүүрэг">Баянгол дүүрэг</option>
+                    <option value="Баянзүрх дүүрэг">Баянзүрх дүүрэг</option>
+                    <option value="Налайх дүүрэг">Налайх дүүрэг</option>
+                    <option value="Сонгинохайрхан дүүрэг">Сонгинохайрхан дүүрэг</option>
+                    <option value="Сүхбаатар дүүрэг">Сүхбаатар дүүрэг</option>
+                    <option value="Хан-уул дүүрэг">Хан-уул дүүрэг</option>
+                    <option value="Чингэлтэй дүүрэг">Чингэлтэй дүүрэг</option>
                   </select>
                 </div>
                 <div>
@@ -212,12 +249,30 @@ const CheckOut = () => {
                     onChange={(e) => setFullInfo(e.target.value)}
                   />
                 </div>
+                <div className="flex mt-5 gap-y-3 flex-col">
+                  <button
+                    type="button"
+                    className="flex items-center w-full p-3 border border-gray-300 bg-blue-400  hover:bg-blue-600 font-semibold text-white justify-center"
+                    onClick={save}
+                  >
+                    <p> Save</p>
+                  </button>
+                </div>
               </div>
             ) : (
-              ''
+              <div className="flex mt-5 gap-y-3 flex-col">
+                <button
+                  type="button"
+                  className="flex items-center w-full p-3 border border-gray-300 bg-blue-400  hover:bg-blue-600 font-semibold text-white justify-center"
+                  onClick={() => setPlace(true)}
+                >
+                  <p> Add Place</p>
+                </button>
+              </div>
             )}
           </div>
         </form>
+
         <div className="border w-full lg:h-[90%] 2xl:h-[78%] flex flex-col border-gray-400 p-5 lg:w-[25rem]">
           <div className="overflow-y-scroll h-[55vh]">
             {orders?.map((el) => {
@@ -232,7 +287,7 @@ const CheckOut = () => {
                           <h1>{el?.price}$</h1>
                           <p>3 pieces</p>
                         </div>
-                        <button value={el?._id} className="text-[25px]" onClick={() => fooddelete(el?._id)}>
+                        <button className="text-[25px]" onClick={() => fooddelete(el?._id)}>
                           ✖
                         </button>
                       </div>

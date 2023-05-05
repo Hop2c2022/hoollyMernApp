@@ -1,9 +1,10 @@
 const express = require("express");
-const postPlace = require("../controllers/place.js");
+const { postPlace, getPlace, selectPlace } = require("../controllers/place.js");
 
 const router = express.Router();
 
-router.post("/user/all", function (req, res) {
-  postPlace;
-});
+router.post("/place", postPlace);
+router.get("/placeget/:userId", getPlace);
+router.get("/selectplace/:Id", selectPlace);
+
 module.exports = router;

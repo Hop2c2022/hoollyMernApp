@@ -54,7 +54,7 @@ const FoodCard = () => {
                   <p className=" poppins text-sm text-center">From: {el?.brand}</p>
                   <h2 className=" poppins text-2xl font-bold">{el?.price}$</h2>
                   <button
-                    onClick={() => navigate(`/shoplist?${el?._id}`)}
+                    onClick={() => (window.location = `/shoplist?${el?._id}`)}
                     className="bg-blue-800 text-[#fff] px-8 py-2 focus:outline-none poppins rounded-full transform transition duration-300 hover:scale-105"
                   >
                     Order Now
