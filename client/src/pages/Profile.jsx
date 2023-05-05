@@ -44,7 +44,7 @@ const Profile = () => {
   };
 
   const edit = async () => {
-    if (newName.length != 0) {
+    if (newName.length != 0 && newName.length < 13) {
       const res = await axios.patch(`http://localhost:8000/auth/${localStorage.getItem('id')}`, {
         name: newName,
       });
