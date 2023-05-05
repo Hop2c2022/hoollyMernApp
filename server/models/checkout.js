@@ -33,6 +33,9 @@ const CheckoutSchema = new mongoose.Schema(
     fullInformation: {
       type: String,
     },
+    currentprice: {
+      type: Number,
+    },
     confirmed: {
       type: Boolean,
       default: false,
