@@ -4,13 +4,14 @@ const mongoose = require("mongoose");
 exports.postCheckout = async (req, res) => {
   try {
     const { foodId } = req.params;
-    const { userId, price, image, title } = req.body;
+    const { userId, price, image, title, currentprice } = req.body;
     const newCheckout = await new Checkout({
       userId,
       foodId,
       price,
       image,
       title,
+      currentprice,
     }).save();
     res.status(201).send("Successfully added food!");
   } catch (err) {

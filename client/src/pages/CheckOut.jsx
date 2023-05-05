@@ -129,6 +129,8 @@ const CheckOut = () => {
     }
   };
 
+  const piecesleft = () => {};
+
   return (
     <div>
       <div className="w-full h-full flex flex-col justify-center gap-x-5 gap-y-5 lg:flex-row p-8 lg:items-center lg:h-[93vh]  bg-[#111] text-[#fff] relative">
@@ -285,7 +287,7 @@ const CheckOut = () => {
                         <div>
                           <h1>{el?.title}</h1>
                           <h1>{el?.price}$</h1>
-                          <p>3 pieces</p>
+                          <p>{el?.price / el?.currentprice} pieces</p>
                         </div>
                         <button className="text-[25px]" onClick={() => fooddelete(el?._id)}>
                           ✖
