@@ -19,9 +19,9 @@ const Home = () => {
             </p>
             <button
               onClick={() => navigate('/shopdetails?breakfast')}
-              className="bg-blue-500 w-[40vw] md:w-[16vw] mt-[1vh] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
+              class="inline-block px-4 py-2 mt-[1vh] h  text-white bg-blue-600 rounded-full hover:bg-blue-700 w-[40vw] md:w-[16vw] "
             >
-              See Menu
+              Read More
             </button>
           </div>
         </div>

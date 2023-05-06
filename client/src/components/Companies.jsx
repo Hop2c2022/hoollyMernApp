@@ -10,22 +10,22 @@ const Companies = () => {
         <p className="text-[20px] sm:text-[25x] md:text-[44px]">We work with the best companies</p>
         <div className="flex justify-evenly w-[90vw] items-center">
           <img
-            className="w-[18vw] transition ease-in-out delay-50 duration-700 hover:-translate-y-1 hover:scale-110 object-cover hover:grayscale-0 grayscale cursor-pointer "
+            className="w-[18vw] transition ease-in-out delay-50 duration-700 hover:-translate-y-1 hover:scale-110 object-cover hover:grayscale-0 grayscale  "
             src={kfc}
             alt=""
           />
           <img
-            className="w-[18vw] transition ease-in-out delay-50 duration-700 hover:-translate-y-1 hover:scale-110 object-cover hover:grayscale-0 grayscale cursor-pointer "
+            className="w-[18vw] transition ease-in-out delay-50 duration-700 hover:-translate-y-1 hover:scale-110 object-cover hover:grayscale-0 grayscale  "
             src={pizzahut}
             alt=""
           />
           <img
-            className="w-[18vw] transition ease-in-out delay-50 duration-700 hover:-translate-y-1 hover:scale-110 object-cover hover:grayscale-0 grayscale cursor-pointer "
+            className="w-[18vw] transition ease-in-out delay-50 duration-700 hover:-translate-y-1 hover:scale-110 object-cover hover:grayscale-0 grayscale  "
             src={burgerking}
             alt=""
           />
           <img
-            className="w-[18vw] transition ease-in-out delay-50 duration-700 hover:-translate-y-1 hover:scale-110 object-cover hover:grayscale-0 grayscale cursor-pointer "
+            className="w-[18vw] transition ease-in-out delay-50 duration-700 hover:-translate-y-1 hover:scale-110 object-cover hover:grayscale-0 grayscale  "
             src={mcdonalds}
             alt=""
           />

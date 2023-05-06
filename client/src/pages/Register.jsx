@@ -101,7 +101,7 @@ const Register = () => {
           <div className="mt-6 flex justify-center pt-3">
             <button
               onClick={reg}
-              className="w-screen px-5 py-3 tracking-wide text-white font-semibold transition-colors duration-200 transform bg-blue-400 rounded-md hover:bg-ornage-800 focus:outline-none"
+              className="w-screen px-5 py-3 tracking-wide text-white font-semibold transition-colors duration-200 transform bg-blue-400 rounded-md hover:bg-blue-600 focus:outline-none"
             >
               Register
             </button>

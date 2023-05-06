@@ -32,7 +32,7 @@ const AboutUsFood = () => {
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, vitae.
           </p>
         </div>
-        <button className="bg-blue-500 w-[40vw] md:w-[16vw]  hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+        <button class="inline-block px-4 py-2  text-white bg-blue-600 rounded-full hover:bg-blue-700 w-[40vw] md:w-[16vw] ">
           Read More
         </button>
       </div>

@@ -25,8 +25,8 @@ const Contact = () => {
                       </div>
                     </div>
                     <div className="grow ml-6">
-                      <p className="font-bold mb-1">Technical support</p>
-                      <p className="text-gray-500">pinecone@gmail.com</p>
+                      <p className="font-bold mb-1">Social support</p>
+                      <p className="text-gray-500">social@pinecone.mn</p>
                       <p className="text-gray-500">+976 7270 0800</p>
                     </div>
                   </div>
