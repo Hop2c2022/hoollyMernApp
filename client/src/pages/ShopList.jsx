@@ -22,6 +22,7 @@ const ShopList = () => {
       title: addVal?.title,
       image: addVal?.image,
       currentprice: addVal?.price,
+      pieces: lastprice / addVal?.price,
     });
     toast.dark('Successfully Added', {
       icon: '🤯',

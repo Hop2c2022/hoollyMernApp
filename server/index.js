@@ -11,6 +11,7 @@ const orders = require("./routers/orders");
 const createOrder = require("./routers/createOrder");
 const createRestaurant = require("./routers/createRestaurant");
 const place = require("./routers/place");
+const adminOrder = require("./routers/adminOrders");
 const dotenv = require("dotenv").config();
 
 app.use(cors());
@@ -21,6 +22,7 @@ app.use(orders);
 app.use(createOrder);
 app.use(createRestaurant);
 app.use(place);
+app.use(adminOrder);
 
 // CONNECT
 mongoose

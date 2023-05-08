@@ -20,20 +20,10 @@ const CheckoutSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    phoneNumber: {
-      type: String,
-      minlength: 7,
-    },
-    district: {
-      type: String,
-    },
-    street: {
-      type: String,
-    },
-    fullInformation: {
-      type: String,
-    },
     currentprice: {
+      type: Number,
+    },
+    pieces: {
       type: Number,
     },
     confirmed: {

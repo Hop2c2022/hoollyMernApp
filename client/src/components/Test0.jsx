@@ -1,7 +1,43 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { useState } from 'react';
 
 const Test0 = () => {
+  const [avsn, setAvsn] = useState([]);
+  const realData = [];
+
+  const submitData = async () => {
+    try {
+      const res = await axios.get(`http://localhost:8000/getadminOrder/${localStorage.getItem('id')}`);
+      setAvsn(res?.data);
+      getDt();
+      newData();
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  const getDt = () => {
+    avsn.map((el) => {
+      realData.push(el);
+    });
+  };
+
+  console.log(realData);
+
+  const newData = async () => {
+    const res2 = await axios.post(`http://localhost:8000/postadminOrder/${localStorage.getItem('id')}`, {
+      userId: `${localStorage.getItem('id')}`,
+      data: realData,
+      phoneNumber: localStorage.getItem('number'),
+      fullInformation: localStorage.getItem('fullinfo'),
+      street: localStorage.getItem('street'),
+      district: localStorage.getItem('dist'),
+    });
+
+    console.log(res2);
+  };
+
   return (
     <div>
       <div
@@ -17,11 +53,11 @@ const Test0 = () => {
                 width="52"
                 height="52"
                 viewBox="0 0 24 24"
-                stroke-width="1"
+                strokeWidth="1"
                 stroke="currentColor"
                 fill="none"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               >
                 <path stroke="none" d="M0 0h24v24H0z" />
                 <path d="M17 8v-3a1 1 0 0 0 -1 -1h-10a2 2 0 0 0 0 4h12a1 1 0 0 1 1 1v3m0 4v3a1 1 0 0 1 -1 1h-12a2 2 0 0 1 -2 -2v-12" />
@@ -53,8 +89,8 @@ const Test0 = () => {
                   stroke-width="1.5"
                   stroke="currentColor"
                   fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 >
                   <path stroke="none" d="M0 0h24v24H0z" />
                   <rect x="3" y="5" width="18" height="14" rx="3" />
@@ -74,27 +110,6 @@ const Test0 = () => {
               Expiry Date
             </label>
             <div className="relative mb-5 mt-2">
-              {/* <div className="absolute right-0 text-gray-600 flex items-center pr-3 h-full cursor-pointer">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="icon icon-tabler icon-tabler-calendar-event"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path stroke="none" d="M0 0h24v24H0z" />
-                  <rect x="4" y="5" width="16" height="16" rx="2" />
-                  <line x1="16" y1="3" x2="16" y2="7" />
-                  <line x1="8" y1="3" x2="8" y2="7" />
-                  <line x1="4" y1="11" x2="20" y2="11" />
-                  <rect x="8" y="15" width="2" height="2" />
-                </svg>
-              </div> */}
               <input
                 id="expiry"
                 type="month"
@@ -113,11 +128,11 @@ const Test0 = () => {
                   width="20"
                   height="20"
                   viewBox="0 0 24 24"
-                  stroke-width="1.5"
+                  strokeWidth="1.5"
                   stroke="currentColor"
                   fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 >
                   <path stroke="none" d="M0 0h24v24H0z"></path>
                   <circle cx="12" cy="12" r="9"></circle>
@@ -132,7 +147,10 @@ const Test0 = () => {
               />
             </div>
             <div className="flex items-center justify-start w-full">
-              <button className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 transition duration-150 ease-in-out hover:bg-indigo-600 bg-indigo-700 rounded text-white px-8 py-2 text-sm">
+              <button
+                className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 transition duration-150 ease-in-out hover:bg-indigo-600 bg-indigo-700 rounded text-white px-8 py-2 text-sm"
+                onClick={submitData}
+              >
                 Submit
               </button>
               <Link to="/checkout">
@@ -143,8 +161,8 @@ const Test0 = () => {
             </div>
             <button
               className="cursor-pointer absolute top-0 right-0 mt-4 mr-5 text-gray-400 hover:text-gray-600 transition duration-150 ease-in-out rounded focus:ring-2 focus:outline-none focus:ring-gray-600"
-              onclick="modalHandler()"
-              aria-label="close modal"
+              onClick="modalHandler()"
+              ariaLabel="close modal"
               role="button"
             >
               <svg
@@ -156,8 +174,8 @@ const Test0 = () => {
                 stroke-width="2.5"
                 stroke="currentColor"
                 fill="none"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               >
                 <path stroke="none" d="M0 0h24v24H0z" />
                 <line x1="18" y1="6" x2="6" y2="18" />
@@ -170,7 +188,7 @@ const Test0 = () => {
       <div className="w-full flex justify-center py-12" id="button">
         <button
           className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 mx-auto transition duration-150 ease-in-out hover:bg-indigo-600 bg-indigo-700 rounded text-white px-4 sm:px-8 py-2 text-xs sm:text-sm"
-          onclick="modalHandler(true)"
+          onClick="modalHandler(true)"
         >
           Open Modal
         </button>

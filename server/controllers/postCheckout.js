@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 exports.postCheckout = async (req, res) => {
   try {
     const { foodId } = req.params;
-    const { userId, price, image, title, currentprice } = req.body;
+    const { userId, price, image, title, currentprice, pieces } = req.body;
     const newCheckout = await new Checkout({
       userId,
       foodId,
@@ -12,6 +12,7 @@ exports.postCheckout = async (req, res) => {
       image,
       title,
       currentprice,
+      pieces,
     }).save();
     res.status(201).send("Successfully added food!");
   } catch (err) {
@@ -67,5 +68,15 @@ exports.buyOrderController = async (req, res) => {
     res.status(201).json(buyOrder);
   } catch (err) {
     res.status(500).json({ error: err.message });
+  }
+};
+
+exports.selfDestructController = async (req, res) => {
+  try {
+    const { id } = req.params;
+    await Checkout.deleteMany({ userId: id });
+    res.status(201).send("Success");
+  } catch (error) {
+    return res.status(400).json(error.message);
   }
 };

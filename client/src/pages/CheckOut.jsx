@@ -295,7 +295,7 @@ const CheckOut = () => {
                         <div>
                           <h1>{el?.title}</h1>
                           <h1>{el?.price}$</h1>
-                          <p>{el?.price / el?.currentprice} pieces</p>
+                          <p>{el?.pieces} pieces</p>
                         </div>
                         <button className="text-[25px]" onClick={() => fooddelete(el?._id)}>
                           ✖
