@@ -27,23 +27,26 @@ const CheckOut = () => {
   const [places, setPlaces] = useState([]);
 
   const save = async (e) => {
-    if (number.length === 0) {
-      toast.warning('Enter your phone number please.');
-    } else if (number.length != 8) {
-      toast.error('Your phone number must be 8 digits!');
-    } else if (dist == '') {
-      toast.warning('Choose your District please.');
+    if (localStorage.getItem('id')) {
+      if (number.length === 0) {
+        toast.warning('Enter your phone number please.');
+      } else if (number.length != 8) {
+        toast.error('Your phone number must be 8 digits!');
+      } else if (dist == '') {
+        toast.warning('Choose your District please.');
+      } else {
+        const res = await axios.post(`http://localhost:8000/place`, {
+          userId: localStorage.getItem('id'),
+          fullInformation: fullInfo,
+          district: dist,
+          street: strt,
+          phoneNumber: number,
+        });
+        toast.success('Successfully added!');
+        e.preventDefault();
+      }
     } else {
-      const res = await axios.post(`http://localhost:8000/place`, {
-        userId: localStorage.getItem('id'),
-        fullInformation: fullInfo,
-        district: dist,
-        street: strt,
-        phoneNumber: number,
-      });
-      toast.success('Successfully added!');
-      e.preventDefault();
-      console.log(res);
+      toast.warning('Please login first.');
     }
   };
 
@@ -111,7 +114,15 @@ const CheckOut = () => {
     if (pnum && str && str && distr) {
       window.location = '/payment';
     } else {
-      toast.dark('FFF');
+      if (localStorage.getItem('id')) {
+        toast.dark('Please write all field!', {
+          icon: '😋',
+        });
+      } else {
+        toast.dark('Please login first', {
+          icon: '🚀',
+        });
+      }
     }
   };
 
@@ -125,11 +136,9 @@ const CheckOut = () => {
         localStorage.setItem('fullInfo', res?.data?.result?.fullInformation);
       }
     } catch (err) {
-      console.log(err.message);
+      console.log(err);
     }
   };
-
-  const piecesleft = () => {};
 
   return (
     <div>

@@ -148,7 +148,7 @@ const Navbar = () => {
             )}
 
             {/* Right Section */}
-            <div className="flex w-[100vw] md:w-[60vw] lg:mr-[2vw] mr-0 justify-end">
+            <div className="flex w-[100vw] md:w-[100%] lg:mr-[5vw] mr-0 justify-end">
               <div className="flex items-center">
                 <Link to="/checkout">
                   <img
@@ -162,7 +162,7 @@ const Navbar = () => {
                     <button
                       type="button"
                       onClick={() => navigate('/profile')}
-                      className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-md px-5 py-1.5 text-center ml-2 text-[10px]"
+                      className="inline-block py-1 text-xl text-white bg-gray-700 px-4 hover:bg-gray-700 rounded-xl text-[14px]"
                     >
                       {userInfo}
                     </button>

@@ -21,11 +21,11 @@ const Admin = () => {
   return (
     <div className="bg-[#111] h-[93vh]">
       <div className="flex justify-center items-center">
-        <div className=" grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-12 mb-12 mt-12">
-          <div className="block  bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] w-[90vw] md:w-[40vw] h-[75vh] transition transform duration-700 hover:scale-105 cursor-pointer hover:text-white hover:bg-[#000] hover:shadow-gray-400 hover:shadow-xl rounded-lg">
-            <a href="#!" data-te-ripple-init data-te-ripple-color="light">
+        <div className=" grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-12 mb-12 mt-12 space-x-10">
+          <div className="block  bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] w-[90vw] md:w-[30vw] h-[75vh] transition transform duration-700 hover:scale-105 cursor-pointer hover:text-white hover:bg-[#000] hover:shadow-gray-400 hover:shadow-xl rounded-lg">
+            <div onClick={() => navigate('/admin/createMenu')} data-te-ripple-init data-te-ripple-color="light">
               <img className="rounded-t-lg h-[45vh] w-full object-cover" src={menuBg} alt="" />
-            </a>
+            </div>
             <div className="p-6">
               <h5 className="mb-2 text-xl font-medium leading-tight  ">Create Menu</h5>
               <p className="mb-4 text-base ">
@@ -44,10 +44,10 @@ const Admin = () => {
             </div>
           </div>
           {checkRes ? (
-            <div className="block  bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] w-[90vw] md:w-[40vw] h-[75vh] transition transform duration-700 hover:scale-105 cursor-pointer hover:text-white hover:bg-[#000] hover:shadow-gray-400 hover:shadow-xl rounded-lg">
-              <a href="#!" data-te-ripple-init data-te-ripple-color="light">
+            <div className="block  bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] w-[90vw] md:w-[30vw] h-[75vh] transition transform duration-700 hover:scale-105 cursor-pointer hover:text-white hover:bg-[#000] hover:shadow-gray-400 hover:shadow-xl rounded-lg">
+              <div onClick={() => navigate('/admin/orders')} data-te-ripple-init data-te-ripple-color="light">
                 <img className="rounded-t-lg h-[45vh] w-full object-cover" src={foodDel} alt="" />
-              </a>
+              </div>
               <div className="p-6">
                 <h5 className="mb-2 text-xl font-medium leading-tight  ">Admin Orders</h5>
                 <p className="mb-4 text-base ">
@@ -66,10 +66,10 @@ const Admin = () => {
               </div>
             </div>
           ) : (
-            <div className="block  bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] w-[90vw] md:w-[40vw] h-[75vh] transition transform duration-700 hover:scale-105 cursor-pointer hover:text-white hover:bg-[#000] hover:shadow-gray-400 hover:shadow-xl rounded-lg">
-              <a href="#!" data-te-ripple-init data-te-ripple-color="light">
+            <div className="block  bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] w-[90vw] md:w-[30vw] h-[75vh] transition transform duration-700 hover:scale-105 cursor-pointer hover:text-white hover:bg-[#000] hover:shadow-gray-400 hover:shadow-xl rounded-lg">
+              <div onClick={() => navigate('/admin/createRestaurant')} data-te-ripple-init data-te-ripple-color="light">
                 <img className="rounded-t-lg h-[45vh] w-full object-cover" src={restaurantBg} alt="" />
-              </a>
+              </div>
               <div className="p-6">
                 <h5 className="mb-2 text-xl font-medium leading-tight  ">Create Restaurant</h5>
                 <p className="mb-4 text-base ">

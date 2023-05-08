@@ -2,11 +2,13 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
 import Loader from './reloadcard';
+import Empty from './Empty';
 
 const FoodCard = () => {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
   const [foods, setFoods] = useState([]);
+  const [checkData, setCheckData] = useState(false);
   let val = window.location.search.split('?')[1];
   const orders = async () => {
     if (val == 'breakfast') {
@@ -23,8 +25,13 @@ const FoodCard = () => {
       setLoading(false);
     } else {
       const res = await axios.get(`http://localhost:8000/restaurant/${val}`);
-      setFoods(res?.data?.result);
-      setLoading(false);
+      if (res?.data?.result?.length == 0) {
+        setCheckData(true);
+        setLoading(false);
+      } else {
+        setFoods(res?.data?.result);
+        setLoading(false);
+      }
     }
   };
 
@@ -34,6 +41,13 @@ const FoodCard = () => {
 
   return (
     <>
+      {checkData ? (
+        <div>
+          <Empty />
+        </div>
+      ) : (
+        ''
+      )}
       {loading ? (
         <Loader />
       ) : (
