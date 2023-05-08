@@ -148,11 +148,11 @@ const Navbar = () => {
             )}
 
             {/* Right Section */}
-            <div className="flex w-[100vw] md:w-[100%] lg:mr-[5vw] mr-0 justify-end">
+            <div className="flex w-[100vw] sm:mr-[10vw] md:mr-[5vw] mr-[5vw] justify-end">
               <div className="flex items-center">
                 <Link to="/checkout">
                   <img
-                    className="w-[10vw] md:w-[5vw] 2xl:w-[2vw] lg:w-[3vw]  ml-[0.5vw] h-[4vh] object-contain cursor-pointer"
+                    className="w-[8vw] sm:w-[5vw] 2xl:w-[2vw] lg:w-[3vw]  ml-[0.5vw] h-[4vh] object-contain cursor-pointer"
                     src={cartIcon}
                     alt=""
                   />
@@ -162,7 +162,7 @@ const Navbar = () => {
                     <button
                       type="button"
                       onClick={() => navigate('/profile')}
-                      className="inline-block py-1 text-xl text-white bg-gray-700 px-4 hover:bg-gray-700 rounded-xl text-[14px]"
+                      className="inline-block py-1 text-xl text-white bg-gray-700 px-2 hover:bg-gray-700 rounded-xl text-[9px]"
                     >
                       {userInfo}
                     </button>

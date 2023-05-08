@@ -15,23 +15,27 @@ const CreateRestaurant = () => {
   const [closeTime, setCloseTime] = useState('');
   const create = async () => {
     try {
-      const res = await axios.post('http://localhost:8000/restaurant', {
-        openTime: openTime,
-        closeTime: closeTime,
-        description: desc,
-        brandName: brandName,
-        brandImg: brandImg,
-        restDay: restDay,
-      });
-      if (res?.status == 201) {
-        await axios.patch(`http://localhost:8000/restaurant/${localStorage.getItem('id')}`, {
-          restaurantCreated: true,
-          company: brandName,
+      if (desc.length <= 50) {
+        const res = await axios.post('http://localhost:8000/restaurant', {
+          openTime: openTime,
+          closeTime: closeTime,
+          description: desc,
+          brandName: brandName,
+          brandImg: brandImg,
+          restDay: restDay,
         });
-        toast.success('Successfully created');
-        setTimeout(() => {
-          navigate('/');
-        }, 2000);
+        if (res?.status == 201) {
+          await axios.patch(`http://localhost:8000/restaurant/${localStorage.getItem('id')}`, {
+            restaurantCreated: true,
+            company: brandName,
+          });
+          toast.success('Successfully created');
+          setTimeout(() => {
+            navigate('/');
+          }, 2000);
+        } else {
+          toast.warning('Description length must be less than 50 characters');
+        }
       }
     } catch (err) {
       toast.warning('Please write all field');
