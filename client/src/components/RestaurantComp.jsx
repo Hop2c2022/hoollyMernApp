@@ -28,7 +28,7 @@ const RestaurantComp = () => {
               <div
                 onClick={() => navigate(`/shopdetails?${el?.brandName}`)}
                 key={el?._id}
-                className="block  bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] h-[23rem] sm:h-[30remvh] w-[19rem] sm:w-[20rem] lg:w-[25rem]  transition transform duration-700 hover:scale-105 cursor-pointer hover:text-white hover:bg-[#222] hover:shadow-xl rounded-lg"
+                className="block  bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] h-[23rem] sm:h-[30rem] w-[19rem] sm:w-[20rem] lg:w-[25rem]  transition transform duration-700 hover:scale-105 cursor-pointer hover:text-white hover:bg-[#222] hover:shadow-xl rounded-lg"
               >
                 <a href="#!" data-te-ripple-init data-te-ripple-color="light">
                   <img className="rounded-t-lg h-[23vh] w-full object-cover" src={el?.brandImg} alt="" />
