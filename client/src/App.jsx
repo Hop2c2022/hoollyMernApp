@@ -16,7 +16,8 @@ import Restaurant from './pages/Restaurant';
 import CreateRestaurant from './components/CreateRestaurant';
 import Admin from './pages/Admin';
 import Profile from './pages/Profile';
-import Test0 from './components/Test0';
+import Test0 from './components/Payment';
+import Adminorders from './pages/Adminorders';
 
 const App = () => {
   return (
@@ -39,6 +40,7 @@ const App = () => {
         <Route path="/admin" element={<Admin />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/payment" element={<Test0 />} />
+        <Route path="/admin/orders" element={<Adminorders />} />
       </Routes>
       <Footer />
     </BrowserRouter>
