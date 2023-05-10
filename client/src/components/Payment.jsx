@@ -3,29 +3,31 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useState } from 'react';
 
-const Test0 = () => {
+const Payment = () => {
   const [avsn, setAvsn] = useState([]);
+  const [showModal, setShowModal] = React.useState(false);
+
   const realData = [];
 
-  const submitData = async () => {
+  const submit = async () => {
     try {
       const res = await axios.get(`http://localhost:8000/getadminOrder/${localStorage.getItem('id')}`);
       setAvsn(res?.data);
-      getDt();
-      newData();
+      setShowModal(true);
     } catch (err) {
       console.log(err);
     }
   };
-  const getDt = () => {
+  useEffect(() => {
     avsn.map((el) => {
+      console.log(el);
       realData.push(el);
     });
-  };
+  }, [avsn]);
 
-  console.log(realData);
+  console.log(avsn);
 
-  const newData = async () => {
+  const confirm = async () => {
     const res2 = await axios.post(`http://localhost:8000/postadminOrder/${localStorage.getItem('id')}`, {
       userId: `${localStorage.getItem('id')}`,
       data: realData,
@@ -34,7 +36,6 @@ const Test0 = () => {
       street: localStorage.getItem('street'),
       district: localStorage.getItem('dist'),
     });
-
     console.log(res2);
   };
 
@@ -67,7 +68,7 @@ const Test0 = () => {
             <h1 className="text-gray-800 font-lg font-bold tracking-normal leading-tight mb-4">
               Enter Billing Details
             </h1>
-            <label for="name" className="text-gray-800 text-sm font-bold leading-tight tracking-normal">
+            <label htmlFor="name" className="text-gray-800 text-sm font-bold leading-tight tracking-normal">
               Owner Name
             </label>
             <input
@@ -75,7 +76,7 @@ const Test0 = () => {
               className="mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border"
               placeholder="James"
             />
-            <label for="email2" className="text-gray-800 text-sm font-bold leading-tight tracking-normal">
+            <label htmlFor="email2" className="text-gray-800 text-sm font-bold leading-tight tracking-normal">
               Card Number
             </label>
             <div className="relative mb-5 mt-2">
@@ -86,7 +87,7 @@ const Test0 = () => {
                   width="20"
                   height="20"
                   viewBox="0 0 24 24"
-                  stroke-width="1.5"
+                  strokeWidth="1.5"
                   stroke="currentColor"
                   fill="none"
                   strokeLinecap="round"
@@ -106,7 +107,7 @@ const Test0 = () => {
                 placeholder="XXXX - XXXX - XXXX - XXXX"
               />
             </div>
-            <label for="expiry" className="text-gray-800 text-sm font-bold leading-tight tracking-normal">
+            <label htmlFor="expiry" className="text-gray-800 text-sm font-bold leading-tight tracking-normal">
               Expiry Date
             </label>
             <div className="relative mb-5 mt-2">
@@ -117,7 +118,7 @@ const Test0 = () => {
                 placeholder="MM/YY"
               />
             </div>
-            <label for="cvc" className="text-gray-800 text-sm font-bold leading-tight tracking-normal">
+            <label htmlFor="cvc" className="text-gray-800 text-sm font-bold leading-tight tracking-normal">
               CVC
             </label>
             <div className="relative mb-5 mt-2">
@@ -149,7 +150,7 @@ const Test0 = () => {
             <div className="flex items-center justify-start w-full">
               <button
                 className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 transition duration-150 ease-in-out hover:bg-indigo-600 bg-indigo-700 rounded text-white px-8 py-2 text-sm"
-                onClick={submitData}
+                onClick={() => submit()}
               >
                 Submit
               </button>
@@ -159,42 +160,78 @@ const Test0 = () => {
                 </button>
               </Link>
             </div>
-            <button
-              className="cursor-pointer absolute top-0 right-0 mt-4 mr-5 text-gray-400 hover:text-gray-600 transition duration-150 ease-in-out rounded focus:ring-2 focus:outline-none focus:ring-gray-600"
-              onClick="modalHandler()"
-              ariaLabel="close modal"
-              role="button"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="icon icon-tabler icon-tabler-x"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                stroke-width="2.5"
-                stroke="currentColor"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
+            <Link to="/checkout">
+              <button
+                className="cursor-pointer absolute top-0 right-0 mt-4 mr-5 text-gray-400 hover:text-gray-600 transition duration-150 ease-in-out rounded focus:ring-2 focus:outline-none focus:ring-gray-600"
+                aria-label="close modal"
+                role="button"
               >
-                <path stroke="none" d="M0 0h24v24H0z" />
-                <line x1="18" y1="6" x2="6" y2="18" />
-                <line x1="6" y1="6" x2="18" y2="18" />
-              </svg>
-            </button>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="icon icon-tabler icon-tabler-x"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  strokeWidth="2.5"
+                  stroke="currentColor"
+                  fill="none"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" />
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+              </button>
+            </Link>
           </div>
+          {showModal ? (
+            <div>
+              <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
+                <div className="relative w-auto my-6 mx-auto max-w-3xl">
+                  {/*content*/}
+                  <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+                    {/*header*/}
+                    <div className="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
+                      <h3 className="text-3xl font-semibold">Here you change name</h3>
+                      <button
+                        className="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
+                        onClick={() => setShowModal(false)}
+                      >
+                        <span className="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
+                          ×
+                        </span>
+                      </button>
+                    </div>
+                    {/*body*/}
+
+                    {/*footer*/}
+                    <div className="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
+                      <button
+                        className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                        type="button"
+                        onClick={() => setShowModal(false)}
+                      >
+                        Close
+                      </button>
+                      <button
+                        className="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                        type="button"
+                        onClick={confirm}
+                      >
+                        Save Changes
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
+            </div>
+          ) : null}
         </div>
-      </div>
-      <div className="w-full flex justify-center py-12" id="button">
-        <button
-          className="focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 mx-auto transition duration-150 ease-in-out hover:bg-indigo-600 bg-indigo-700 rounded text-white px-4 sm:px-8 py-2 text-xs sm:text-sm"
-          onClick="modalHandler(true)"
-        >
-          Open Modal
-        </button>
       </div>
     </div>
   );
 };
 
-export default Test0;
+export default Payment;
