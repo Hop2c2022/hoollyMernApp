@@ -21,3 +21,13 @@ exports.getAdminOrder = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
+
+exports.getAdminOrders = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const get = await adminOrders.find({ userId: id });
+    res.json(get);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+};
