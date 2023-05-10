@@ -119,7 +119,10 @@ const Navbar = () => {
               </div>
             ) : (
               <div className="flex md:justify-end md:w-[45vw] w-[100vw] overflow-hidden md:hidden">
-                <ul className=" flex flex-col absolute h-full top-0 backdrop-blur-md w-full space-y-7 justify-center items-center  text-[#fff] z-50 overflow-hidden">
+                <ul
+                  style={{ textShadow: '-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000' }}
+                  className=" flex flex-col absolute h-full top-0 backdrop-blur-md w-full space-y-7 justify-center items-center  text-[#fff] z-50 overflow-hidden"
+                >
                   <li>
                     <a href="/">Home</a>
                   </li>
@@ -162,7 +165,7 @@ const Navbar = () => {
                     <button
                       type="button"
                       onClick={() => navigate('/profile')}
-                      className="inline-block py-1 text-xl text-white bg-gray-700 px-2 hover:bg-gray-700 rounded-xl text-[9px]"
+                      className="inline-block py-1 text-xl text-white bg-gray-700 px-2 hover:bg-gray-700 rounded-xl text-[7px] xl:text-[10px]"
                     >
                       {userInfo}
                     </button>

@@ -17,30 +17,33 @@ import CreateRestaurant from './components/CreateRestaurant';
 import Admin from './pages/Admin';
 import Profile from './pages/Profile';
 import Test0 from './components/Test0';
+import UserProvider from './components/userContext';
 
 const App = () => {
   return (
     <BrowserRouter>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/aboutus" element={<AboutUs />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/shoplist" element={<ShopList />} />
-        <Route path="/shopdetails" element={<ShopDetails />} />
-        <Route path="/checkout" element={<CheckOut />} />
-        <Route path="/pagenotfound" element={<PageNotFound />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/forgotpass" element={<Forgotpass />} />
-        <Route path="/admin/createMenu" element={<CreateFood />} />
-        <Route path="/admin/createRestaurant" element={<CreateRestaurant />} />
-        <Route path="/restaurant" element={<Restaurant />} />
-        <Route path="/admin" element={<Admin />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/payment" element={<Test0 />} />
-      </Routes>
-      <Footer />
+      <UserProvider>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/aboutus" element={<AboutUs />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/shoplist" element={<ShopList />} />
+          <Route path="/shopdetails" element={<ShopDetails />} />
+          <Route path="/checkout" element={<CheckOut />} />
+          <Route path="/pagenotfound" element={<PageNotFound />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/forgotpass" element={<Forgotpass />} />
+          <Route path="/admin/createMenu" element={<CreateFood />} />
+          <Route path="/admin/createRestaurant" element={<CreateRestaurant />} />
+          <Route path="/restaurant" element={<Restaurant />} />
+          <Route path="/admin" element={<Admin />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/payment" element={<Test0 />} />
+        </Routes>
+        <Footer />
+      </UserProvider>
     </BrowserRouter>
   );
 };
