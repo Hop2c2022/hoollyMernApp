@@ -1,6 +1,7 @@
 import upperCover from '../assets/Khash-Erdene/upperCover.png';
 import bottomCover1 from '../assets/Khash-Erdene/bottomCover1.png';
 import bottomCover2 from '../assets/Khash-Erdene/bottomCover2.png';
+import { Link } from 'react-router-dom';
 
 const AboutUsFood = () => {
   return (
@@ -32,9 +33,11 @@ const AboutUsFood = () => {
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, vitae.
           </p>
         </div>
-        <button className="inline-block px-4 py-2  text-white bg-blue-600 rounded-full hover:bg-blue-700 w-[40vw] md:w-[16vw] ">
-          Read More
-        </button>
+        <Link to="aboutus">
+          <button className="inline-block px-4 py-2  text-white bg-blue-600 rounded-full hover:bg-blue-700 w-[40vw] md:w-[16vw] ">
+            Read More
+          </button>
+        </Link>
       </div>
       {/* Right Section */}
       <div className="w-[90vw] md:w-[50vw] justify-end mt-[2vh] md:mt-0 md:ml-[5vw]">

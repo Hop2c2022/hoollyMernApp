@@ -109,6 +109,7 @@ const CreateFood = () => {
               </label>
               <div className="flex flex-col items-start">
                 <input
+                  type="number"
                   name="number"
                   placeholder="Number"
                   onChange={(e) => setPrice(e.target.value)}
@@ -135,6 +136,7 @@ const CreateFood = () => {
               </label>
               <div className="flex flex-col items-start">
                 <input
+                  type="number"
                   name="text"
                   placeholder="20"
                   onChange={(e) => setAmount(e.target.value)}
