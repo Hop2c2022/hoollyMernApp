@@ -85,7 +85,7 @@ const ShopList = () => {
               {addVal?.description}
             </p>
             <div className="flex items-center justify-center md:justify-start lg:justify-start space-x-6 pt-8">
-              <h1 className="text-3xl font-bold poppins select-none">{price * num}$</h1>
+              <h1 className="text-3xl font-bold poppins select-none">{price * num} ₮</h1>
               <div className="flex items-center border border-gray-200 px-4 py-2 space-x-6 rounded-full">
                 <svg
                   onClick={minusValue}
