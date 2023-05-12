@@ -157,8 +157,6 @@ const ShopList = () => {
                 </svg>
                 <span>Add to Cart</span>
               </button>
-
-              <p className="ml-3 font-bold text-cyan-300">(Remain: {addVal?.amount})</p>
             </div>
           </div>
           <div className="order-1 md:order-2 lg:order-2">

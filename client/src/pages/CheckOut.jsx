@@ -17,6 +17,7 @@ import {
 } from '../duuregdata';
 
 const CheckOut = () => {
+  const [allPrice, setAllPrice] = useState([]);
   const [number, setNumber] = useState('');
   const [dist, setDist] = useState();
   const [strt, setStreet] = useState();
@@ -25,7 +26,7 @@ const CheckOut = () => {
   const [orders, setOrders] = useState([]);
   const [place, setPlace] = useState(false);
   const [places, setPlaces] = useState([]);
-  const [songson, setSongson] = useState(true);
+  const [songson, setSongson] = useState(false);
 
   const save = async (e) => {
     if (localStorage.getItem('id')) {
@@ -116,7 +117,7 @@ const CheckOut = () => {
       window.location = '/payment';
     } else {
       if (localStorage.getItem('id')) {
-        toast.dark('Please write all field!', {
+        toast.dark('Please select address or write address!', {
           icon: '😋',
         });
       } else {
@@ -141,9 +142,21 @@ const CheckOut = () => {
     }
   };
 
+  const changePlace = () => {
+    localStorage.removeItem('dist');
+    localStorage.removeItem('street');
+    localStorage.removeItem('fullInfo');
+    localStorage.removeItem('number');
+    setSongson(true);
+  };
+
   const songoh = () => {
     setSongson(false);
   };
+  let finalPrice = 0;
+  orders.map((el) => {
+    finalPrice += el?.price;
+  });
 
   return (
     <div>
@@ -301,7 +314,7 @@ const CheckOut = () => {
                   <button
                     type="button"
                     className="flex items-center w-full p-3 border border-gray-300 bg-blue-400  hover:bg-blue-600 font-semibold text-white justify-center"
-                    onClick={() => setSongson(true)}
+                    onClick={changePlace}
                   >
                     <p> Change Place</p>
                   </button>
@@ -322,7 +335,7 @@ const CheckOut = () => {
                       <div className="flex justify-between w-full items-center">
                         <div>
                           <h1>{el?.title}</h1>
-                          <h1>{el?.price}$</h1>
+                          <h1>{el?.price} ₮</h1>
                           <p>{el?.pieces} pieces</p>
                         </div>
                         <button className="text-[25px]" onClick={() => fooddelete(el?._id)}>
@@ -339,10 +352,6 @@ const CheckOut = () => {
           <div className="h-0.5 w-full bg-gray-300 mt-[0.7vh] mb-[0.7vh]" />
           <div className="flex flex-col h-[100%] justify-evenly">
             <div className="">
-              <div className="flex justify-between ">
-                <h1 className="text-gray-300">Sub Total</h1>
-                <p>130$</p>
-              </div>
               <div className="flex justify-between">
                 <h1 className="text-gray-300">Shipping</h1>
                 <p>5'000₮</p>
@@ -351,7 +360,7 @@ const CheckOut = () => {
             <div className="h-0.5 w-full bg-gray-300 " />
             <div className="flex justify-between pt-1">
               <h1 className="text-[17px]">Total</h1>
-              <p>432.65$</p>
+              <p>{finalPrice + 5000} ₮</p>
             </div>
 
             <div className="flex gap-y-3 flex-col">

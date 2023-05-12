@@ -48,6 +48,15 @@ const Navbar = () => {
     }
   }
 
+  useEffect(() => {
+    if (
+      localStorage.getItem('id') &&
+      (window.location == 'http://localhost:5173/login' || window.location == 'http://localhost:5173/register')
+    ) {
+      navigate('/');
+    }
+  }, []);
+
   return (
     <>
       <div
