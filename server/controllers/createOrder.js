@@ -1,16 +1,8 @@
 const CreateOrder = require("../models/createOrder");
 exports.createOrder = async (req, res) => {
   try {
-    const {
-      title,
-      description,
-      price,
-      image,
-      type,
-      brand,
-      amount,
-      restaurantId,
-    } = req.body;
+    const { title, description, price, image, type, brand, restaurantId } =
+      req.body;
     const newOrder = await new CreateOrder({
       title,
       description,
@@ -18,7 +10,6 @@ exports.createOrder = async (req, res) => {
       image,
       type,
       brand,
-      amount,
       restaurantId,
     }).save();
     res.status(201).json(newOrder);
