@@ -26,9 +26,8 @@ const CheckoutSchema = new mongoose.Schema(
     pieces: {
       type: Number,
     },
-    confirmed: {
-      type: Boolean,
-      default: false,
+    company: {
+      type: String,
     },
   },
   { timestamps: true }
