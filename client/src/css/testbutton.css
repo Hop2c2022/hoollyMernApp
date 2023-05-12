@@ -81,3 +81,11 @@
 .none {
   border: 0;
 }
+
+.uur {
+  display: none;
+}
+
+.uurbish {
+  display: block;
+}
