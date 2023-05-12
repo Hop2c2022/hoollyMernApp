@@ -12,12 +12,12 @@ function Testimonial() {
     },
     {
       id: 2,
-      name: 'Jane Smith',
+      name: 'Jaden Smith',
       comment: 'Vestibulum ultricies lacus sed turpis hendrerit, vel egestas ligula placerat. Suspendisse potenti.',
     },
     {
       id: 3,
-      name: 'Alice Johnson',
+      name: 'Sarah Johnson',
       comment:
         'Fusce id erat quis turpis sagittis euismod. Integer vitae ligula maximus, condimentum diam a, luctus purus.',
     },
