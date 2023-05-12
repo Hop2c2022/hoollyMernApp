@@ -3,6 +3,7 @@ import AboutUsFood from '../components/AboutUsFood';
 import WhyChooseUs from '../components/WhyChooseUs';
 import Companies from '../components/Companies';
 import { useNavigate } from 'react-router-dom';
+import Testimonial from '../components/Testimonial';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -37,6 +38,7 @@ const Home = () => {
       {/* Additianol components */}
       <AboutUsFood />
       <WhyChooseUs />
+      <Testimonial />
       <Companies />
     </>
   );
