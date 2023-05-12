@@ -2,6 +2,7 @@ import foodCover from '../assets/Khash-Erdene/foodCover.png';
 import AboutUsFood from '../components/AboutUsFood';
 import WhyChooseUs from '../components/WhyChooseUs';
 import Companies from '../components/Companies';
+import Testimonial from '../components/Testimonial';
 
 const Home = () => {
   return (
@@ -32,6 +33,7 @@ const Home = () => {
       {/* Additianol components */}
       <AboutUsFood />
       <WhyChooseUs />
+      <Testimonial />
       <Companies />
     </>
   );
