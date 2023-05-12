@@ -23,6 +23,7 @@ const ShopList = () => {
       image: addVal?.image,
       currentprice: addVal?.price,
       pieces: lastprice / addVal?.price,
+      company: addVal?.brand,
     });
     toast.info('Successfully Added', {
       icon: '🍔',
