@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { merge } from 'lodash';
-import { chunk } from 'lodash';
 import _ from 'lodash';
 const Adminorders = () => {
   const navigate = useNavigate();

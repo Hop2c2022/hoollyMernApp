@@ -27,8 +27,6 @@ const ShopList = () => {
     });
     toast.info('Successfully Added', {
       icon: '🍔',
-      // position: toast.POSITION.TOP_CENTER,
-      // className: 'black-background',
     });
   };
 

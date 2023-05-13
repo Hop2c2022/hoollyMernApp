@@ -1,8 +1,34 @@
 import logo from '../assets/pineconeLongLogo.svg';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Footer = () => {
+  const alert = () => {
+    toast.info('Demo Project', {
+      icon: '🍔',
+    });
+  };
+
+  const contextClass = {
+    success: 'bg-gray-800',
+    error: 'bg-red-600',
+    info: 'bg-gray-800',
+    warning: 'bg-orange-400',
+    default: 'bg-indigo-600',
+    dark: 'bg-white-600 font-gray-300',
+  };
+
   return (
     <div className="flex items-end w-full mt-[0.1vh] bg-[#111]  ">
+      <div>
+        <ToastContainer
+          toastClassName={({ type }) =>
+            contextClass[type || 'default'] +
+            ' relative flex p-1 min-h-10 rounded-md justify-between overflow-hidden cursor-pointer'
+          }
+          bodyClassName={() => 'text-sm font-white font-med block p-3'}
+        />
+      </div>
       <footer className="w-full text-white body-font">
         <div className="container flex flex-col flex-wrap px-5 py-24 mx-auto md:items-center lg:items-start md:flex-row md:flex-no-wrap">
           <div className="flex-shrink-0 w-64 mx-auto text-center lg:mx-0 lg:text-left  lg:inline">
@@ -94,13 +120,13 @@ const Footer = () => {
             <div className="w-full px-4 lg:w-1/4 md:w-1/2">
               <h2 className="mb-3 text-sm font-medium tracking-widest text-blue-500 uppercase title-font">About</h2>
               <nav className="mb-10 list-none">
-                <li className="mt-3">
+                <li className="mt-3" onClick={alert}>
                   <a className="text-white cursor-pointer hover:text-violet-500">Company</a>
                 </li>
-                <li className="mt-3">
+                <li className="mt-3" onClick={alert}>
                   <a className="text-white cursor-pointer hover:text-violet-500">Careers</a>
                 </li>
-                <li className="mt-3">
+                <li className="mt-3" onClick={alert}>
                   <a className="text-white cursor-pointer hover:text-violet-500">Blog</a>
                 </li>
               </nav>
@@ -108,13 +134,13 @@ const Footer = () => {
             <div className="w-full px-4 lg:w-1/4 md:w-1/2">
               <h2 className="mb-3 text-sm font-medium tracking-widest text-blue-500 uppercase title-font">Support</h2>
               <nav className="mb-10 list-none">
-                <li className="mt-3">
+                <li className="mt-3" onClick={alert}>
                   <a className="text-white cursor-pointer hover:text-violet-500">Contact Support</a>
                 </li>
-                <li className="mt-3">
+                <li className="mt-3" onClick={alert}>
                   <a className="text-white cursor-pointer hover:text-violet-500">Help Resources</a>
                 </li>
-                <li className="mt-3">
+                <li className="mt-3" onClick={alert}>
                   <a className="text-white cursor-pointer hover:text-violet-500">Release Updates</a>
                 </li>
               </nav>
@@ -122,13 +148,13 @@ const Footer = () => {
             <div className="w-full px-4 lg:w-1/4 md:w-1/2">
               <h2 className="mb-3 text-sm font-medium tracking-widest text-blue-500 uppercase title-font">Platform</h2>
               <nav className="mb-10 list-none">
-                <li className="mt-3">
+                <li className="mt-3" onClick={alert}>
                   <a className="text-white cursor-pointer hover:text-violet-500">Terms &amp; Privacy</a>
                 </li>
-                <li className="mt-3">
+                <li className="mt-3" onClick={alert}>
                   <a className="text-white cursor-pointer hover:text-violet-500">Pricing</a>
                 </li>
-                <li className="mt-3">
+                <li className="mt-3" onClick={alert}>
                   <a className="text-white cursor-pointer hover:text-violet-500">FAQ</a>
                 </li>
               </nav>
@@ -136,13 +162,13 @@ const Footer = () => {
             <div className="w-full px-4 lg:w-1/4 md:w-1/2">
               <h2 className="mb-3 text-sm font-medium tracking-widest text-blue-500 uppercase title-font">Contact</h2>
               <nav className="mb-10 list-none">
-                <li className="mt-3">
+                <li className="mt-3" onClick={alert}>
                   <a className="text-white cursor-pointer hover:text-violet-500">Send a Message</a>
                 </li>
-                <li className="mt-3">
+                <li className="mt-3" onClick={alert}>
                   <a className="text-white cursor-pointer hover:text-violet-500">Request a Quote</a>
                 </li>
-                <li className="mt-3">
+                <li className="mt-3" onClick={alert}>
                   <a className="text-white cursor-pointer hover:text-violet-500">+976 7270 0800</a>
                 </li>
               </nav>
