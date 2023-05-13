@@ -76,7 +76,7 @@ const Navbar = () => {
           <div className=" flex items-center mx-3 w-screen ">
             <div className="flex items-center justify-center md:ml-[5vw]">
               <Link to="/">
-                <img className="hidden md:flex w-[100%] h-[4.5vh] object-contain" src={logo} alt="" />
+                <img className="hidden md:flex lg:w-[100px] md:w-[160px] h-[40px]" src={logo} alt="" />
               </Link>
             </div>
             <div className="flex md:justify-end md:w-[45vw]md:w-[30vw] md:ml-[2.5vw] ">
