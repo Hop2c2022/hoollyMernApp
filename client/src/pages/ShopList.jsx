@@ -16,18 +16,25 @@ const ShopList = () => {
   };
 
   const send = async () => {
-    await axios.post(`http://localhost:8000/auth/postCheck/${val}`, {
-      userId: localStorage.getItem('id'),
-      price: lastprice,
-      title: addVal?.title,
-      image: addVal?.image,
-      currentprice: addVal?.price,
-      pieces: lastprice / addVal?.price,
-      company: addVal?.brand,
-    });
-    toast.info('Successfully Added', {
-      icon: '🍔',
-    });
+    try {
+      await axios.post(`http://localhost:8000/auth/postCheck/${val}`, {
+        userId: localStorage.getItem('id'),
+        price: lastprice,
+        title: addVal?.title,
+        image: addVal?.image,
+        currentprice: addVal?.price,
+        pieces: lastprice / addVal?.price,
+        company: addVal?.brand,
+      });
+      toast.info('Successfully Added', {
+        icon: '🍔',
+      });
+    } catch (err) {
+      toast.dark('Please login first!', {
+        icon: '🔒',
+        position: toast.POSITION.TOP_CENTER,
+      });
+    }
   };
 
   const contextClass = {

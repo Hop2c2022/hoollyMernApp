@@ -12,6 +12,7 @@ const Navbar = () => {
   const [nav, setNav] = useState(true);
   const [New, setNew] = useState(false);
   const [userInfo, setUserInfo] = useState('');
+  const [notf, setNotf] = useState(0);
 
   const shalgah = async () => {
     try {
@@ -48,6 +49,15 @@ const Navbar = () => {
     }
   }
 
+  const getBadge = async () => {
+    try {
+      const res = await axios.get(`http://localhost:8000/users/${localStorage.getItem('id')}`);
+      setNotf(res?.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   useEffect(() => {
     if (
       localStorage.getItem('id') &&
@@ -56,6 +66,10 @@ const Navbar = () => {
       navigate('/');
     }
   }, []);
+
+  useEffect(() => {
+    getBadge();
+  }, [getBadge]);
 
   return (
     <>
@@ -76,7 +90,7 @@ const Navbar = () => {
           <div className=" flex items-center mx-3 w-screen ">
             <div className="flex items-center justify-center md:ml-[5vw]">
               <Link to="/">
-                <img className="hidden md:flex lg:w-[100px] md:w-[160px] h-[40px]" src={logo} alt="" />
+                <img className="hidden md:flex lg:w-[100px] w-full h-[40px] object-contain" src={logo} alt="" />
               </Link>
             </div>
             <div className="flex md:justify-end md:w-[45vw]md:w-[30vw] md:ml-[2.5vw] ">
@@ -163,11 +177,21 @@ const Navbar = () => {
             <div className="flex w-[100vw] sm:mr-[10vw] md:mr-[5vw] mr-[5vw] justify-end">
               <div className="flex items-center">
                 <Link to="/checkout">
-                  <img
-                    className="w-[8vw] sm:w-[5vw] 2xl:w-[2vw] lg:w-[3vw]  ml-[0.5vw] h-[4vh] object-contain cursor-pointer"
-                    src={cartIcon}
-                    alt=""
-                  />
+                  <div
+                    type="button"
+                    className="relative inline-flex items-center p-3 text-sm font-medium text-center  text-white md:w-[7vw] lg:w-full"
+                  >
+                    <span className="relative inline-block">
+                      <img
+                        className=" w-[8vw] sm:w-[5vw]  2xl:w-[2vw] lg:w-[3vw]  ml-[0.5vw] h-[4vh] object-contain cursor-pointer"
+                        src={cartIcon}
+                        alt=""
+                      />
+                      <span className="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 bg-red-600 rounded-full">
+                        {notf.length}
+                      </span>
+                    </span>
+                  </div>
                 </Link>
                 {loggedIn ? (
                   <div className="flex items-center gap-x-2 pl-3">
