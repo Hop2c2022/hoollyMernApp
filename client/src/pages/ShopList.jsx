@@ -28,6 +28,7 @@ const ShopList = () => {
       });
       toast.info('Successfully Added', {
         icon: '🍔',
+        position: toast.POSITION.TOP_CENTER,
       });
     } catch (err) {
       toast.dark('Please login first!', {
@@ -37,14 +38,10 @@ const ShopList = () => {
     }
   };
 
-  const contextClass = {
-    success: 'bg-gray-800',
-    error: 'bg-red-600',
-    info: 'bg-gray-800',
-    warning: 'bg-orange-400',
-    default: 'bg-indigo-600',
-    dark: 'bg-white-600 font-gray-300',
-  };
+  // const contextClass = {
+  //   info: 'bg-gray-800',
+  //   dark: 'bg-white-600 font-gray-300',
+  // };
 
   const [price, setPrice] = useState();
 
@@ -74,12 +71,11 @@ const ShopList = () => {
     <div className="bg-[#111]  text-[#fff] flex justify-center">
       <div>
         <ToastContainer
-          toastClassName={({ type }) =>
-            contextClass[type || 'default'] +
-            ' relative flex p-1 min-h-10 rounded-md justify-between overflow-hidden cursor-pointer'
-          }
-          bodyClassName={() => 'text-sm font-white font-med block p-3'}
-          position="top-center"
+        // toastClassName={({ type }) =>
+        //   contextClass[type || 'default'] +
+        //   ' relative flex p-1 min-h-10 rounded-md justify-between overflow-hidden cursor-pointer'
+        // }
+        // bodyClassName={() => 'text-sm font-white font-med block p-3'}
         />
       </div>
       <div className="relative top-8">
