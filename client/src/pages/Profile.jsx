@@ -71,7 +71,7 @@ const Profile = () => {
         <ToastContainer />
       </div>
       <div>
-        <div className=" ml-[5vw] mr-[5vw] flex h-[86.9vh] w-[90vw] items-center justify-center ">
+        <div className="ml-[5vw] mr-[5vw] flex flex-col h-[86.9vh] w-[90vw] items-center justify-evenly">
           <div className="w-full rounded-xl p-12 shadow-2xl shadow-blue-200 md:w-8/12 xl:w-6/12 bg-white">
             <div className="grid grid-cols-1 gap-6 lg:grid-cols-12">
               <div className="grid-cols-1 lg:col-span-3">
@@ -113,10 +113,10 @@ const Profile = () => {
                     </button>
                   ) : (
                     <button
-                      onClick={() => navigate('/contact')}
+                      onClick={() => navigate('/history')}
                       className="w-full rounded-xl border-2 border-blue-500 bg-white px-3 py-2 font-semibold text-blue-500 hover:bg-blue-500 hover:text-white"
                     >
-                      Contact
+                      History
                     </button>
                   )}
 
