@@ -9,6 +9,6 @@ const router = express.Router();
 
 router.post("/postadminOrder/:id", postAdminOrder);
 router.get("/getadminOrder/:id", getAdminOrder);
-router.get("/getadminOrders/:id", getAdminOrders);
+router.get("/getadminOrders", getAdminOrders);
 
 module.exports = router;
