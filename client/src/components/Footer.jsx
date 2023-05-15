@@ -4,7 +4,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Footer = () => {
   const alert = () => {
-    toast.info('Demo Project', {
+    toast.dark('Developing process!', {
       icon: '🍔',
     });
   };

@@ -1,8 +1,14 @@
+import { useNavigate } from 'react-router-dom';
 import foodGroup from '../assets/Khash-Erdene/foodGroup.png';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const WhyChooseUs = () => {
   return (
     <div className="bg-[#111] text-[#fff] h-full flex sm:items-center  w-[100vw] flex-col md:flex-row ">
+      <div>
+        <ToastContainer />
+      </div>
       {/* Left Section */}
       <div className="w-[90vw] items-center flex ml-[5vw] md:h-[90vh] h-[100vh]  md:w-[40vw] lg:w-[35vw] ">
         <div className="flex flex-col ">
@@ -21,7 +27,10 @@ const WhyChooseUs = () => {
             fringilla bibendum. Urna, elit augue urna, vitae feugiat pretium donec id elementum. Ultrices mattis sed
             vitae mus risus. Lacus nisi, et ac dapibus sit eu velit in consequat.
           </p>
-          <button className="mt-[1vh] md:mt-[0.5vh]  inline-block px-4 py-2  text-white bg-blue-600 rounded-full hover:bg-blue-700 w-[40vw] md:w-[16vw] ">
+          <button
+            onClick={() => toast.dark('Developing process!')}
+            className="mt-[1vh] md:mt-[0.5vh]  inline-block px-4 py-2  text-white bg-blue-600 rounded-full hover:bg-blue-700 w-[40vw] md:w-[16vw] "
+          >
             Read More
           </button>
         </div>

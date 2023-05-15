@@ -38,7 +38,7 @@ function Testimonial() {
   };
 
   return (
-    <div className=" w-[100vw] h-[20vh] bg-[#111] ">
+    <div className=" w-[100vw] xl:h-[5vh] h-[20vh] bg-[#111] ">
       <div className="max-w-3xl mx-auto ">
         <div className="relative">
           {testimonials.map((testimonial, index) => (

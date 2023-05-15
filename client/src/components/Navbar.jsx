@@ -183,7 +183,7 @@ const Navbar = () => {
                   >
                     <span className="relative inline-block">
                       <img
-                        className=" w-[8vw] sm:w-[5vw]  2xl:w-[2vw] lg:w-[3vw]  ml-[0.5vw] h-[4vh] object-contain cursor-pointer"
+                        className=" w-[8vw] sm:w-[5vw]  2xl:w-[1.9vw] lg:w-[3vw]  ml-[0.5vw] h-[4vh] object-contain cursor-pointer"
                         src={cartIcon}
                         alt=""
                       />
@@ -198,7 +198,7 @@ const Navbar = () => {
                     <button
                       type="button"
                       onClick={() => navigate('/profile')}
-                      className="inline-block py-1 text-xl text-white bg-gray-700 px-2 hover:bg-gray-700 rounded-xl text-[7px] xl:text-[10px]"
+                      className="inline-block py-1 text-xl text-white bg-gray-700 px-2 hover:bg-gray-700 rounded-xl text-[7px] xl:text-[12px]"
                     >
                       {userInfo}
                     </button>

@@ -58,7 +58,6 @@ const Adminorders = () => {
           return (
             <div
               key={key}
-              // onClick={() => console.log(el)}
               className="block p-6 bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] h-[40vh] md:h-[35vh] lg:h-[38vh] xl:h-[35vh] w-[85vw] sm:w-[43vw] xl:w-[28vw] 2xl:h-[36vh] 2xl:w-[20vw] rounded-lg"
             >
               <div>
@@ -66,18 +65,22 @@ const Adminorders = () => {
                   return (
                     <div style={{ border: '1px solid red' }}>
                       {el.map((ed) => {
-                        return <div>{ed.price}</div>;
+                        return (
+                          <div>
+                            {' '}
+                            <div>T: {el?._id}</div>
+                            <div>F: {el?.company}</div>
+                            <div>G: {el?.phoneNumber}</div>
+                            <div className="p-6">
+                              <h5 className="mb-2 text-xl font-medium leading-tight  "></h5>
+                              <p className="mb-4 text-base ">{el?.description}</p>
+                            </div>
+                          </div>
+                        );
                       })}
                     </div>
                   );
                 })}
-              </div>
-              <div>T: {el?._id}</div>
-              <div>F: {el?.company}</div>
-              <div>G: {el?.phoneNumber}</div>
-              <div className="p-6">
-                <h5 className="mb-2 text-xl font-medium leading-tight  "></h5>
-                <p className="mb-4 text-base ">{el?.description}</p>
               </div>
             </div>
           );

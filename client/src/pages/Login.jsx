@@ -97,10 +97,6 @@ const Login = () => {
             </div>
           </div>
 
-          <div className="checkbox">
-            <input type="checkbox" id="scales" name="scales" className="accent-blue-500 mr-2" />
-            <label htmlFor="scales">Remember me?</label>
-          </div>
           <div className="mt-6 flex justify-center pt-3">
             <button
               onClick={log}

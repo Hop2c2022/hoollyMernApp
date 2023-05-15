@@ -331,7 +331,7 @@ const CheckOut = () => {
                 <div key={el?._id} className="flex flex-col h-[102px] ">
                   <div className="flex flex-col ">
                     <div className=" gap-x-3 flex object-cover">
-                      <img src={el?.image} alt="food" className=" h-[80px] w-[80px]" />
+                      <img src={el?.image} alt="food" className="h-[80px] w-[80px] object-contain" />
                       <div className="flex justify-between w-full items-center">
                         <div>
                           <h1>{el?.title}</h1>
