@@ -1,11 +1,13 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 
 const Payment = () => {
   const [avsn, setAvsn] = useState([]);
   const [showModal, setShowModal] = React.useState(false);
+  const [bga, setBga] = useState(false);
+  const navigate = useNavigate();
 
   const realData = [];
 
@@ -36,6 +38,13 @@ const Payment = () => {
       street: localStorage.getItem('street'),
       district: localStorage.getItem('dist'),
     });
+    await axios.delete(`http://localhost:8000/allcheck/${localStorage.getItem('id')}`);
+    setBga(true);
+    setShowModal(false);
+    setTimeout(() => {
+      navigate('/');
+      window.location.reload();
+    }, 3000);
     console.log(res2);
   };
 
@@ -226,6 +235,30 @@ const Payment = () => {
                 </div>
               </div>
               <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
+            </div>
+          ) : null}
+          {bga ? (
+            <div className="w-full h-full">
+              <div id="modal-bg" className="w-full h-full bg-[#848A97] top-0 absolute hidden"></div>
+              <div
+                id="modal-box"
+                className="sm:w-[385px] sm:min-w-[40vw] min-w-[80vw] min-h-[50vh] flex flex-col items-center gap-2 -translate-y-1/2 p-6 bg-[#FFFFEB] rounded-lg top-1/2 left-1/2 -translate-x-1/2 absolute "
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="text-[#059669] mx-auto h-11 rounded-full bg-[#D1FAE5] w-11"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M5 13l4 4L19 7" />
+                </svg>
+                <span className="text-2xl font-medium">Payment Successful</span>
+                <p className="text-center">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, consequatur?
+                </p>
+                <p>Total: 1234$</p>
+              </div>
             </div>
           ) : null}
         </div>

@@ -65,8 +65,8 @@ const ShopDetails = () => {
         ) : (
           <div>
             <div className="w-[100vw] flex items-center gap-x-[2.5vw] h-16 text-white">
-              <div className="relative top-8 xl:ml-[13vw] lg:ml-[20vw] ml-[5vw]">
-                <a className=" poppins  select-none flex items-center space-x-2" href="/shopdetails?breakfast">
+              <div className="relative top-8 xl:ml-[22vw] lg:ml-[20vw] ml-[5vw]">
+                <a className=" poppins  select-none flex items-center space-x-2" href="/restaurant">
                   <svg
                     stroke="currentColor"
                     fill="currentColor"

@@ -4,30 +4,15 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Footer = () => {
   const alert = () => {
-    toast.dark('Developing process!', {
+    toast('Developing process!', {
       icon: '🍔',
     });
-  };
-
-  const contextClass = {
-    success: 'bg-gray-800',
-    error: 'bg-red-600',
-    info: 'bg-gray-800',
-    warning: 'bg-orange-400',
-    default: 'bg-indigo-600',
-    dark: 'bg-white-600 font-gray-300',
   };
 
   return (
     <div className="flex items-end w-full mt-[0.1vh] bg-[#111]  ">
       <div>
-        <ToastContainer
-          toastClassName={({ type }) =>
-            contextClass[type || 'default'] +
-            ' relative flex p-1 min-h-10 rounded-md justify-between overflow-hidden cursor-pointer'
-          }
-          bodyClassName={() => 'text-sm font-white font-med block p-3'}
-        />
+        <ToastContainer />
       </div>
       <footer className="w-full text-white body-font">
         <div className="container flex flex-col flex-wrap px-5 py-24 mx-auto md:items-center lg:items-start md:flex-row md:flex-no-wrap">
