@@ -7,8 +7,9 @@ import 'react-toastify/dist/ReactToastify.css';
 const Profile = () => {
   const [check, setCheck] = useState('');
   const [showModal, setShowModal] = React.useState(false);
-  const [newName, setNewName] = useState('');
+  const [newName, setNewName] = useState('Loading');
   const [userInfo, setUserInfo] = useState('');
+  const [proImg, setProImg] = useState('');
 
   const getRandomEmoji = () => {
     const emojis = ['❤️‍🔥', '❤', '🧡', '💛', '💚', '💙', '💜', '🤎', '🖤', '🤍'];
@@ -16,32 +17,7 @@ const Profile = () => {
   };
 
   const emoji = getRandomEmoji();
-
-  const getRandomPicture = () => {
-    const pictures = [
-      'https://i0.wp.com/thaeger.com/wp-content/uploads/2014/10/Disney-Princess-in-the-World-of-Avatar-by-racookie3-11.jpg?fit=600%2C750',
-      'https://i.pinimg.com/originals/28/79/9e/28799eec248baac30adfa566c9678302.jpg',
-      'https://images.squarespace-cdn.com/content/v1/51b3dc8ee4b051b96ceb10de/1376200314654-ZYS71QWUV2USX25Y71XQ/disneyprincessart10202136.jpg',
-      'https://unrealitymag.com/disney-princesses-as-avatar-characters/ku-xlarge-6/',
-      'https://images-geeknative-com.exactdn.com/wp-content/uploads/2013/08/ku-xlarge-2.jpg?strip=all&lossy=1&sharp=1&w=2560&ssl=1',
-      'https://laughingsquid.com/wp-content/uploads/2013/08/20130830-11540899-mulan.jpg',
-      'https://i1.wp.com/thaeger.com/wp-content/uploads/2014/10/Disney-Princess-in-the-World-of-Avatar-by-racookie3-06.jpg?resize=600%2C750',
-      'https://cdn.trendhunterstatic.com/phpthumbnails/279/279095/279095_2_600.jpeg?auto=webp',
-      'https://images6.fanpop.com/image/photos/37900000/Disney-Princess-Avatar-Earth-Bender-Cinderella-disney-princess-37921300-800-1000.jpg',
-      'https://i.pinimg.com/originals/ae/82/58/ae8258cffd2ecdbc161a90f223dea099.jpg',
-    ];
-    return pictures[~~(Math.random() * pictures.length)];
-  };
-  const picture = getRandomPicture();
-
   const navigate = useNavigate();
-
-  const info = async () => {
-    const res = await axios.get(`http://localhost:8000/auth/${localStorage.getItem('id')}`);
-    setCheck(res?.data?.data?.admin);
-    const res2 = await axios.get(`http://localhost:8000/auth/${localStorage.getItem('id')}`);
-    setUserInfo(res2?.data?.data?.name);
-  };
 
   const edit = async () => {
     if (newName.length != 0 && newName.length < 13) {
@@ -61,9 +37,17 @@ const Profile = () => {
     }
   };
 
+  const info = async () => {
+    const res = await axios.get(`http://localhost:8000/auth/${localStorage.getItem('id')}`);
+    setCheck(res?.data?.data?.admin);
+    const res2 = await axios.get(`http://localhost:8000/auth/${localStorage.getItem('id')}`);
+    setUserInfo(res2?.data?.data?.name);
+    setProImg(res?.data?.data?.profileImg);
+  };
+
   useEffect(() => {
     info();
-  }, [info]);
+  }, []);
 
   return (
     <div className="bg-[#111] w-[100vw] h-[93vh]">
@@ -76,7 +60,7 @@ const Profile = () => {
             <div className="grid grid-cols-1 gap-6 lg:grid-cols-12">
               <div className="grid-cols-1 lg:col-span-3">
                 <div className="mx-auto flex h-[200px] w-[150px] items-center justify-center p-4">
-                  <img className=" object-contain h-[200px] w-[150px]" src={picture} alt="" />
+                  <img className=" object-contain h-[200px] w-[150px]" src={proImg} alt="" />
                 </div>
               </div>
 

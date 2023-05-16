@@ -17,7 +17,6 @@ import {
 } from '../duuregdata';
 
 const CheckOut = () => {
-  const [allPrice, setAllPrice] = useState([]);
   const [number, setNumber] = useState('');
   const [dist, setDist] = useState();
   const [strt, setStreet] = useState();
@@ -81,7 +80,7 @@ const CheckOut = () => {
       const res = await axios.get(`http://localhost:8000/users/${localStorage.getItem('id')}`);
       setOrders(res?.data);
     } catch (err) {
-      console.log(err.message);
+      toast.dark(err.message);
     }
   };
 
@@ -90,7 +89,7 @@ const CheckOut = () => {
       const res = await axios.get(`http://localhost:8000/placeget/${localStorage.getItem('id')}`);
       setPlaces(res?.data);
     } catch (err) {
-      console.log(err.message);
+      toast.dark(err.message);
     }
   };
 
@@ -99,7 +98,7 @@ const CheckOut = () => {
       await axios.delete(`http://localhost:8000/checkdel/${_id}`);
       toast.success('Successfully deleted');
     } catch (err) {
-      console.log(err.message);
+      toast.dark(err.message);
     }
   };
 
@@ -138,7 +137,7 @@ const CheckOut = () => {
         localStorage.setItem('fullInfo', res?.data?.result?.fullInformation);
       }
     } catch (err) {
-      console.log(err);
+      toast.dark(err.message);
     }
   };
 

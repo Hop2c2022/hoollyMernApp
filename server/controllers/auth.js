@@ -5,7 +5,7 @@ const User = require("../models/user");
 /* REGISTER USER */
 exports.register = async (req, res) => {
   try {
-    const { name, email, password } = req.body;
+    const { name, email, password, profileImg } = req.body;
     const salt = await bcrypt.genSalt();
     const passwordHash = await bcrypt.hash(password, salt);
     const user = await User.findOne({ email: email });
@@ -14,6 +14,7 @@ exports.register = async (req, res) => {
       name,
       email,
       password: passwordHash,
+      profileImg,
     }).save();
     res.status(201).json(newUser);
   } catch (err) {

@@ -131,7 +131,7 @@ const Navbar = () => {
                     onClick={() => navigate('/aboutus')}
                     className={location.pathname + location.search === '/aboutus' ? 'bga' : ''}
                   >
-                    AboutUs
+                    About
                   </p>
                 </li>
               </ul>

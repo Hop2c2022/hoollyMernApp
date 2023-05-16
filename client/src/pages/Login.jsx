@@ -2,7 +2,6 @@ import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import emailicon from '../assets/A.Tengis/emailicon.png';
 import lock from '../assets/A.Tengis/Lock.png';
-import googleicon from '../assets/A.Tengis/googleicon.png';
 import axios from 'axios';
 import { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
@@ -111,20 +110,6 @@ const Login = () => {
             </Link>
           </p>
         </form>
-
-        <div className="my-4 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-neutral-300 after:mt-0.5 after:flex-1 after:border-t after:border-neutral-300">
-          <p className="mx-4 mb-0 text-center font-semibold ">OR</p>
-        </div>
-
-        <div className="flex mt-5 gap-y-3 flex-col">
-          <button
-            type="button"
-            className="flex items-center w-full p-3 border border-gray-300  focus:ring-2 focus:ring-offset-1 focus:ring-gray-200"
-          >
-            <img src={googleicon} alt="googleicon" />
-            <p className="mr-auto ml-auto"> Sign In with Google</p>
-          </button>
-        </div>
       </div>
     </div>
   );

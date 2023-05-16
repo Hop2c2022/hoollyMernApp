@@ -162,9 +162,7 @@ const Footer = () => {
         </div>
         <div className="bg-gray-300 text-center">
           <div className="container px-5 py-4 mx-auto">
-            <p className="text-sm text-[#000] capitalize xl:text-center">
-              © 2023 Khash-Erdene, Tengis, Enkh-Uchral, Bilguun, All rights reserved
-            </p>
+            <p className="text-sm text-[#000] capitalize xl:text-center">© 2023 Hop2c All rights reserved</p>
           </div>
         </div>
       </footer>

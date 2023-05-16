@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import emailicon from '../assets/A.Tengis/emailicon.png';
 import lock from '../assets/A.Tengis/Lock.png';
-import googleicon from '../assets/A.Tengis/googleicon.png';
 import usericon from '../assets/A.Tengis/Usericon.png';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -15,6 +14,32 @@ const Register = () => {
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
 
+  const responseMessage = (response) => {
+    console.log(response);
+  };
+  const errorMessage = (error) => {
+    console.log(error);
+  };
+
+  const getRandomPicture = () => {
+    const pictures = [
+      'https://i.pinimg.com/originals/95/ca/86/95ca864bbe58c5bf773e08e5732c4642.png',
+      'https://i.pinimg.com/originals/22/9a/05/229a05f9751700bd4445a6f90477dc03.png',
+      'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/4b1ceee5-9458-4434-80bc-fc5d83a2ea88/de5c2v5-920c634c-f136-46b3-bda4-28ead5febc2a.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzRiMWNlZWU1LTk0NTgtNDQzNC04MGJjLWZjNWQ4M2EyZWE4OFwvZGU1YzJ2NS05MjBjNjM0Yy1mMTM2LTQ2YjMtYmRhNC0yOGVhZDVmZWJjMmEucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.ASw-_99Hf_E4x8Sai4NoatjM-kkaEnwqORHUMUpBbVo',
+      'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/4b1ceee5-9458-4434-80bc-fc5d83a2ea88/de5dgez-e2724fff-b294-477b-bff3-7a33d7626211.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzRiMWNlZWU1LTk0NTgtNDQzNC04MGJjLWZjNWQ4M2EyZWE4OFwvZGU1ZGdlei1lMjcyNGZmZi1iMjk0LTQ3N2ItYmZmMy03YTMzZDc2MjYyMTEucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.9dR1SuafCMq9TJz2-n3ecE2MhJo3WJggF4nhP4nMP_o',
+      'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/4b1ceee5-9458-4434-80bc-fc5d83a2ea88/de5fpa6-0ae9dcca-1149-43a8-843b-94fefd73e81a.png/v1/fill/w_587,h_744/among_us_character__firey_bfdi__by_unitedworldmedia_de5fpa6-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NzQ0IiwicGF0aCI6IlwvZlwvNGIxY2VlZTUtOTQ1OC00NDM0LTgwYmMtZmM1ZDgzYTJlYTg4XC9kZTVmcGE2LTBhZTlkY2NhLTExNDktNDNhOC04NDNiLTk0ZmVmZDczZTgxYS5wbmciLCJ3aWR0aCI6Ijw9NTg3In1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.-POdzSiE5Mg7fms_7ZrLH44W0u8v3mDlJmOH-cnVYH4',
+      'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/4b1ceee5-9458-4434-80bc-fc5d83a2ea88/de5c4hu-a59e3359-f861-40ed-a0cf-c9804bb5b4e9.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzRiMWNlZWU1LTk0NTgtNDQzNC04MGJjLWZjNWQ4M2EyZWE4OFwvZGU1YzRodS1hNTllMzM1OS1mODYxLTQwZWQtYTBjZi1jOTgwNGJiNWI0ZTkucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.NAR5j13gZeiDfAsjrBddg53ZEvM3VzS3oqhQgHwUNMk',
+      'https://mystickermania.com/cdn/stickers/among-us/among-us-hologram-character-512x512.png',
+      'https://mystickermania.com/cdn/stickers/among-us/among-us-rainbow-512x512.png',
+      'https://cdn.icon-icons.com/icons2/2619/PNG/256/among_us_facebook_icon_156924.png',
+      'https://cdn.icon-icons.com/icons2/2619/PNG/256/among_us_twitter_icon_156932.png',
+      'https://cdn.icon-icons.com/icons2/2619/PNG/256/among_us_twitch_icon_156931.png',
+      'https://cdn.icon-icons.com/icons2/2619/PNG/512/among_us_discord_icon_156922.png',
+    ];
+    return pictures[~~(Math.random() * pictures.length)];
+  };
+  const picture = getRandomPicture();
+
   const reg = async (e) => {
     try {
       e.preventDefault();
@@ -25,6 +50,7 @@ const Register = () => {
           name: name,
           password: pw,
           email: email,
+          profileImg: picture,
         });
         console.log(res);
         if (res?.status === 201) {
@@ -115,20 +141,6 @@ const Register = () => {
             </p>
           </div>
         </form>
-
-        <div className="my-4 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-neutral-300 after:mt-0.5 after:flex-1 after:border-t after:border-neutral-300">
-          <p className="mx-4 mb-0 text-center font-semibold ">OR</p>
-        </div>
-
-        <div className="flex mt-5 gap-y-3 flex-col">
-          <button
-            type="button"
-            className="flex items-center w-full p-3 border border-gray-300  focus:ring-2 focus:ring-offset-1 focus:ring-gray-200"
-          >
-            <img src={googleicon} alt="googleicon" />
-            <p className="mr-auto ml-auto"> Sign up with Google</p>
-          </button>
-        </div>
       </div>
     </div>
   );

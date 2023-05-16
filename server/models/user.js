@@ -26,6 +26,10 @@ const UserSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
+    profileImg: {
+      type: String,
+      required: true,
+    },
     restaurantCreated: {
       type: Boolean,
       default: false,

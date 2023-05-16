@@ -4,7 +4,7 @@ import WhyChooseUs from '../components/WhyChooseUs';
 import Companies from '../components/Companies';
 import { useNavigate } from 'react-router-dom';
 import Testimonial from '../components/Testimonial';
-import cover from '../assets/Khash-Erdene/coverimg.jpg';
+import cover from '../assets/Khash-Erdene/cover.webp';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -35,8 +35,8 @@ const Home = () => {
       {/* Additianol components */}
       <AboutUsFood />
       <WhyChooseUs />
-      <Testimonial />
       <Companies />
+      <Testimonial />
     </>
   );
 };
