@@ -22,7 +22,7 @@ const Navbar = () => {
         setLoggedIn(true);
       }
     } catch (err) {
-      console.clear();
+      // console.clear();
     }
   };
 

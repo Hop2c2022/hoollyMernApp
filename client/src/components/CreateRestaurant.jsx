@@ -24,15 +24,14 @@ const CreateRestaurant = () => {
           brandImg: brandImg,
           restDay: restDay,
         });
+
         if (res?.status == 201) {
           await axios.patch(`http://localhost:8000/restaurant/${localStorage.getItem('id')}`, {
             restaurantCreated: true,
             company: brandName,
           });
           toast.success('Successfully created');
-          setTimeout(() => {
-            navigate('/');
-          }, 2000);
+          navigate('/');
         } else {
           toast.warning('Description length must be less than 50 characters');
         }

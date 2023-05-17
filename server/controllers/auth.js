@@ -84,3 +84,33 @@ exports.forgotPassword = async (req, res) => {
     password: password,
   });
 };
+
+exports.userUpdate = async (req, res) => {
+  try {
+    const { userId } = req.params;
+    const { password, email } = req.body;
+    const salt = bcrypt.genSaltSync(1);
+    const hash = bcrypt.hashSync(password, salt);
+    const result = await User.findByIdAndUpdate(
+      { _id: userId },
+      {
+        $set: { password: hash, email: email },
+      },
+      { new: true }
+    );
+    res.status(200).send({ result });
+  } catch (err) {
+    res.status(400).send(err.message);
+  }
+};
+
+exports.getUsers = async (req, res) => {
+  try {
+    // const { em } = req.body;
+    // { email: em }
+    const result = await User.find();
+    res.status(200).send({ result });
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+};
