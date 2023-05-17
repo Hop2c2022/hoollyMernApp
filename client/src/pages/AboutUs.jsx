@@ -16,7 +16,7 @@ const AboutUs = () => {
         <div className="absolute flex justify-center items-center w-[90vw] xl:w-[90vw] h-full sm:h-full xl:h-[88.2vh]  flex-col">
           <h1 className=" text-5xl pb-3 text-white">Our Developers</h1>
           <div className="grid md:grid-cols-4 gap-x-6 lg:gap-x-10  xl:gap-x-24 grid-cols-2 mt-5">
-            <div className="mb-6 lg:mb-0 transition ease-in-out delay-200 hover:-translate-y-1 hover:scale-110 hover:bg-[#111] cursor-pointer duration-700 hover:shadow-yellow-300 hover:shadow-xl rounded-xl">
+            <div className="mb-6 lg:mb-0 transition ease-in-out delay-200 hover:-translate-y-1 hover:scale-110 hover:bg-[#111] cursor-pointer duration-700 hover:shadow-yellow-500 hover:shadow-xl rounded-xl">
               <div className="backdrop-blur text-white block rounded-lg shadow-lg">
                 <div className="relative overflow-hidden bg-no-repeat bg-cover">
                   <img
@@ -65,10 +65,13 @@ const AboutUs = () => {
               </div>
             </div>
 
-            <div className="mb-6 lg:mb-0 transition ease-in-out delay-200 hover:-translate-y-1 hover:scale-110 hover:bg-[#111] cursor-pointer duration-700 hover:shadow-indigo-800 hover:shadow-xl rounded-xl  ">
+            <div className="mb-6 lg:mb-0 transition ease-in-out delay-200 hover:-translate-y-1 hover:scale-110 hover:bg-[#111] cursor-pointer duration-700 hover:shadow-white hover:shadow-xl rounded-xl  ">
               <div className="backdrop-blur text-white block rounded-lg shadow-lg">
                 <div className="relative overflow-hidden bg-no-repeat bg-cover">
-                  <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" className="w-full rounded-t-lg" />
+                  <img
+                    src="https://i.pinimg.com/564x/c5/8a/26/c58a2644d8e8580c1e359be5c1350282.jpg"
+                    className="w-full rounded-t-lg"
+                  />
                   <a href="#!">
                     <div className="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed"></div>
                   </a>
@@ -124,10 +127,13 @@ const AboutUs = () => {
               </div>
             </div>
 
-            <div className="mb-6 lg:mb-0 transition ease-in-out delay-200 hover:-translate-y-1 hover:scale-110 hover:bg-[#111] cursor-pointer duration-700 hover:shadow-blue-300 hover:shadow-xl rounded-xl">
+            <div className="mb-6 lg:mb-0 transition ease-in-out delay-200 hover:-translate-y-1 hover:scale-110 hover:bg-[#111] cursor-pointer duration-700 hover:shadow-red-500 hover:shadow-xl rounded-xl">
               <div className="backdrop-blur text-white block rounded-lg shadow-lg">
                 <div className="relative overflow-hidden bg-no-repeat bg-cover">
-                  <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" className="w-full rounded-t-lg" />
+                  <img
+                    src="https://i.pinimg.com/564x/26/2d/36/262d36ce8a14528eb715d86730137405.jpg"
+                    className="w-full rounded-t-lg"
+                  />
                   <a href="#!">
                     <div className="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed"></div>
                   </a>
@@ -182,10 +188,13 @@ const AboutUs = () => {
                 </div>
               </div>
             </div>
-            <div className="mb-6 lg:mb-0 transition ease-in-out delay-200 hover:-translate-y-1 hover:scale-110 hover:bg-[#111] cursor-pointer duration-700 hover:shadow-violet-300 hover:shadow-xl rounded-xl">
+            <div className="mb-6 lg:mb-0 transition ease-in-out delay-200 hover:-translate-y-1 hover:scale-110 hover:bg-[#111] cursor-pointer duration-700 hover:shadow-pink-300 hover:shadow-xl rounded-xl">
               <div className="backdrop-blur text-white block rounded-lg shadow-lg">
                 <div className="relative overflow-hidden bg-no-repeat bg-cover">
-                  <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" className="w-full rounded-t-lg" />
+                  <img
+                    src="https://i.pinimg.com/564x/2a/81/2e/2a812e597dd10d345d35ebfc7f87b944.jpg"
+                    className="w-full rounded-t-lg"
+                  />
                   <a href="#!">
                     <div className="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed"></div>
                   </a>
