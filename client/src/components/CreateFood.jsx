@@ -35,7 +35,6 @@ const CreateFood = () => {
         type: type,
         brand: foodBrand,
       });
-      console.log(res);
       if (res?.status == 201) {
         toast.success('Successfully created');
       }

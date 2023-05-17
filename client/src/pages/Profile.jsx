@@ -64,26 +64,26 @@ const Profile = () => {
                 </div>
               </div>
 
-              <div className="col-span-1 lg:col-span-9">
+              <div className="col-span-1 lg:col-span-9 md:ml-[2vw] 2xl:ml-0">
                 <div className="justify-center lg:justify-normal lg:text-left flex space-x-2">
                   <h2 className="text-2xl font-bold text-zinc-700">{userInfo}</h2>
                   <h2 className="text-2xl font-bold text-zinc-700">{emoji}</h2>
                 </div>
 
-                <div className="mt-6 grid grid-cols-3 gap-6 text-center lg:text-left">
+                <div className="space-y-3 sm:space-y-0 mt-6 none  sm:grid grid-cols-3 gap-6 text-center lg:text-left">
                   <div>
-                    <p className="font-bold text-zinc-700">99</p>
-                    <p className="text-sm font-semibold text-zinc-700">Global Rank</p>
+                    <p className="font-bold text-red-700">500+</p>
+                    <p className="text-sm font-semibold text-zinc-700">ТӨГСӨГЧИД</p>
                   </div>
 
                   <div>
-                    <p className="font-bold text-zinc-700">23</p>
-                    <p className="text-sm font-semibold text-zinc-700">Total food taken</p>
+                    <p className="font-bold text-red-700">9.2/10</p>
+                    <p className="text-sm font-semibold text-zinc-700">СЭТГЭЛ ХАНАМЖ</p>
                   </div>
 
                   <div>
-                    <p className="font-bold text-zinc-700">730K</p>
-                    <p className="text-sm font-semibold text-zinc-700">Total purchases</p>
+                    <p className="font-bold text-red-700">5+</p>
+                    <p className="text-sm font-semibold text-zinc-700">ЖИЛИЙН ТУРШЛАГА</p>
                   </div>
                 </div>
 

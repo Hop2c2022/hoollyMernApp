@@ -29,7 +29,6 @@ const ShopDetails = () => {
     }
   }, [location.search]);
 
-  console.log(location.search);
   return (
     <div className="bg-[#111] h-full">
       <div

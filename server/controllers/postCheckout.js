@@ -40,12 +40,6 @@ exports.checkoutGetController = async (req, res) => {
   }
 };
 
-// exports.userDelete = async (req) => {
-//   const { Id } = req.params;
-//   const _id = new mongoose.Types.ObjectId(userId);
-//   return await User.findByIdAndDelete({ _id }, { new: true });
-// };
-
 exports.checkoutDeleteController = async (req, res) => {
   try {
     const { Id } = req.params;

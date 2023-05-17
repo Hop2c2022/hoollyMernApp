@@ -312,10 +312,15 @@ const CheckOut = () => {
                 <div className="flex mt-5 gap-y-3 flex-col">
                   <button
                     type="button"
-                    className="flex items-center w-full p-3 border border-gray-300 bg-blue-400  hover:bg-blue-600 font-semibold text-white justify-center"
+                    className="flex items-center w-full p-3 border border-gray-300 bg-blue-400  hover:bg-blue-600 font-semibold text-white justify-center gap-x-2"
                     onClick={changePlace}
                   >
                     <p> Change Place</p>
+                    <img
+                      className="w-[20px] h-[20px]"
+                      src=" https://cdn-icons-png.flaticon.com/512/727/727606.png "
+                      alt="googleicon"
+                    />
                   </button>
                 </div>
               </div>
@@ -369,7 +374,11 @@ const CheckOut = () => {
                 onClick={ordercheck}
               >
                 <p>Place an order</p>
-                <img src={arrowright} alt="googleicon" />
+                <img
+                  className="w-[20px] h-[20px]"
+                  src="https://cdn-icons-png.flaticon.com/512/2268/2268536.png "
+                  alt="googleicon"
+                />
               </button>
             </div>
           </div>

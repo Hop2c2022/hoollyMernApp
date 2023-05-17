@@ -6,7 +6,6 @@ const MONGO_URI =
   "mongodb+srv://Khash-Erdene:Itachi07@cluster0.79uixyi.mongodb.net/hoolly";
 const app = express();
 const auth = require("./routers/auth");
-const orderInfo = require("./routers/orderInfo");
 const orders = require("./routers/orders");
 const createOrder = require("./routers/createOrder");
 const createRestaurant = require("./routers/createRestaurant");
@@ -17,7 +16,6 @@ const dotenv = require("dotenv").config();
 app.use(cors());
 app.use(express.json());
 app.use(auth);
-app.use(orderInfo);
 app.use(orders);
 app.use(createOrder);
 app.use(createRestaurant);

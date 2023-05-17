@@ -17,17 +17,14 @@ const Payment = () => {
       setAvsn(res?.data);
       setShowModal(true);
     } catch (err) {
-      console.log(err);
+      return err;
     }
   };
   useEffect(() => {
     avsn.map((el) => {
-      console.log(el);
       realData.push(el);
     });
   }, [avsn]);
-
-  console.log(avsn);
 
   const confirm = async () => {
     const res2 = await axios.post(`http://localhost:8000/postadminOrder/${localStorage.getItem('id')}`, {
@@ -45,13 +42,12 @@ const Payment = () => {
       navigate('/');
       window.location.reload();
     }, 3000);
-    console.log(res2);
   };
 
   return (
     <div>
       <div
-        className="py-12 bg-gray-700 transition duration-150 ease-in-out z-10 absolute top-0 right-0 bottom-0 left-0"
+        className="py-12 bg-[#111] transition duration-150 ease-in-out z-10 absolute top-0 right-0 bottom-0 left-0"
         id="modal"
       >
         <div role="alert" className="container mx-auto w-11/12 md:w-2/3 max-w-lg">
@@ -83,7 +79,7 @@ const Payment = () => {
             <input
               id="name"
               className="mb-5 mt-2 text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-10 flex items-center pl-3 text-sm border-gray-300 rounded border"
-              placeholder="James"
+              placeholder="YourName"
             />
             <label htmlFor="email2" className="text-gray-800 text-sm font-bold leading-tight tracking-normal">
               Card Number
@@ -239,10 +235,10 @@ const Payment = () => {
           ) : null}
           {bga ? (
             <div className="w-full h-full">
-              <div id="modal-bg" className="w-full h-full bg-[#848A97] top-0 absolute hidden"></div>
+              <div id="modal-bg" className="w-full h-full bg-[#FAFCFF] top-0 absolute hidden"></div>
               <div
                 id="modal-box"
-                className="sm:w-[385px] sm:min-w-[40vw] min-w-[80vw] min-h-[50vh] flex flex-col items-center gap-2 -translate-y-1/2 p-6 bg-[#FFFFEB] rounded-lg top-1/2 left-1/2 -translate-x-1/2 absolute "
+                className="sm:w-[385px] sm:min-w-[40vw] min-w-[80vw] min-h-[50vh] flex flex-col items-center gap-2 -translate-y-1/2 p-6 bg-[#FAFCFF] rounded-lg top-1/2 left-1/2 -translate-x-1/2 absolute  justify-center "
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -254,10 +250,6 @@ const Payment = () => {
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M5 13l4 4L19 7" />
                 </svg>
                 <span className="text-2xl font-medium">Payment Successful</span>
-                <p className="text-center">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, consequatur?
-                </p>
-                <p>Total: 1234$</p>
               </div>
             </div>
           ) : null}

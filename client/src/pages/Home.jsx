@@ -4,7 +4,6 @@ import WhyChooseUs from '../components/WhyChooseUs';
 import Companies from '../components/Companies';
 import { useNavigate } from 'react-router-dom';
 import Testimonial from '../components/Testimonial';
-import cover from '../assets/Khash-Erdene/cover.webp';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -29,7 +28,11 @@ const Home = () => {
         </div>
         {/* Right Section */}
         <div className="flex w-[90vw] md:items-center justify-end xl:w-[40vw] md:w-[50vw] h-[60vh] md:h-[100vh]">
-          <img className="w-[90vw] h-[40vh] md:h-[50vh] md:w-[50vw] xl:w-[30vw]  object-contain" src={cover} alt="" />
+          <img
+            className="w-[90vw] h-[40vh] md:h-[50vh] md:w-[50vw] xl:w-[30vw]  object-contain"
+            src="https://cdn3d.iconscout.com/3d/premium/thumb/restaurant-6204302-5073114.png"
+            alt=""
+          />
         </div>
       </div>
       {/* Additianol components */}

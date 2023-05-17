@@ -18,7 +18,6 @@ const Adminorders = () => {
 
   addressD.map((el) => {
     b.push(el?.data[0]);
-    // console.log(el?.data[0]);
   });
 
   const lastData = [];
@@ -46,13 +45,13 @@ const Adminorders = () => {
       <div className="h-[100%] grid grid-cols-1 sm:grid-cols-2  gap-x-12 gap-y-12 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 mb-14 mt-14">
         {orderData.map((el, id) => {
           return (
-            <div>
+            <div key={id}>
               <div>
                 {el.map((ed, key) => {
                   return (
                     <div
                       key={key}
-                      className="block p-3 border-solid border-2 border-blue-500 border-opacity-50 h-[40vh] h-full rounded-lg"
+                      className="block p-3 border-solid border-2 border-blue-500 border-opacity-50 h-full rounded-lg"
                     >
                       {ed.title} <div>Pieces: {ed.pieces}</div>
                     </div>
@@ -62,6 +61,7 @@ const Adminorders = () => {
               {b.map((el, i) => {
                 return (
                   <div
+                    key={i}
                     style={{ display: id == i ? 'flex' : 'none' }}
                     className="border-solid border-2 border-gray-500 p-4 rounded-lg flex-col"
                   >

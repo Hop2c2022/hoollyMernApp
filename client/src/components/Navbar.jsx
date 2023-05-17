@@ -54,7 +54,7 @@ const Navbar = () => {
       const res = await axios.get(`http://localhost:8000/users/${localStorage.getItem('id')}`);
       setNotf(res?.data);
     } catch (err) {
-      console.log(err);
+      return err;
     }
   };
 

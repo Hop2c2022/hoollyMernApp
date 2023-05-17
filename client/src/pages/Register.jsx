@@ -1,25 +1,16 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import emailicon from '../assets/A.Tengis/emailicon.png';
-import lock from '../assets/A.Tengis/Lock.png';
-import usericon from '../assets/A.Tengis/Usericon.png';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import pineconeBg from '../assets/Khash-Erdene/pineconebg.jpg';
 
 const Register = () => {
   const navigate = useNavigate();
   const [pw, setPw] = useState('');
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
-
-  const responseMessage = (response) => {
-    console.log(response);
-  };
-  const errorMessage = (error) => {
-    console.log(error);
-  };
 
   const getRandomPicture = () => {
     const pictures = [
@@ -52,7 +43,6 @@ const Register = () => {
           email: email,
           profileImg: picture,
         });
-        console.log(res);
         if (res?.status === 201) {
           setTimeout(function () {
             navigate('/login');
@@ -72,76 +62,93 @@ const Register = () => {
   };
 
   return (
-    <div className="bg-[#111] relative flex flex-col justify-center h-[93vh] overflow-hidden ">
+    <div className="bg-[#111] ">
       <div>
         <ToastContainer />
       </div>
-      <div className=" p-8 w-3/5 m-auto bg-white shadow-xl max-w-md shadow-blue-100">
-        <h1 className="text-2xl font-semibold pt-3">Register</h1>
-        <form className="mt-6">
-          <div className="mb-2">
-            <div className="relative w-full">
-              <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
-                <img src={usericon} alt="usericon" />
+      <section className="flex flex-col md:flex-row h-screen items-center">
+        <div className="bg-[#000] hidden lg:block w-full md:w-1/2 xl:w-2/3 h-screen">
+          <img src={pineconeBg} alt="" className="w-full h-full object-contain" />
+        </div>
+
+        <div
+          className="bg-[#FAFCFF] w-full md:max-w-md lg:max-w-full  md:mx-0 md:w-1/2 xl:w-1/3 h-screen px-6 lg:px-16 xl:px-12
+    flex items-center justify-center"
+        >
+          <div className="w-full h-100">
+            <h1 className="text-xl md:text-2xl font-bold leading-tight mt-12">Create account</h1>
+
+            <form className="mt-6" action="#" method="POST">
+              <div>
+                <label className="block text-gray-700">Name</label>
+                <input
+                  type="text"
+                  name=""
+                  id=""
+                  placeholder="Enter Your Name"
+                  className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none"
+                  autofocus
+                  autocomplete
+                  required
+                  onChange={(e) => setName(e.target.value)}
+                />
               </div>
 
-              <input
-                type="text"
-                className="bg-white border border-gray-300 text-black text-sm focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 "
-                placeholder="Name"
-                onChange={(e) => setName(e.target.value)}
-              />
-            </div>
-          </div>
-          <div className="mb-2 mt-4">
-            <div className="relative w-full">
-              <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
-                <img src={emailicon} alt="emailicon" />
+              <div className="mt-4">
+                <label className="block text-gray-700">Email Address</label>
+                <input
+                  type="email"
+                  name=""
+                  id=""
+                  placeholder="Enter Email Address"
+                  className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none"
+                  autofocus
+                  autocomplete
+                  required
+                  onChange={(e) => setEmail(e.target.value)}
+                />
               </div>
 
-              <input
-                type="email"
-                className="bg-white border border-gray-300 text-black text-sm focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 "
-                placeholder="Email"
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </div>
-          </div>
-
-          <div className="mb-2 mt-4">
-            <div className="relative w-full">
-              <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
-                <img src={lock} alt="lockicon" />
+              <div className="mt-4">
+                <label className="block text-gray-700">Password</label>
+                <input
+                  type="password"
+                  name=""
+                  id=""
+                  placeholder="Enter Password"
+                  minlength="6"
+                  className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500
+            focus:bg-white focus:outline-none"
+                  required
+                  onChange={(e) => setPw(e.target.value)}
+                />
               </div>
 
-              <input
-                type="password"
-                className="bg-white border border-gray-300 text-black text-sm focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 "
-                placeholder="Password"
-                onChange={(e) => setPw(e.target.value)}
-              />
-            </div>
-          </div>
+              <div className="text-right mt-2">
+                <Link to="/forgotpass" className=" text-gray-400 hover:underline">
+                  Forgot password?
+                </Link>
+              </div>
 
-          <div className="mt-6 flex justify-center pt-3">
-            <button
-              onClick={reg}
-              className="w-screen px-5 py-3 tracking-wide text-white font-semibold transition-colors duration-200 transform bg-blue-400 rounded-md hover:bg-blue-600 focus:outline-none"
-            >
-              Register
-            </button>
-          </div>
-          <div>
-            <p className="mt-3 flex text-sm mb-8 font-light text-end justify-end text-gray-700">
-              <p className="font-semibold pr-1"> Already have a account?</p>
+              <button
+                type="submit"
+                className="w-full block bg-indigo-500 hover:bg-indigo-400 focus:bg-indigo-400 text-white font-semibold rounded-lg
+          px-4 py-3 mt-6"
+                onClick={reg}
+              >
+                Register
+              </button>
+            </form>
 
-              <Link to="/login" className=" text-gray-500 hover:underline">
-                Login
+            <div className=" flex gap-x-2 mt-8">
+              Already have an account?
+              <Link to="/login">
+                <p className="text-blue-500 hover:text-blue-700 font-semibold">Login</p>
               </Link>
-            </p>
+            </div>
           </div>
-        </form>
-      </div>
+        </div>
+      </section>
     </div>
   );
 };
