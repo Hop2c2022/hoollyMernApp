@@ -157,6 +157,8 @@ const CheckOut = () => {
     finalPrice += el?.price;
   });
 
+// if(orders)
+
   return (
     <div>
       <div className="w-full h-full flex flex-col justify-center gap-x-5 gap-y-5 lg:flex-row p-8 lg:items-center lg:h-[93vh]  bg-[#111] text-[#fff] relative">

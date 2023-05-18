@@ -40,47 +40,60 @@ const Adminorders = () => {
     restaurant();
   }, [restaurant]);
 
+  // const orderdelete = async (_id) => {
+  //   try {
+  //     await axios.delete(`http://localhost:8000/deleteadminorder/${_id}`);
+  //     toast.success('Successfully deleted');
+  //   } catch (err) {
+  //     toast.dark(err.message);
+  //   }
+  // };
   return (
     <>
-      <div className="h-[100%] grid grid-cols-1 sm:grid-cols-2  gap-x-12 gap-y-12 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 mb-14 mt-14">
+      <div className="h-[100%] grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-[6vw] lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 mb-14 mt-14 gap-3">
         {orderData.map((el, id) => {
           return (
             <div key={id}>
-              <div>
-                {el.map((ed, key) => {
+              <div className="border w-full p-3 overflow-y-scroll h-[55vh]" style={{ height: '25vh' }}>
+                <div>
+                  {el.map((ed, key) => {
+                    return (
+                      <div key={key} className="block p-3 h-full">
+                        {ed.title} <div>Pieces: {ed.pieces}</div>
+                        <div className="h-0.5 w-full bg-gray-300 mt-[0.7vh] mb-[0.7vh]" />
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+              <div className="flex justify-center flex-col">
+                {b.map((el, i) => {
                   return (
                     <div
-                      key={key}
-                      className="block p-3 border-solid border-2 border-blue-500 border-opacity-50 h-full rounded-lg"
+                      key={i}
+                      style={{ display: id == i ? 'flex' : 'none' }}
+                      className="border-solid border-2 border-gray-500 p-4 rounded-lg flex-col"
                     >
-                      {ed.title} <div>Pieces: {ed.pieces}</div>
+                      <p>District: {el?.district}</p>
+                      <p>Street: {el?.street}</p>
+                      <p>Full Information: {el?.fullInformation}</p>
+                      <p>Phone Number: {el?.phoneNumber}</p>
                     </div>
                   );
                 })}
-              </div>
-              {b.map((el, i) => {
-                return (
-                  <div
-                    key={i}
-                    style={{ display: id == i ? 'flex' : 'none' }}
-                    className="border-solid border-2 border-gray-500 p-4 rounded-lg flex-col"
-                  >
-                    <p>District: {el?.district}</p>
-                    <p>Street: {el?.street}</p>
-                    <p>Full Information: {el?.fullInformation}</p>
-                    <p>Phone Number: {el?.phoneNumber}</p>
-                  </div>
-                );
-              })}
-              <div className=" relative inline-flex group">
-                <div className="  absolute transitiona-all duration-1000 opacity-70 -inset-px bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] rounded-xl blur-lg group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200 animate-tilt"></div>
-                <a
-                  title="Get quote now"
-                  className="relative inline-flex items-center justify-center px-4 py-2 text-lg font-bold text-white transition-all duration-200 bg-gray-900 font-pj rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
-                  role="button"
+                <div
+                  className=" relative inline-flex group flex justify-center mt-2"
+                  onClick={() => orderdelete(el?._id)}
                 >
-                  Complete
-                </a>
+                  <div className=" absolute transitiona-all duration-1000 opacity-70 -inset-px bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] rounded-xl blur-lg group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200 animate-tilt"></div>
+                  <a
+                    title="Get quote now"
+                    className="relative inline-flex items-center justify-center px-[35%] py-2 text-lg font-bold text-white transition-all duration-200 bg-gray-900 font-pj rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
+                    role="button"
+                  >
+                    Complete order
+                  </a>
+                </div>
               </div>
             </div>
           );
