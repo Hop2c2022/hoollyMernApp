@@ -27,7 +27,7 @@ const ShopList = () => {
         company: addVal?.brand,
       });
       toast.info('Successfully Added', {
-        icon: '🍔',
+        icon: '🛒',
         position: toast.POSITION.TOP_CENTER,
       });
     } catch (err) {
