@@ -11,9 +11,6 @@ const Footer = () => {
 
   return (
     <div className="flex items-end w-full mt-[0.1vh] bg-[#111]  ">
-      <div>
-        <ToastContainer />
-      </div>
       <footer className="w-full text-white body-font">
         <div className="container flex flex-col flex-wrap px-5 py-24 mx-auto md:items-center lg:items-start md:flex-row md:flex-no-wrap">
           <div className="flex-shrink-0 w-64 mx-auto text-center lg:mx-0 lg:text-left  lg:inline">

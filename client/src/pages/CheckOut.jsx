@@ -157,7 +157,7 @@ const CheckOut = () => {
     finalPrice += el?.price;
   });
 
-// if(orders)
+  // if(orders)
 
   return (
     <div>

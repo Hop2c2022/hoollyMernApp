@@ -7,9 +7,6 @@ import 'react-toastify/dist/ReactToastify.css';
 const AboutUsFood = () => {
   return (
     <div className="bg-[#111] text-[#fff]  h-[100vh] flex items-center w-[100vw] flex-col md:flex-row">
-      <div>
-        <ToastContainer />
-      </div>
       {/* Left Section */}
       <div className=" ml-[5vw] w-[90vw] md:w-[40vw] flex flex-col justify-evenly h-[50vh] space-y-2">
         <p>About Us</p>

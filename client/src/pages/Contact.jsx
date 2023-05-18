@@ -9,7 +9,7 @@ const Contact = () => {
             <div className="grow-0 shrink-0 basis-auto block w-full lg:flex lg:w-6/12 xl:w-4/12">
               <div className="h-[500px] w-full">
                 <iframe
-                  src="https://maps.google.com/maps?q=gurvan gol&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                  src="https://maps.google.com/maps?q=nestacademy&t=&z=13&ie=UTF8&iwloc=&output=embed"
                   className="h-[500px] left-0 top-0  w-full rounded-t-lg lg:rounded-tr-none lg:rounded-bl-lg"
                   allowFullScreen
                 ></iframe>

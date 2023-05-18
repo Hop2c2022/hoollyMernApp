@@ -73,17 +73,17 @@ const Profile = () => {
                 <div className="space-y-3 sm:space-y-0 mt-6 none  sm:grid grid-cols-3 gap-6 text-center lg:text-left">
                   <div>
                     <p className="font-bold text-red-700">500+</p>
-                    <p className="text-sm font-semibold text-zinc-700">ТӨГСӨГЧИД</p>
+                    <p className="text-sm font-semibold text-zinc-700">CUSTOMERS</p>
                   </div>
 
                   <div>
-                    <p className="font-bold text-red-700">9.2/10</p>
-                    <p className="text-sm font-semibold text-zinc-700">СЭТГЭЛ ХАНАМЖ</p>
+                    <p className="font-bold text-red-700">8.4/10</p>
+                    <p className="text-sm font-semibold text-zinc-700">RATING</p>
                   </div>
 
                   <div>
-                    <p className="font-bold text-red-700">5+</p>
-                    <p className="text-sm font-semibold text-zinc-700">ЖИЛИЙН ТУРШЛАГА</p>
+                    <p className="font-bold text-red-700">2+</p>
+                    <p className="text-sm font-semibold text-zinc-700">EXPERIENCE</p>
                   </div>
                 </div>
 
