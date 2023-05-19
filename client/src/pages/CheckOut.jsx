@@ -156,6 +156,7 @@ const CheckOut = () => {
   orders.map((el) => {
     finalPrice += el?.price;
   });
+  // if(orders)
 
   return (
     <div>

@@ -3,13 +3,13 @@ import pineconeLogo from '../assets/pineconeLogo.svg';
 const Contact = () => {
   return (
     <div className=" flex items-center justify-center bg-[#111]">
-      <section className=" text-gray-800  lg:h-[93vh] md:h-[110vh] sm:h-[120vh] h-[110vh] w-[100vw] flex justify-center items-center">
+      <section className=" text-gray-800  lg:h-[93vh] md:h-[110vh] sm:h-[140vh] h-[150vh] w-[100vw] flex justify-center items-center">
         <div className="p-[20px] block  rounded-lg shadow-lg bg-white lg:w-[80vw] w-[95vw]">
           <div className=" flex flex-wrap items-center justify-center">
             <div className="grow-0 shrink-0 basis-auto block w-full lg:flex lg:w-6/12 xl:w-4/12">
               <div className="h-[500px] w-full">
                 <iframe
-                  src="https://maps.google.com/maps?q=gurvan gol&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                  src="https://maps.google.com/maps?q=nestacademy&t=&z=13&ie=UTF8&iwloc=&output=embed"
                   className="h-[500px] left-0 top-0  w-full rounded-t-lg lg:rounded-tr-none lg:rounded-bl-lg"
                   allowFullScreen
                 ></iframe>

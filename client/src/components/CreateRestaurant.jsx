@@ -43,9 +43,6 @@ const CreateRestaurant = () => {
 
   return (
     <div className="w-[100vw] flex justify-center items-center bg-[#111]">
-      <div>
-        <ToastContainer />
-      </div>
       <div className="flex flex-col items-center w-[90vw] min-h-screen pt-6 sm:justify-center sm:pt-0 bg-[#111]">
         <div>
           <Link to="/">
