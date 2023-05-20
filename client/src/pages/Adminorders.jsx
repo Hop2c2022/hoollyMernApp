@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import _ from 'lodash';
 const Adminorders = () => {
   const navigate = useNavigate();
@@ -48,8 +50,16 @@ const Adminorders = () => {
   //     toast.dark(err.message);
   //   }
   // };
+
+  const alert = () => {
+    toast.dark('Developing! Stay tuned');
+  };
+
   return (
     <>
+      <div>
+        <ToastContainer />
+      </div>
       <div className="h-[100%] grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-[6vw] lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 mb-14 mt-14 gap-3">
         {orderData.map((el, id) => {
           return (
@@ -81,10 +91,7 @@ const Adminorders = () => {
                     </div>
                   );
                 })}
-                <div
-                  className=" relative inline-flex group flex justify-center mt-2"
-                  onClick={() => orderdelete(el?._id)}
-                >
+                <div className=" relative inline-flex group flex justify-center mt-2" onClick={alert}>
                   <div className=" absolute transitiona-all duration-1000 opacity-70 -inset-px bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] rounded-xl blur-lg group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200 animate-tilt"></div>
                   <a
                     title="Get quote now"

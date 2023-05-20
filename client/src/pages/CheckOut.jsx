@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import arrowright from '../assets/A.Tengis/ArrowRight.png';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -156,7 +155,6 @@ const CheckOut = () => {
   orders.map((el) => {
     finalPrice += el?.price;
   });
-  // if(orders)
 
   return (
     <div>
