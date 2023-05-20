@@ -16,13 +16,13 @@ const Navbar = () => {
 
   const shalgah = async () => {
     try {
-      const res = await axios.get(`http://localhost:8000/auth/${localStorage.getItem('id')}`);
+      const res = await axios.get(`https://hoolly-api.vercel.app/auth/${localStorage.getItem('id')}`);
       setUserInfo(res?.data?.data?.name);
       if (localStorage.getItem('id')) {
         setLoggedIn(true);
       }
     } catch (err) {
-      // console.clear();
+      return err;
     }
   };
 
@@ -51,7 +51,7 @@ const Navbar = () => {
 
   const getBadge = async () => {
     try {
-      const res = await axios.get(`http://localhost:8000/users/${localStorage.getItem('id')}`);
+      const res = await axios.get(`https://hoolly-api.vercel.app/users/${localStorage.getItem('id')}`);
       setNotf(res?.data);
     } catch (err) {
       return err;
@@ -188,7 +188,7 @@ const Navbar = () => {
                         alt=""
                       />
                       <span className="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 bg-red-600 rounded-full">
-                        {notf.length}
+                        {notf.length || 0}
                       </span>
                     </span>
                   </div>
@@ -198,7 +198,7 @@ const Navbar = () => {
                     <button
                       type="button"
                       onClick={() => navigate('/profile')}
-                      className="inline-block py-1 text-xl text-white bg-gray-700 px-2 hover:bg-gray-700 rounded-xl text-[7px] xl:text-[12px]"
+                      className="inline-block py-1 text-xl text-white bg-gray-700 px-2 hover:bg-gray-700 rounded-xl text-[10px] xl:text-[11px]"
                     >
                       {userInfo}
                     </button>

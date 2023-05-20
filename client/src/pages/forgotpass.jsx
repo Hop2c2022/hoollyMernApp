@@ -55,7 +55,7 @@ const Forgotpass = () => {
   };
 
   const newData = async () => {
-    const res = await axios.get('http://localhost:8000/auth', {});
+    const res = await axios.get('https://hoolly-api.vercel.app/auth', {});
     setCheckGmail(res?.data?.result);
   };
 
@@ -82,7 +82,7 @@ const Forgotpass = () => {
   const dataChanger = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:8000/user/${idz}`, {
+      await axios.put(`https://hoolly-api.vercel.app/user/${idz}`, {
         email: emailValue,
         password: passValue,
       });

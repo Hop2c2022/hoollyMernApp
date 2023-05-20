@@ -16,7 +16,7 @@ const CreateFood = () => {
   const [type, setType] = useState('');
 
   const info = async () => {
-    const res = await axios.get(`http://localhost:8000/auth/${localStorage.getItem('id')}`);
+    const res = await axios.get(`https://hoolly-api.vercel.app/auth/${localStorage.getItem('id')}`);
     setFoodBrand(res?.data?.data?.company);
   };
 
@@ -26,7 +26,7 @@ const CreateFood = () => {
 
   const submit = async () => {
     try {
-      const res = await axios.post('http://localhost:8000/auth/createOrder', {
+      const res = await axios.post('https://hoolly-api.vercel.app/auth/createOrder', {
         amount: amount,
         price: price,
         title: foodName,

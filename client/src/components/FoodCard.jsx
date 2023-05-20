@@ -12,19 +12,19 @@ const FoodCard = () => {
   let val = window.location.search.split('?')[1];
   const orders = async () => {
     if (val == 'breakfast') {
-      const res = await axios.get('http://localhost:8000/orders/breakfast');
+      const res = await axios.get('https://hoolly-api.vercel.app/orders/breakfast');
       setFoods(res?.data?.result);
       setLoading(false);
     } else if (val == 'dinner') {
-      const res = await axios.get('http://localhost:8000/orders/dinner');
+      const res = await axios.get('https://hoolly-api.vercel.app/orders/dinner');
       setFoods(res?.data?.result);
       setLoading(false);
     } else if (val == 'lunch') {
-      const res = await axios.get('http://localhost:8000/orders/lunch');
+      const res = await axios.get('https://hoolly-api.vercel.app/orders/lunch');
       setFoods(res?.data?.result);
       setLoading(false);
     } else {
-      const res = await axios.get(`http://localhost:8000/restaurant/${val}`);
+      const res = await axios.get(`https://hoolly-api.vercel.app/restaurant/${val}`);
       if (res?.data?.result?.length == 0) {
         setCheckData(true);
         setLoading(false);

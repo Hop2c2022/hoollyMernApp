@@ -37,7 +37,7 @@ const Register = () => {
       if (pw.length < 7) {
         toast.error('The password must be at least 8 characters');
       } else {
-        const res = await axios.post('http://localhost:8000/auth/register', {
+        const res = await axios.post('https://hoolly-api.vercel.app/auth/register', {
           name: name,
           password: pw,
           email: email,

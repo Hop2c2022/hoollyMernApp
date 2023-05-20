@@ -10,14 +10,14 @@ const ShopList = () => {
   let val = window.location.search.split('?')[1];
 
   const add = async () => {
-    const result = await axios.get(`http://localhost:8000/orders/${val}`);
+    const result = await axios.get(`https://hoolly-api.vercel.app/orders/${val}`);
     setAddVal(result?.data?.result);
     setPrice(result?.data?.result?.price);
   };
 
   const send = async () => {
     try {
-      await axios.post(`http://localhost:8000/auth/postCheck/${val}`, {
+      await axios.post(`https://hoolly-api.vercel.app/auth/postCheck/${val}`, {
         userId: localStorage.getItem('id'),
         price: lastprice,
         title: addVal?.title,
@@ -37,11 +37,6 @@ const ShopList = () => {
       });
     }
   };
-
-  // const contextClass = {
-  //   info: 'bg-gray-800',
-  //   dark: 'bg-white-600 font-gray-300',
-  // };
 
   const [price, setPrice] = useState();
 
@@ -70,16 +65,10 @@ const ShopList = () => {
   return (
     <div className="bg-[#111]  text-[#fff] flex justify-center">
       <div>
-        <ToastContainer
-        // toastClassName={({ type }) =>
-        //   contextClass[type || 'default'] +
-        //   ' relative flex p-1 min-h-10 rounded-md justify-between overflow-hidden cursor-pointer'
-        // }
-        // bodyClassName={() => 'text-sm font-white font-med block p-3'}
-        />
+        <ToastContainer />
       </div>
       <div className="relative top-8">
-        <a className=" poppins  select-none flex items-center space-x-2" href="/shopdetails?breakfast">
+        <a className="hidden poppins  select-none  items-center space-x-2 md:flex" href="/shopdetails?breakfast">
           <svg
             stroke="currentColor"
             fill="currentColor"
@@ -105,7 +94,7 @@ const ShopList = () => {
               {addVal?.description}
             </p>
             <div className="flex items-center justify-center md:justify-start lg:justify-start space-x-6 pt-8">
-              <h1 className="text-3xl font-bold poppins select-none">{price * num} ₮</h1>
+              <h1 className="lg:text-3xl md:text-2xl md:none font-bold poppins select-none text-xl">{price * num} ₮</h1>
               <div className="flex items-center border border-gray-200 px-4 py-2 space-x-6 rounded-full">
                 <svg
                   onClick={minusValue}

@@ -16,7 +16,7 @@ const CreateRestaurant = () => {
   const create = async () => {
     try {
       if (desc.length <= 50) {
-        const res = await axios.post('http://localhost:8000/restaurant', {
+        const res = await axios.post('https://hoolly-api.vercel.app/restaurant', {
           openTime: openTime,
           closeTime: closeTime,
           description: desc,
@@ -26,7 +26,7 @@ const CreateRestaurant = () => {
         });
 
         if (res?.status == 201) {
-          await axios.patch(`http://localhost:8000/restaurant/${localStorage.getItem('id')}`, {
+          await axios.patch(`https://hoolly-api.vercel.app/restaurant/${localStorage.getItem('id')}`, {
             restaurantCreated: true,
             company: brandName,
           });
