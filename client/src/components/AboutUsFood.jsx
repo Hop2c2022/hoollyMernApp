@@ -1,7 +1,7 @@
 import upperCover from '../assets/Khash-Erdene/upperCover.png';
 import bottomCover1 from '../assets/Khash-Erdene/bottomCover1.png';
 import bottomCover2 from '../assets/Khash-Erdene/bottomCover2.png';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const AboutUsFood = () => {

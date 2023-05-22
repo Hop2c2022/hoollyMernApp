@@ -1,4 +1,4 @@
-import foodCover from '../assets/Khash-Erdene/foodCover.png';
+import foodCover from '../assets/Khash-Erdene/restaurantHome.webp';
 import AboutUsFood from '../components/AboutUsFood';
 import WhyChooseUs from '../components/WhyChooseUs';
 import Companies from '../components/Companies';
@@ -30,7 +30,7 @@ const Home = () => {
         <div className="flex w-[90vw] md:items-center justify-end xl:w-[40vw] md:w-[50vw] h-[60vh] md:h-[100vh]">
           <img
             className="w-[90vw] h-[40vh] md:h-[50vh] md:w-[50vw] xl:w-[30vw]  object-contain"
-            src="https://cdn3d.iconscout.com/3d/premium/thumb/restaurant-6204302-5073114.png"
+            src={foodCover}
             alt=""
           />
         </div>

@@ -60,13 +60,13 @@ const Profile = () => {
             <div className="grid grid-cols-1 gap-6 lg:grid-cols-12">
               <div className="grid-cols-1 lg:col-span-3">
                 <div className="mx-auto flex h-[200px] w-[150px] items-center justify-center p-4">
-                  <img className=" object-contain h-[200px] w-[150px]" src={proImg} alt="" />
+                  <img className=" object-contain h-[200px] w-[150px]" src={proImg} alt="LOADING" />
                 </div>
               </div>
 
               <div className="col-span-1 lg:col-span-9 md:ml-[2vw] 2xl:ml-0">
                 <div className="justify-center lg:justify-normal lg:text-left flex space-x-2">
-                  <h2 className="text-2xl font-bold text-zinc-700">{userInfo}</h2>
+                  <h2 className="text-2xl font-bold text-zinc-700">{userInfo || 'LOADING'}</h2>
                   <h2 className="text-2xl font-bold text-zinc-700">{emoji}</h2>
                 </div>
 
