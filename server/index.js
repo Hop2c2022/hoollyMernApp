@@ -1,5 +1,4 @@
 const express = require("express");
-// const mongoose = require("mongoose");
 const cors = require("cors");
 const PORT = process.env.PORT || 8000;
 const app = express();
@@ -20,17 +19,6 @@ app.use(createOrder);
 app.use(createRestaurant);
 app.use(place);
 app.use(adminOrder);
-
-// CONNECT
-// mongoose
-//   .connect(connectDatabse, {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true,
-//   })
-//   .then(() => {
-//     app.listen(PORT, () => console.log(`Server Listening on: ${PORT}`));
-//   })
-//   .catch((error) => console.log(`${error} did not connect`));
 
 const startServer = async () => {
   await connectDatabse();
