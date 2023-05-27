@@ -17,7 +17,9 @@ const ShopList = () => {
 
   const send = async () => {
     try {
+
       await axios.post(`https://hoolly-mern-app.vercel.app/auth/postCheck/${val}`, {
+
         userId: localStorage.getItem('id'),
         price: lastprice,
         title: addVal?.title,

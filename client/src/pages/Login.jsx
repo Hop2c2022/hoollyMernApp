@@ -14,7 +14,9 @@ const Login = () => {
   const log = async (e) => {
     e.preventDefault();
     try {
+
       const res = await axios.post('https://hoolly-mern-app.vercel.app/auth/login', {
+
         email: email,
         password: pw,
       });
@@ -61,12 +63,12 @@ const Login = () => {
                 <label className="block text-gray-700">Email Address</label>
                 <input
                   type="email"
-                  name=""
-                  id=""
                   placeholder="Enter Email Address"
                   className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none"
                   autoFocus
+
                   autocomplete
+
                   required
                   onChange={(e) => setEmail(e.target.value)}
                 />
@@ -76,10 +78,8 @@ const Login = () => {
                 <label className="block text-gray-700">Password</label>
                 <input
                   type="password"
-                  name=""
-                  id=""
                   placeholder="Enter Password"
-                  minlength="6"
+                  minLength="6"
                   className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500
               focus:bg-white focus:outline-none"
                   required

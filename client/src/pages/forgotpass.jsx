@@ -55,7 +55,9 @@ const Forgotpass = () => {
   };
 
   const newData = async () => {
+
     const res = await axios.get('https://hoolly-mern-app.vercel.app/auth', {});
+
     setCheckGmail(res?.data?.result);
   };
 

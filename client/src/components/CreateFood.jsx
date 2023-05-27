@@ -16,7 +16,9 @@ const CreateFood = () => {
   const [type, setType] = useState('');
 
   const info = async () => {
+
     const res = await axios.get(`https://hoolly-mern-app.vercel.app/auth/${localStorage.getItem('id')}`);
+
     setFoodBrand(res?.data?.data?.company);
   };
 
@@ -26,7 +28,9 @@ const CreateFood = () => {
 
   const submit = async () => {
     try {
+
       const res = await axios.post('https://hoolly-mern-app.vercel.app/auth/createOrder', {
+
         amount: amount,
         price: price,
         title: foodName,
