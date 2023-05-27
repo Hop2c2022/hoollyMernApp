@@ -1,9 +1,7 @@
 const express = require("express");
-const mongoose = require("mongoose");
+// const mongoose = require("mongoose");
 const cors = require("cors");
-const PORT = 8000;
-const MONGO_URI =
-  "mongodb+srv://Khash-Erdene:Itachi07@cluster0.79uixyi.mongodb.net/hoolly";
+const PORT = process.env.PORT || 8000;
 const app = express();
 const auth = require("./routers/auth");
 const orders = require("./routers/orders");
@@ -12,6 +10,7 @@ const createRestaurant = require("./routers/createRestaurant");
 const place = require("./routers/place");
 const adminOrder = require("./routers/adminOrders");
 const dotenv = require("dotenv").config();
+const { connectDatabse } = require("./database");
 
 app.use(cors());
 app.use(express.json());
@@ -23,12 +22,21 @@ app.use(place);
 app.use(adminOrder);
 
 // CONNECT
-mongoose
-  .connect(MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => {
-    app.listen(PORT, () => console.log(`Server Listening on: ${PORT}`));
-  })
-  .catch((error) => console.log(`${error} did not connect`));
+// mongoose
+//   .connect(connectDatabse, {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true,
+//   })
+//   .then(() => {
+//     app.listen(PORT, () => console.log(`Server Listening on: ${PORT}`));
+//   })
+//   .catch((error) => console.log(`${error} did not connect`));
+
+const startServer = async () => {
+  await connectDatabse();
+  app.listen(PORT, () => {
+    console.log(`server is running at localhost:${PORT}`);
+  });
+};
+
+startServer();
