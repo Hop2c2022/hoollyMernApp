@@ -21,7 +21,7 @@ const Profile = () => {
 
   const edit = async () => {
     if (newName.length != 0 && newName.length < 13) {
-      const res = await axios.patch(`hoolly-mern-api.vercel.app/${localStorage.getItem('id')}`, {
+      const res = await axios.patch(`https://hoolly-mern-api.vercel.app//${localStorage.getItem('id')}`, {
         name: newName,
       });
       if (res?.status == 200) {
@@ -38,9 +38,9 @@ const Profile = () => {
   };
 
   const info = async () => {
-    const res = await axios.get(`hoolly-mern-api.vercel.app/${localStorage.getItem('id')}`);
+    const res = await axios.get(`https://hoolly-mern-api.vercel.app//${localStorage.getItem('id')}`);
     setCheck(res?.data?.data?.admin);
-    const res2 = await axios.get(`hoolly-mern-api.vercel.app/${localStorage.getItem('id')}`);
+    const res2 = await axios.get(`https://hoolly-mern-api.vercel.app//${localStorage.getItem('id')}`);
     setUserInfo(res2?.data?.data?.name);
     setProImg(res?.data?.data?.profileImg);
   };

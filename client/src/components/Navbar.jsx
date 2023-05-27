@@ -16,7 +16,7 @@ const Navbar = () => {
 
   const shalgah = async () => {
     try {
-      const res = await axios.get(`hoolly-mern-api.vercel.app/${localStorage.getItem('id')}`);
+      const res = await axios.get(`https://hoolly-mern-api.vercel.app//${localStorage.getItem('id')}`);
       setUserInfo(res?.data?.data?.name);
       if (localStorage.getItem('id')) {
         setLoggedIn(true);
