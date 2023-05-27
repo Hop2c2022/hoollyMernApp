@@ -44,7 +44,7 @@ const Admin = () => {
             </div>
           </div>
           {checkRes ? (
-            <div className="block  bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] w-[90vw] md:w-[30vw] h-[75vh] transition transform duration-700 hover:scale-105 cursor-pointer hover:text-white hover:bg-[#000] hover:shadow-gray-400 hover:shadow-xl rounded-lg">
+            <div className="block  bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] w-[90vw] md:w-[50vw] lg:w-[30vw] md:h-[75vh] h-[80vh] transition transform duration-700 hover:scale-105 cursor-pointer hover:text-white hover:bg-[#000] hover:shadow-gray-400 hover:shadow-xl rounded-lg">
               <div onClick={() => navigate('/admin/orders')} data-te-ripple-init data-te-ripple-color="light">
                 <img className="rounded-t-lg h-[45vh] w-full object-cover" src={foodDel} alt="" />
               </div>
@@ -66,7 +66,7 @@ const Admin = () => {
               </div>
             </div>
           ) : (
-            <div className="block  bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] w-[90vw] md:w-[30vw] h-[75vh] transition transform duration-700 hover:scale-105 cursor-pointer hover:text-white hover:bg-[#000] hover:shadow-gray-400 hover:shadow-xl rounded-lg">
+            <div className="block  bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] w-[90vw] md:w-[50vw] lg:w-[30vw] h-[75vh] transition transform duration-700 hover:scale-105 cursor-pointer hover:text-white hover:bg-[#000] hover:shadow-gray-400 hover:shadow-xl rounded-lg">
               <div onClick={() => navigate('/admin/createRestaurant')} data-te-ripple-init data-te-ripple-color="light">
                 <img className="rounded-t-lg h-[45vh] w-full object-cover" src={restaurantBg} alt="" />
               </div>
