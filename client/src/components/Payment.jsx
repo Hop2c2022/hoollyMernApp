@@ -13,7 +13,7 @@ const Payment = () => {
 
   const submit = async () => {
     try {
-      const res = await axios.get(`https://hoolly-api.vercel.app/getadminOrder/${localStorage.getItem('id')}`);
+      const res = await axios.get(`https://hoolly-mern-app.vercel.app/getadminOrder/${localStorage.getItem('id')}`);
       setAvsn(res?.data);
       setShowModal(true);
     } catch (err) {
@@ -27,7 +27,7 @@ const Payment = () => {
   }, [avsn]);
 
   const confirm = async () => {
-    const res2 = await axios.post(`https://hoolly-api.vercel.app/postadminOrder/${localStorage.getItem('id')}`, {
+    const res2 = await axios.post(`https://hoolly-mern-app.vercel.app/postadminOrder/${localStorage.getItem('id')}`, {
       userId: `${localStorage.getItem('id')}`,
       data: realData,
       phoneNumber: localStorage.getItem('number'),
@@ -35,7 +35,7 @@ const Payment = () => {
       street: localStorage.getItem('street'),
       district: localStorage.getItem('dist'),
     });
-    await axios.delete(`https://hoolly-api.vercel.app/allcheck/${localStorage.getItem('id')}`);
+    await axios.delete(`https://hoolly-mern-app.vercel.app/allcheck/${localStorage.getItem('id')}`);
     setBga(true);
     setShowModal(false);
     setTimeout(() => {

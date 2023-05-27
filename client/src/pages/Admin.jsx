@@ -9,7 +9,9 @@ const Admin = () => {
   const [checkRes, setCheckRes] = useState(true);
 
   const check = async () => {
-    const result = await axios.get(`https://hoolly-mern-api-git-main-xashrdn.vercel.app/${localStorage.getItem('id')}`);
+
+    const result = await axios.get(`https://hoolly-mern-app.vercel.app/auth/${localStorage.getItem('id')}`);
+
     setCheckRes(result?.data?.data?.restaurantCreated);
   };
 

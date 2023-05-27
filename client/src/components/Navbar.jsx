@@ -16,7 +16,9 @@ const Navbar = () => {
 
   const shalgah = async () => {
     try {
-      const res = await axios.get(`https://hoolly-mern-api-git-main-xashrdn.vercel.app/${localStorage.getItem('id')}`);
+
+      const res = await axios.get(`https://hoolly-mern-app.vercel.app/auth/${localStorage.getItem('id')}`);
+
       setUserInfo(res?.data?.data?.name);
       if (localStorage.getItem('id')) {
         setLoggedIn(true);
@@ -51,7 +53,7 @@ const Navbar = () => {
 
   const getBadge = async () => {
     try {
-      const res = await axios.get(`https://hoolly-api.vercel.app/users/${localStorage.getItem('id')}`);
+      const res = await axios.get(`https://hoolly-mern-app.vercel.app/users/${localStorage.getItem('id')}`);
       setNotf(res?.data);
     } catch (err) {
       return err;
@@ -61,7 +63,8 @@ const Navbar = () => {
   useEffect(() => {
     if (
       localStorage.getItem('id') &&
-      (window.location == 'http://localhost:5173/login' || window.location == 'http://localhost:5173/register')
+      (window.location == 'https://hoolly-mern-app.vercel.app/login' ||
+        window.location == 'https://hoolly-mern-app.vercel.app/register')
     ) {
       navigate('/');
     }
