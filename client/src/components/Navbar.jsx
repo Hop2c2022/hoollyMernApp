@@ -61,7 +61,8 @@ const Navbar = () => {
   useEffect(() => {
     if (
       localStorage.getItem('id') &&
-      (window.location == 'http://localhost:5173/login' || window.location == 'http://localhost:5173/register')
+      (window.location == 'https://hoolly-mern-app.vercel.app/login' ||
+        window.location == 'https://hoolly-mern-app.vercel.app/register')
     ) {
       navigate('/');
     }

@@ -39,7 +39,7 @@ const CreateRestaurant = () => {
         toast.warning('Description length must be less than 50 characters');
       }
     } catch (err) {
-      toast.warning('Please write all field');
+      toast.warning(err.message);
     }
   };
 

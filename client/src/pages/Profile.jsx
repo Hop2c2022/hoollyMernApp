@@ -40,8 +40,7 @@ const Profile = () => {
   const info = async () => {
     const res = await axios.get(`https://hoolly-mern-app.vercel.app/auth/${localStorage.getItem('id')}`);
     setCheck(res?.data?.data?.admin);
-    const res2 = await axios.get(`https://hoolly-mern-app.vercel.app/auth/${localStorage.getItem('id')}`);
-    setUserInfo(res2?.data?.data?.name);
+    setUserInfo(res?.data?.data?.name);
     setProImg(res?.data?.data?.profileImg);
   };
 
