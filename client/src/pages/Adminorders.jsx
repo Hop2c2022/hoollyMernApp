@@ -91,7 +91,7 @@ const Adminorders = () => {
                     </div>
                   );
                 })}
-                <div className=" relative inline-flex group flex justify-center mt-2" onClick={alert}>
+                <div className=" relative  group flex justify-center mt-2" onClick={alert}>
                   <div className=" absolute transitiona-all duration-1000 opacity-70 -inset-px bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] rounded-xl blur-lg group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200 animate-tilt"></div>
                   <a
                     title="Get quote now"

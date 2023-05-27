@@ -37,7 +37,7 @@ const Register = () => {
       if (pw.length < 7) {
         toast.error('The password must be at least 8 characters');
       } else {
-        const res = await axios.post('https://hoolly-mern-api-git-main-xashrdn.vercel.app/register', {
+        const res = await axios.post('https://hoolly-mern-api-git-main-xashrdn.vercel.app/auth/register', {
           name: name,
           password: pw,
           email: email,
@@ -87,7 +87,6 @@ const Register = () => {
                   placeholder="Enter Your Name"
                   className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500 focus:bg-white focus:outline-none"
                   autoFocus
-                  autoComplete
                   required
                   onChange={(e) => setName(e.target.value)}
                 />
@@ -113,7 +112,7 @@ const Register = () => {
                   type="password"
                   name=""
                   placeholder="Enter Password"
-                  minlength="6"
+                  minLength="6"
                   className="w-full px-4 py-3 rounded-lg bg-gray-200 mt-2 border focus:border-blue-500
             focus:bg-white focus:outline-none"
                   required
