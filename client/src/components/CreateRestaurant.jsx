@@ -16,7 +16,7 @@ const CreateRestaurant = () => {
   const create = async () => {
     try {
       if (desc.length <= 50) {
-        const res = await axios.post('https://hoolly-api.vercel.app/restaurant', {
+        const res = await axios.post('https://hoolly-mern-app.vercel.app/restaurant', {
           openTime: openTime,
           closeTime: closeTime,
           description: desc,
@@ -26,7 +26,7 @@ const CreateRestaurant = () => {
         });
 
         if (res?.status == 201) {
-          await axios.patch(`https://hoolly-api.vercel.app/restaurant/${localStorage.getItem('id')}`, {
+          await axios.patch(`https://hoolly-mern-app.vercel.app/restaurant/${localStorage.getItem('id')}`, {
             restaurantCreated: true,
             company: brandName,
           });
@@ -35,6 +35,8 @@ const CreateRestaurant = () => {
         } else {
           toast.warning('Description length must be less than 50 characters');
         }
+      } else {
+        toast.warning('Description length must be less than 50 characters');
       }
     } catch (err) {
       toast.warning('Please write all field');
@@ -43,6 +45,9 @@ const CreateRestaurant = () => {
 
   return (
     <div className="w-[100vw] flex justify-center items-center bg-[#111]">
+      <div>
+        <ToastContainer />
+      </div>
       <div className="flex flex-col items-center w-[90vw] min-h-screen pt-6 sm:justify-center sm:pt-0 bg-[#111]">
         <div>
           <Link to="/">

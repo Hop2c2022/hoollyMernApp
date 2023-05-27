@@ -8,7 +8,7 @@ const RestaurantComp = () => {
   const navigate = useNavigate();
   const [data, setData] = useState([]);
   const restaurant = async () => {
-    const res = await axios.get('https://hoolly-api.vercel.app/restaurant');
+    const res = await axios.get('https://hoolly-mern-app.vercel.app/restaurant');
     setData(res?.data?.result);
     setLoading(false);
   };

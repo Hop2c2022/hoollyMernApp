@@ -14,7 +14,7 @@ const Login = () => {
   const log = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('https://hoolly-mern-api-git-main-xashrdn.vercel.app/auth/login', {
+      const res = await axios.post('https://hoolly-mern-app.vercel.app/auth/login', {
         email: email,
         password: pw,
       });

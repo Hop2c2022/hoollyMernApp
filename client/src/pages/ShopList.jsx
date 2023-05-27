@@ -10,14 +10,14 @@ const ShopList = () => {
   let val = window.location.search.split('?')[1];
 
   const add = async () => {
-    const result = await axios.get(`https://hoolly-api.vercel.app/orders/${val}`);
+    const result = await axios.get(`https://hoolly-mern-app.vercel.app/orders/${val}`);
     setAddVal(result?.data?.result);
     setPrice(result?.data?.result?.price);
   };
 
   const send = async () => {
     try {
-      await axios.post(`https://hoolly-mern-api-git-main-xashrdn.vercel.app/postCheck/${val}`, {
+      await axios.post(`https://hoolly-mern-app.vercel.app/auth/postCheck/${val}`, {
         userId: localStorage.getItem('id'),
         price: lastprice,
         title: addVal?.title,

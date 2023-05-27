@@ -10,7 +10,7 @@ const Adminorders = () => {
   const [adData, setAdData] = useState([]);
   const [addressD, setAddressD] = useState([]);
   const restaurant = async () => {
-    const res = await axios.get(`https://hoolly-api.vercel.app/getadminOrders`);
+    const res = await axios.get(`https://hoolly-mern-app.vercel.app/getadminOrders`);
     setData(res?.data);
     setAdData(orderData);
     setAddressD(res?.data);
@@ -44,7 +44,7 @@ const Adminorders = () => {
 
   // const orderdelete = async (_id) => {
   //   try {
-  //     await axios.delete(`https://hoolly-api.vercel.app/deleteadminorder/${_id}`);
+  //     await axios.delete(`https://hoolly-mern-app.vercel.app/deleteadminorder/${_id}`);
   //     toast.success('Successfully deleted');
   //   } catch (err) {
   //     toast.dark(err.message);
