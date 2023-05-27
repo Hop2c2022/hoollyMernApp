@@ -10,7 +10,7 @@ const Adminorders = () => {
   const [adData, setAdData] = useState([]);
   const [addressD, setAddressD] = useState([]);
   const restaurant = async () => {
-    const res = await axios.get(`https://hoolly-api.vercel.app/getadminOrders`);
+    const res = await axios.get(`https://hoolly-mern-app.vercel.app/getadminOrders`);
     setData(res?.data);
     setAdData(orderData);
     setAddressD(res?.data);

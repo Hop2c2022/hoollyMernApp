@@ -35,7 +35,7 @@ const CheckOut = () => {
       } else if (dist == '') {
         toast.warning('Choose your District please.');
       } else {
-        const res = await axios.post(`https://hoolly-api.vercel.app/place`, {
+        const res = await axios.post(`https://hoolly-mern-app.vercel.app/place`, {
           userId: localStorage.getItem('id'),
           fullInformation: fullInfo,
           district: dist,
@@ -76,7 +76,7 @@ const CheckOut = () => {
 
   const dataRetr = async () => {
     try {
-      const res = await axios.get(`https://hoolly-api.vercel.app/users/${localStorage.getItem('id')}`);
+      const res = await axios.get(`https://hoolly-mern-app.vercel.app/users/${localStorage.getItem('id')}`);
       setOrders(res?.data);
     } catch (err) {
       toast.dark(err.message);
@@ -85,7 +85,7 @@ const CheckOut = () => {
 
   const Placeret = async () => {
     try {
-      const res = await axios.get(`https://hoolly-api.vercel.app/placeget/${localStorage.getItem('id')}`);
+      const res = await axios.get(`https://hoolly-mern-app.vercel.app/placeget/${localStorage.getItem('id')}`);
       setPlaces(res?.data);
     } catch (err) {
       toast.dark(err.message);
@@ -94,7 +94,7 @@ const CheckOut = () => {
 
   const fooddelete = async (_id) => {
     try {
-      await axios.delete(`https://hoolly-api.vercel.app/checkdel/${_id}`);
+      await axios.delete(`https://hoolly-mern-app.vercel.app/checkdel/${_id}`);
       toast.success('Successfully deleted');
     } catch (err) {
       toast.dark(err.message);
@@ -128,7 +128,7 @@ const CheckOut = () => {
 
   const selectPlace = async (_id) => {
     try {
-      const res = await axios.get(`https://hoolly-api.vercel.app/selectplace/${_id}`);
+      const res = await axios.get(`https://hoolly-mern-app.vercel.app/selectplace/${_id}`);
       if (res?.status == 200) {
         localStorage.setItem('number', res?.data?.result?.phoneNumber);
         localStorage.setItem('dist', res?.data?.result?.district);
