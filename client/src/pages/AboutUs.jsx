@@ -25,7 +25,7 @@ const AboutUs = () => {
               <div className="backdrop-blur text-white block rounded-lg shadow-lg">
                 <div className="relative overflow-hidden bg-no-repeat bg-cover">
                   <img src={sunFlower} className="w-full rounded-t-lg" />
-                  <a target="_blank" href="https://facebook.com/xashrdn">
+                  <a target="_blank" href="https://facebook.com/khasherdenexash">
                     <div className="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed"></div>
                   </a>
                   <svg
